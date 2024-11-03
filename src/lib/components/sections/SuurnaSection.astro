@@ -1,10 +1,10 @@
 ---
 import { Content, frontmatter } from "@content/sections/suurna.md";
-import Section from "./Section.astro";
+import ContainerSection from "@components/ContainerSection.astro";
 ---
 
-<Section>
+<ContainerSection>
   <p>{frontmatter.title}</p>
   <p>Written by: {frontmatter.author}</p>
   <Content />
-</Section>
+</ContainerSection>

@@ -1,11 +1,14 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import ContainerSection from "@components/ContainerSection.astro";
 import { Content, frontmatter } from "../content/pages/suurna-ounaaed.md";
 
 import ImageGroup from "@components/ImageGroup.astro";
 ---
 
 <MainLayout title="Home Page">
-  <Content />
-  <ImageGroup />
+  <ContainerSection>
+    <Content />
+    <ImageGroup />
+  </ContainerSection>
 </MainLayout>

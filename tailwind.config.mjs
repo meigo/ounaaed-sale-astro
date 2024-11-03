@@ -1,8 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-}
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        playfair: "Playfair",
+      },
+      fontSize: {
+        "10xl": "10rem",
+        "11xl": "12rem",
+        "3vw": ["3vw", { lineHeight: "3vw" }],
+        "4vw": ["4vw", { lineHeight: "4vw" }],
+        "5vw": ["5vw", { lineHeight: "5vw" }],
+        "6vw": ["6vw", { lineHeight: "7vw" }],
+        "8vw": ["8vw", { lineHeight: "9vw" }],
+        "9vw": ["9vw", { lineHeight: "10vw" }],
+        "10vw": "10vw",
+        "11vw": "11vw",
+        "12vw": "12vw",
+        "13vw": "13vw",
+        "14vw": "14vw",
+        "15vw": "15vw",
+        "16vw": "16vw",
+        "18vw": "18vw",
+        "20vw": "20vw",
+      },
+    },
+  },
+  plugins: [],
+};

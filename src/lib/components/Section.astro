@@ -1,0 +1,15 @@
+---
+import GrainOverlay from "@components/GrainOverlay.astro";
+
+interface Props {
+  id?: string;
+  grain?: boolean;
+}
+
+const { id = "", grain } = Astro.props;
+---
+
+<section class="my-20 p-8 border-2 relative">
+  <slot />
+  {grain && <GrainOverlay />}
+</section>

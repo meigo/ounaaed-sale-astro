@@ -5,7 +5,7 @@ author: "Ben"
 
 ## Tere
 
-![](https://paper-attachments.dropboxusercontent.com/s_685BB5B155D097548AD01AB93EC2E8F149C3AF554DAB3D1BA95B912231367511_1729442326693_DSC02246-copy-1024x683.webp) {#main-image .image-class}
+![](https://paper-attachments.dropboxusercontent.com/s_685BB5B155D097548AD01AB93EC2E8F149C3AF554DAB3D1BA95B912231367511_1729442326693_DSC02246-copy-1024x683.webp)
 
 Minu nimi on Riho Kadastik ja mul on olnud suur au ning rõõm arendada õunakasvatust Saaremaal viimased kakskümmend aastat. See ettevõtmine on olnud minu jaoks tõeliselt hariv ja rahuldust pakkuv. Olen olnud edukas ettevõtja mitmes valdkonnas, kuid olen alati armastanud looduses olemist ja elamist kooskõlas loodusega. Õunaistanduse rajamine on olnud minu jaoks eneseteostuse võimalus ning unistuse elluviimine.
 
