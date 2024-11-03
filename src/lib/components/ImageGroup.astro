@@ -2,12 +2,19 @@
 import { Picture } from "astro:assets";
 import MagnifyIcon from "@assets/svg/MagnifyIcon.astro";
 
-const files = await Astro.glob("@assets/images/suurna/*");
+interface Props {
+  srcFolder: string;
+}
+
+const { srcFolder } = Astro.props;
+
+const files = await Astro.glob(srcFolder);
 
 const images = files.map((file) => {
   const image = file.default;
   const src = image.src;
-  const id = src.substring(src.lastIndexOf("images/") + 7, src.lastIndexOf("?")).replace("/", "-"); // id = folder-filename.ext
+  // const id = src.substring(src.lastIndexOf("/"), src.lastIndexOf("?")).replace("/", "-"); // id = folder-filename.ext
+  const id = src.substring(8, src.length);
   return { image, src, id };
 });
 ---
@@ -21,7 +28,7 @@ const images = files.map((file) => {
         {images.map((image, index) => (
           <div
             class={`image group relative bg-neutral-500 overflow-hidden max-h-64 ${index % 2 == 0 && "lg:row-span-2 lg:max-h-full"} ${index % 7 == 0 && "lg:col-span-2"}`}>
-            <a href={`/image/${image.id}`} class="cursor-pointer">
+            <a href={`/suurna-ounaaed/images/${image.id}`} class="cursor-pointer">
               <Picture src={image.image} formats={["avif", "webp"]} alt="A description of my image." class=" object-cover w-full h-full" />
             </a>
 

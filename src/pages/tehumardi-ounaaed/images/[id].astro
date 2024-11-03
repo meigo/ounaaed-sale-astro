@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
-import "../../app.css";
+import "src/app.css";
+import ContainerSection from "@components/ContainerSection.astro";
 
 export async function getStaticPaths() {
   const files = await Astro.glob("@assets/images/**");
@@ -8,7 +9,8 @@ export async function getStaticPaths() {
   const images = files.map((file, index) => {
     const image = file.default;
     const src = file.default.src;
-    const id = src.substring(src.lastIndexOf("images/") + 7, src.lastIndexOf("?")).replace("/", "-"); // id = folder-filename.ext
+
+    const id = src.substring(8, src.length);
     return {
       params: { id },
       props: { image },
@@ -35,16 +37,17 @@ const { id } = Astro.params;
 const { image, prevId, nextId } = Astro.props;
 ---
 
-<h1>{id}</h1>
+<ContainerSection>
+  <h1>{id}</h1>
 
-<a href={`/image/${prevId}`} class="cursor-pointer">Prev</a>
-<a href={`/image/${nextId}`} class="cursor-pointer">Next</a>
+  <a href={`/image/${prevId}`} class="cursor-pointer">Prev</a>
+  <a href={`/image/${nextId}`} class="cursor-pointer">Next</a>
 
-<!-- <Picture {image} class="min-w-0 max-h-screen object-contain" /> -->
+  <!-- <Picture {image} class="min-w-0 max-h-screen object-contain" /> -->
 
-<Picture src={image} formats={["avif", "webp"]} alt="A description of my image." class="object-cover w-full h-full" />
+  <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." class="object-cover w-full h-full" />
 
-<!-- <Layout {title} noindex nofollow>
+  <!-- <Layout {title} noindex nofollow>
   {
     data && (
       <div class="fixed inset-0 z-10 flex justify-center items-center bg-black ">
@@ -54,3 +57,4 @@ const { image, prevId, nextId } = Astro.props;
     )
   }
 </Layout> -->
+</ContainerSection>
