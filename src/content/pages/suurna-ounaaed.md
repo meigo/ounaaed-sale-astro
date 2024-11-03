@@ -1,3 +1,7 @@
+---
+title: "Suurna õunaaed"
+---
+
 ## Suurna õunaaed
 
 - Suurna aed asub Suurna külas, mille järgi olen sellele ka nime andnud. Aed on lähedal Tehumardi-Lümanda maanteele ja aiani viib hea ligipääsuga tee.

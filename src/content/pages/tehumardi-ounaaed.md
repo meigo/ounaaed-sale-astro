@@ -1,3 +1,7 @@
+---
+title: "Tehumardi õunaaed"
+---
+
 ## Tehumardi õunaaed
 
 - Asukoht Tehumardi külas.

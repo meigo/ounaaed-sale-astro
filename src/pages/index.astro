@@ -1,24 +1,17 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 
-import { Content as MainContent, frontmatter as mainFm } from "../content/main-section.md";
-import { Content as SuurnaContent, frontmatter as suurnaFm } from "../content/suurna-section.md";
-import { Content as TehumardiContent, frontmatter as tehumardiFm } from "../content/tehumardi-section.md";
-// const posts = Object.values(await import.meta.glob("../posts/*.md", { eager: true }));
+import WelcomeSection from "@components/sections/WelcomeSection.astro";
+import SuurnaSection from "@components/sections/SuurnaSection.astro";
+import TehumardiSection from "@components/sections/TehumardiSection.astro";
 ---
 
 <MainLayout title="Home Page">
   <h1>Astro</h1>
 
-  <p>{mainFm.title}</p>
-  <p>Written by: {mainFm.author}</p>
-  <MainContent />
+  <WelcomeSection />
+  <SuurnaSection />
+  <TehumardiSection />
 
   <h3>Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
-
-  <p>{suurnaFm.title}</p>
-  <p>Written by: {suurnaFm.author}</p>
-  <SuurnaContent />
-
-  <TehumardiContent />
 </MainLayout>

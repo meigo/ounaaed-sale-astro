@@ -1,0 +1,10 @@
+---
+import { Content, frontmatter } from "@content/sections/welcome.md";
+import Section from "./Section.astro";
+---
+
+<Section>
+  <p>{frontmatter.title}</p>
+  <p>Written by: {frontmatter.author}</p>
+  <Content />
+</Section>

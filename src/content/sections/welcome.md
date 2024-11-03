@@ -3,7 +3,7 @@ title: "The greatest post of all time"
 author: "Ben"
 ---
 
-## Tere {#custom-id}
+## Tere
 
 ![](https://paper-attachments.dropboxusercontent.com/s_685BB5B155D097548AD01AB93EC2E8F149C3AF554DAB3D1BA95B912231367511_1729442326693_DSC02246-copy-1024x683.webp) {#main-image .image-class}
 
