@@ -1,28 +1,13 @@
 ---
-import { Picture } from "astro:assets";
 import "src/app.css";
+import Layout from "@layouts/ImageLayout.astro";
+import { Picture } from "astro:assets";
 import ContainerSection from "@components/ContainerSection.astro";
+import { getImagesStaticPathsData } from "@lib/utils";
 
 export async function getStaticPaths() {
-  const files = await Astro.glob("@assets/images/**");
-
-  const images = files.map((file, index) => {
-    const image = file.default;
-    const src = file.default.src;
-
-    const id = src.substring(8, src.length);
-    return {
-      params: { id },
-      props: { image },
-    };
-  });
-
-  images.forEach((image, index) => {
-    image.props["prevId"] = index == 0 ? images[images.length - 1].params.id : images[index - 1].params.id;
-    image.props["nextId"] = index == images.length - 1 ? images[0].params.id : images[index + 1].params.id;
-  });
-
-  return images;
+  const files = await Astro.glob("@assets/images/tehumardi/*");
+  return getImagesStaticPathsData(files);
 }
 
 interface Props {
@@ -37,17 +22,19 @@ const { id } = Astro.params;
 const { image, prevId, nextId } = Astro.props;
 ---
 
-<ContainerSection>
-  <h1>{id}</h1>
+<Layout title=`Tehumardi Õunaaed - ${id}`>
+  <ContainerSection>
+    <h1>{id}</h1>
 
-  <a href={`/image/${prevId}`} class="cursor-pointer">Prev</a>
-  <a href={`/image/${nextId}`} class="cursor-pointer">Next</a>
+    <a href=`./${prevId}` class="cursor-pointer">Prev</a>
+    <a href=`./${nextId}` class="cursor-pointer">Next</a>
+    <a href="../" class="cursor-pointer">X</a>
 
-  <!-- <Picture {image} class="min-w-0 max-h-screen object-contain" /> -->
+    <!-- <Picture {image} class="min-w-0 max-h-screen object-contain" /> -->
 
-  <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." class="object-cover w-full h-full" />
+    <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." class="object-cover w-full h-full" />
 
-  <!-- <Layout {title} noindex nofollow>
+    <!-- <Layout {title} noindex nofollow>
   {
     data && (
       <div class="fixed inset-0 z-10 flex justify-center items-center bg-black ">
@@ -57,4 +44,5 @@ const { image, prevId, nextId } = Astro.props;
     )
   }
 </Layout> -->
-</ContainerSection>
+  </ContainerSection>
+</Layout>

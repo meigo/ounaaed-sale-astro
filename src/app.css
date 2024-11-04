@@ -5,24 +5,15 @@
 
 @layer base {
   @font-face {
-    font-family: "Playfair";
-    src: url("/playfair-regular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Playfair";
-    src: url("/playfair-bold.woff2") format("woff2");
+    font-family: "Gelica";
+    src: url("gelica-semibold-webfont.woff2") format("woff2"), url("gelica-semibold-webfont.woff") format("woff");
     font-weight: bold;
     font-style: normal;
-    font-display: swap;
   }
 
-  /* .smooth-scroll {
+  .smooth-scroll {
     scroll-behavior: smooth;
-  } */
+  }
 
   html,
   body {
@@ -30,15 +21,15 @@
   }
 
   body {
-    @apply text-base sm:text-lg m-0 bg-white text-neutral-700;
+    @apply text-base sm:text-17 m-0 bg-white text-black;
   }
 
-  *,
+  /* *,
   ::before,
   ::after {
     @apply border-neutral-700;
-    /* @apply stroke-neutral-700; */
-  }
+
+  } */
 
   ul {
     @apply list-disc;
@@ -52,16 +43,16 @@
   dt,
   label,
   th {
-    @apply font-playfair font-bold;
+    @apply font-gelica font-bold leading-none;
   }
 
   h1 {
-    @apply text-6xl uppercase;
+    @apply text-6xl;
   }
 
   /* SECTION TITLES */
   h2 {
-    @apply text-8vw sm:text-5xl leading-normal uppercase;
+    @apply text-8vw sm:text-5xl leading-normal;
   }
 
   h3 {
@@ -86,7 +77,7 @@
   }
 
   ::selection {
-    @apply bg-green-500 text-white;
+    @apply bg-yellow-300 text-black;
   }
 
   ul {

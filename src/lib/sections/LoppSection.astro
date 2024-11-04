@@ -1,0 +1,15 @@
+---
+import ContainerSection from "@components/ContainerSection.astro";
+import ContactAccordion from "@lib/sections/ContactAccordion.svelte";
+import { Content, frontmatter } from "@content/sections/lopp.md";
+---
+
+<ContainerSection id={frontmatter.id}>
+  <div class="mt-10">
+    <Content />
+  </div>
+
+  <div class="mt-10">
+    <ContactAccordion client:load />
+  </div>
+</ContainerSection>

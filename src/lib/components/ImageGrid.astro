@@ -1,0 +1,47 @@
+---
+import { Picture } from "astro:assets";
+import MagnifyIcon from "@assets/svg/MagnifyIcon.astro";
+import { getImageIdFromPath } from "@lib/utils";
+
+interface Props {
+  files: any;
+  path: string;
+}
+
+const { files, path } = Astro.props;
+
+const images = files.map((file) => {
+  const image = file.default;
+  const src = image.src;
+  const id = getImageIdFromPath(src);
+  return { image, src, id };
+});
+---
+
+<div class="mt-10">
+  <!-- PICTURES -->
+  {
+    images && (
+      <div class="grid gap-2 mt-12 sm:grid-cols-2 lg:grid-cols-3">
+        {images.map((image, index) => (
+          <div
+            class={`image group relative bg-neutral-500 overflow-hidden max-h-64 ${index % 2 == 0 && "lg:row-span-2 lg:max-h-full"} ${index % 7 == 0 && "lg:col-span-2"}`}>
+            <a href={`${path}${image.id}`} class="cursor-pointer">
+              <Picture
+                src={image.image}
+                formats={["avif", "webp"]}
+                alt={`Image number ${index}`}
+                class="object-cover w-full h-full"
+                sizes={`(max-width: 770px) 80vw, (max-width: 1020px) 40vw, (max-width: 1150px) 25vw, "700px"`}
+              />
+            </a>
+
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <MagnifyIcon class="text-white transition duration-500 opacity-0 size-24 group-hover:opacity-50 group-hover:scale-75" />
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+</div>

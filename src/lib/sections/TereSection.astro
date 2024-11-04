@@ -1,0 +1,77 @@
+---
+import { Picture } from "astro:assets";
+import { Vimeo } from "astro-embed";
+import { Content, frontmatter } from "@content/sections/tere.md";
+import ContainerSection from "@components/ContainerSection.astro";
+
+import image from "@assets/images/riho.png";
+---
+
+<ContainerSection id={frontmatter.id}>
+  <h2>{frontmatter.title}</h2>
+
+  <div class="mt-10">
+    <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." class="w-full h-full" />
+  </div>
+
+  <div class="mt-10 lg:columns-3">
+    <Content />
+  </div>
+
+  <div class="mt-10">
+    <Vimeo id="https://vimeo.com/32001208?dnt=1" />
+  </div>
+
+  <a href="/" class="ctaPrimary gse_signup_experiment_button">Start Free Trial</a>
+</ContainerSection>
+
+<style>
+  .ctaPrimary:before,
+  .ctaSecondary:before {
+    content: "";
+    border-radius: var(--cta-border-radius);
+    width: 100%;
+    height: 100%;
+    transition: bottom 0.3s cubic-bezier(0.5, 2.5, 0.7, 0.7);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .ctaPrimary {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    --horizontal-padding: calc(24 * 0.0625rem);
+    --vertical-padding: calc(12 * 0.0625rem);
+    text-align: center;
+    box-sizing: border-box;
+    color: var(--cta-text-color);
+    background: 0 0;
+    background: var(--cta-background-color);
+    font-family:
+      Graphik Web,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      Verdana,
+      sans-serif;
+    font-size: var(--cta-text-size);
+    font-weight: var(--cta-text-weight);
+    line-height: var(--cta-line-height);
+    padding: var(--vertical-padding) var(--horizontal-padding);
+    border-radius: var(--cta-border-radius);
+    -webkit-box-shadow: 0 0 0 var(--cta-stroke-width, 0) var(--cta-stroke-color);
+    box-shadow: 0 0 0 var(--cta-stroke-width, 0) var(--cta-stroke-color);
+    border: none;
+    text-decoration: none;
+    transition:
+      transform 0.3s cubic-bezier(0.5, 2.5, 0.7, 0.7),
+      box-shadow 0.3s cubic-bezier(0.5, 2.5, 0.7, 0.7),
+      -webkit-transform 0.3s cubic-bezier(0.5, 2.5, 0.7, 0.7),
+      -webkit-box-shadow 0.3s cubic-bezier(0.5, 2.5, 0.7, 0.7);
+    display: inline-block;
+    position: relative;
+    transform: translateY(0);
+  }
+</style>

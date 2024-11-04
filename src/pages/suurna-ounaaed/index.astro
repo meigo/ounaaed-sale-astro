@@ -1,14 +1,21 @@
 ---
-import MainLayout from "@layouts/MainLayout.astro";
+import Layout from "@layouts/PageLayout.astro";
 import ContainerSection from "@components/ContainerSection.astro";
 import { Content, frontmatter } from "@content/pages/suurna-ounaaed.md";
+import ImageGrid from "@components/ImageGrid.astro";
 
-import ImageGroup from "@components/ImageGroup.astro";
+const title = frontmatter.title;
+const imageFiles = await Astro.glob("/src/assets/images/suurna/*");
 ---
 
-<MainLayout title="Home Page">
+<Layout {title}>
   <ContainerSection>
-    <Content />
-    <ImageGroup srcFolder="/src/assets/images/suurna/*" />
+    <h1>{frontmatter.title}</h1>
+
+    <div class="mt-10">
+      <Content />
+    </div>
+
+    <ImageGrid path="/suurna-ounaaed/images/" files={imageFiles} />
   </ContainerSection>
-</MainLayout>
+</Layout>

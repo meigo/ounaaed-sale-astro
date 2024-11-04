@@ -1,8 +1,21 @@
 ---
-import MainLayout from "@layouts/MainLayout.astro";
+import Layout from "@layouts/PageLayout.astro";
 import { Content, frontmatter } from "@content/pages/tehumardi-ounaaed.md";
+import ContainerSection from "@components/ContainerSection.astro";
+import ImageGrid from "@components/ImageGrid.astro";
+
+const title = frontmatter.title;
+const imageFiles = await Astro.glob("/src/assets/images/tehumardi/*");
 ---
 
-<MainLayout title="Home Page">
-  <Content />
-</MainLayout>
+<Layout {title}>
+  <ContainerSection>
+    <h1>{frontmatter.title}</h1>
+
+    <div class="mt-10">
+      <Content />
+    </div>
+
+    <ImageGrid path="/tehumardi-ounaaed/images/" files={imageFiles} />
+  </ContainerSection>
+</Layout>

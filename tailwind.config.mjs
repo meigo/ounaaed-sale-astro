@@ -4,9 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        playfair: "Playfair",
+        gelica: "Gelica",
       },
       fontSize: {
+        17: ["17px", "26px"],
         "10xl": "10rem",
         "11xl": "12rem",
         "3vw": ["3vw", { lineHeight: "3vw" }],
@@ -24,6 +25,9 @@ export default {
         "16vw": "16vw",
         "18vw": "18vw",
         "20vw": "20vw",
+      },
+      scale: {
+        102: "1.02",
       },
     },
   },

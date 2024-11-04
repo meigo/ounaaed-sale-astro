@@ -1,0 +1,21 @@
+---
+import Layout from "@layouts/PageLayout.astro";
+import ContainerSection from "@components/ContainerSection.astro";
+import { Content, frontmatter } from "@content/pages/villa.md";
+import ImageGrid from "@components/ImageGrid.astro";
+
+const title = frontmatter.title;
+const imageFiles = await Astro.glob("/src/assets/images/villa/*");
+---
+
+<Layout {title}>
+  <ContainerSection>
+    <h1>{frontmatter.title}</h1>
+
+    <div class="pt-10">
+      <Content />
+    </div>
+
+    <ImageGrid path="/villa/images/" files={imageFiles} />
+  </ContainerSection>
+</Layout>

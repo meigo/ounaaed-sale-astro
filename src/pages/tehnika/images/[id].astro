@@ -1,0 +1,54 @@
+---
+import "src/app.css";
+import Layout from "@layouts/ImageLayout.astro";
+import { Picture } from "astro:assets";
+import ContainerSection from "@components/ContainerSection.astro";
+import { getImagesStaticPathsData } from "@lib/utils";
+
+export async function getStaticPaths() {
+  const files = await Astro.glob("@assets/images/tehnika/*");
+  return getImagesStaticPathsData(files);
+}
+
+interface Props {
+  id?: string;
+  prevId?: string;
+  nextId?: string;
+  image?: any;
+}
+
+const { id } = Astro.params;
+
+const { image, prevId, nextId } = Astro.props;
+---
+
+<Layout title=`Tehnika - ${id}`>
+  <ContainerSection>
+    <h1>{id}</h1>
+
+    <a href=`./${prevId}` class="cursor-pointer">Prev</a>
+    <a href=`./${nextId}` class="cursor-pointer">Next</a>
+    <a href="../" class="cursor-pointer">X</a>
+
+    <!-- <Picture {image} class="min-w-0 max-h-screen object-contain" /> -->
+
+    <Picture
+      src={image}
+      formats={["avif", "webp"]}
+      alt="A description of my image."
+      class="object-cover w-full h-full"
+      sizes="(min-width: 1024px) 1024px, 100vw"
+    />
+
+    <!-- <Layout {title} noindex nofollow>
+  {
+    data && (
+      <div class="fixed inset-0 z-10 flex justify-center items-center bg-black ">
+        <Picture {data} class="min-w-0 max-h-screen object-contain" />
+        {/* <MediaMenu /> */}
+      </div>
+    )
+  }
+</Layout> -->
+  </ContainerSection>
+</Layout>

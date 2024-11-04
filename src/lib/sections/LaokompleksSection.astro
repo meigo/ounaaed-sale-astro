@@ -1,0 +1,21 @@
+---
+import { Picture } from "astro:assets";
+import { Content, frontmatter } from "@content/sections/laokompleks.md";
+import ContainerSection from "@components/ContainerSection.astro";
+
+import image from "@assets/images/laokompleks/41Gq7CtQ.png";
+---
+
+<ContainerSection id={frontmatter.id}>
+  <h2>{frontmatter.title}</h2>
+
+  <div class="mt-10">
+    <Content />
+  </div>
+
+  <div class="mt-10">
+    <a href={frontmatter.link}>
+      <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
+    </a>
+  </div>
+</ContainerSection>

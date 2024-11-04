@@ -1,9 +1,45 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import "../app.css";
+import Menu from "@lib/menu/Menu.svelte";
+import "src/app.css";
+
+interface Props {
+  title: string;
+}
 
 const { title } = Astro.props;
+
+const menuData = [
+  { title: "Hello", target: "/" },
+  { title: "Suurna", target: "#suurna-ounaaed" },
+  { title: "Tehumardi", target: "#tehumardi-ounaaed" },
+];
 ---
+
+<script>
+  // import { gsap } from "gsap";
+  // import { ScrollTrigger } from "gsap/ScrollTrigger";
+  // import Lenis from "lenis";
+
+  //*******************************************************************************************************************/
+  // SMOOTH SCROLL
+
+  // const lenis = new Lenis();
+
+  // function raf(time) {
+  //   lenis.raf(time);
+  //   requestAnimationFrame(raf);
+  // }
+  // requestAnimationFrame(raf);
+
+  // VIEWTRANSITIONS FIX
+  document.addEventListener("astro:after-swap", () => {
+    // if (history.scrollRestoration) history.scrollRestoration = "auto";
+    document.documentElement.classList.add("smooth-scroll");
+    // initRellax();
+    // initBackButton();
+  });
+</script>
 
 <html lang="et">
   <head>
@@ -11,16 +47,33 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Posts</a>
-      <a href="#">Contact</a>
-    </nav>
+
+  <!-- SMOOTH SCROLL ONLY FOR ANCHOR NAVIGATION -->
+  <body onload="document.documentElement.classList.add('smooth-scroll');" class="overflow-x-hidden">
+    <Menu data={menuData} client:load />
 
     <slot />
+
+    <!-- <nav class="bg-white p-2 fixed top-0 w-full flex justify-center gap-4">
+      <a href="/">Tere</a>
+      <a href="/suurna-ounaaed">Suurna</a>
+      <a href="/tehumardi-ounaaed">Tehumardi</a>
+      <a href="/laokompleks">Laokompleks</a>
+      <a href="/tehnika">Tehnika</a>
+      <a href="/villa">Villa</a>
+    </nav> -->
+
+    <!-- <noscript>
+      <div>
+        <style>
+          html {
+            scroll-behavior: smooth;
+          }
+        </style>
+      </div>
+    </noscript> -->
   </body>
 </html>
