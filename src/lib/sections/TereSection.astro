@@ -1,10 +1,10 @@
 ---
 import { Picture } from "astro:assets";
-import { Vimeo } from "astro-embed";
 import { Content, frontmatter } from "@content/sections/tere.md";
 import ContainerSection from "@components/ContainerSection.astro";
 
 import riho from "@assets/images/riho-square.png";
+import Button from "@lib/components/Button.astro";
 ---
 
 <section class="z-1 relative flex items-center">
@@ -46,10 +46,10 @@ import riho from "@assets/images/riho-square.png";
         width="960px"
         height="540px"
         poster="MY_VIDEO_POSTER.jpg"
-        data-setup='{ "aspectRatio":"1920:1080", "playbackRates": [1, 1.5, 2] }'
+        data-setup='{ "aspectRatio":"1920:1080" }'
         class="w-full">
-        <source src="/kadastiku.mp4" type="video/mp4" />
-        <source src="/kadastiku.webm" type="video/webm" />
+        <source src="https://animal.ee/files/kadastiku.mp4" type="video/mp4" />
+        <source src="https://animal.ee/files/kadastiku.webm" type="video/webm" />
         <p class="vjs-no-js">
           To view this video please enable JavaScript, and consider upgrading to a web browser that
           <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -57,11 +57,7 @@ import riho from "@assets/images/riho-square.png";
       </video>
     </div>
 
-    <div class="mt-10 w-full">
-      <Vimeo id="https://vimeo.com/32001208?dnt=1" />
-    </div>
-
-    <a href="/" class="ctaPrimary gse_signup_experiment_button">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale</a>
+    <p>Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale</p>
   </div>
 </section>
 

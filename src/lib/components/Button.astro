@@ -1,0 +1,17 @@
+---
+interface Props {
+  href?: string;
+}
+
+const { href = "#" } = Astro.props;
+---
+
+<a {href}>
+  <div
+    class="button max-w-max p-4 bg-yellow-300 rounded-lg cursor-pointer select-none transition-all duration-50 border-b-[1px] border-black
+translate-y-[4px] [box-shadow:0_0_0_0_#000]
+hover:translate-y-0 hover:[box-shadow:0_4px_0_0_#000]
+active:translate-y-[4px] active:[box-shadow:0_0px_0_0_#000]">
+    <span class="flex flex-col justify-center items-center h-full text-black font-bold text-lg"><slot /></span>
+  </div>
+</a>
