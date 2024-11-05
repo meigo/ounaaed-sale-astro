@@ -48,6 +48,9 @@ const menuData = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
+    <link href="videojs-sublime-skin.min.css" rel="stylesheet" />
+
     <ViewTransitions />
   </head>
 
@@ -75,5 +78,7 @@ const menuData = [
         </style>
       </div>
     </noscript> -->
+
+    <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
   </body>
 </html>

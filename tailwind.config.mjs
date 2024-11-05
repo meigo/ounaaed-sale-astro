@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         gelica: "Gelica",
       },
+      lineHeight: {
+        0: ".8",
+      },
       fontSize: {
         17: ["17px", "26px"],
         "10xl": "10rem",
@@ -25,6 +28,7 @@ export default {
         "16vw": "16vw",
         "18vw": "18vw",
         "20vw": "20vw",
+        "30vw": "30vw",
       },
       scale: {
         102: "1.02",

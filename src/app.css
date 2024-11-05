@@ -31,6 +31,10 @@
 
   } */
 
+  /* em {
+    @apply font-bold underline uppercase decoration-yellow-400 decoration-[0.5rem];
+  } */
+
   ul {
     @apply list-disc;
   }
@@ -94,32 +98,31 @@
     @apply mt-2;
   }
 
-  .html-text h3 + hr {
+  .md-text h3 + hr {
     @apply sm:hidden;
   }
 
-  /* .html-text p,
-  .html-text ul {
-    @apply text-justify hyphens-auto;
-  } */
-
-  .html-text h3 {
+  .md-text h3 {
     @apply sm:underline;
     text-underline-offset: 0.75rem;
     text-decoration-thickness: 1px;
   }
 
-  .html-text h3,
-  .html-text h4,
-  .html-text h5 {
+  .md-text h3,
+  .md-text h4,
+  .md-text h5 {
     @apply mt-8 sm:mb-3 first:mt-0;
   }
 
-  .html-text p {
-    @apply mt-2 first:mt-0;
+  .md-text p {
+    @apply mt-4 first:mt-0;
   }
 
-  .html-text a {
+  .md-text p em {
+    @apply font-bold italic text-xl;
+  }
+
+  .md-text a {
     @apply font-medium;
   }
 

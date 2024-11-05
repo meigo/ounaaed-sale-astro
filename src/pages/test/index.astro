@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import Layout from "@layouts/PageLayout.astro";
+
+import riho from "@assets/images/riho-square.png";
+---
+
+<Layout title="X">
+  <!-- <div class="absolute bg-yellow-300 -rotate-6 w-[200vw] h-64"></div> -->
+
+  <section class="z-1 relative flex items-center">
+    <!-- SKEWED BG -->
+    <div class={`bg-yellow-300 h-[80%] w-full sm:top-64 absolute ${false ? "skew-y-6 origin-top-right" : "-skew-y-6 origin-top-left"}`}>
+    </div>
+
+    <div class="max-w-6xl px-4 xl:px-0 sm:mx-auto relative">
+      <div class="px-0 lg:px-24 h-full">
+        <!-- TERE -->
+        <h2 class="text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[100px] xl:text-[9rem] relative text-center">Tere</h2>
+
+        <!-- IMAGE -->
+        <div
+          class="w-full sm:w-[60vw] sm:-mt-10 xl:-mt-14 lg:w-[40vw] xl:w-[500px] rounded-full overflow-hidden border-white border-8 float-right circle">
+          <Image src={riho} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
+        </div>
+
+        <!-- <p class="first-letter:text-7xl first-letter:font-bold first-letter:leading-0 first-letter:me-2 first-letter:float-start"> -->
+        <p class="text-xl font-bold italic">
+          Minu nimi on Riho Kadastik ja mul on olnud suur au ning rõõm arendada õunakasvatust Saaremaal viimased kakskümmend aastat.
+        </p>
+        <p>
+          See ettevõtmine on olnud minu jaoks tõeliselt hariv ja rahuldust pakkuv. Olen olnud edukas ettevõtja mitmes valdkonnas, kuid olen
+          alati armastanud looduses olemist ja elamist kooskõlas loodusega.
+        </p>
+        <p>
+          Õunaistanduse rajamine on olnud minu jaoks eneseteostuse võimalus ning unistuse elluviimine. Suurt saaki kandev õunaaed on pika
+          perspektiiviga ettevõtmine. Alustasin Kadastiku Õunaaia rajamist enam kui 20 aastat tagasi nullist. Tänaseks on tegemist
+          täisküpsuses aedade ja tugeva ettevõttega, kus peamised investeeringud on minu poolt juba tehtud.
+        </p>
+        <p>
+          Nüüd olen jõudnud oma elus etappi, kus soovin võtta aja maha ja nautida väljateenitud puhkust. Seetõttu olen otsustanud müüa kogu
+          Kadastiku Õunaaia kompleksi ühtse tervikuna. Olen aktiivne kohaliku kogukonna liige ja alati võimalusel kaasa löönud ja toetanud
+          kohalikke ettevõtmisi. Mind tuntakse kui tegusat inimest, kelle peale võib loota. Planeerin ka edaspidi jääda sellesse piirkonda
+          elama ja toimetama. Oleksin rõõmus nähes enda loodud aedade edasist edenemist.
+        </p>
+        <p>
+          Kompleks hõlmab kinnistuid, kus asuvad kaks suurt õunaaeda, nende juurde kuuluvaid rajatisi, vajalikku tehnikat, kaasaegset
+          hoidlat ning kaasaegset elamut Tehumardil, Saaremaa tuntud rannapiirkonnas. Kogu kompleksi olen üles ehitanud ja hoidnud hoole ja
+          armastusega, õunaaedu olen viimase 7 aasta jooksul sihikindlat uuendanud, seda põhjusel, et tagada turustamise seisukohalt parim
+          sordivalik. Võin öelda, et aiad on alles jõudmas enda saagikuse täie potentsiaalini. Uuel omanikul jääb võimalus kaaluda, kas ta
+          soovib planeerida mingeid uuendusi või jätkata senisel kursil.
+        </p>
+        <p>
+          Pakun sulle kogu kompleksi ja äritegevust “võtmed kätte” lahendusena, sealhulgas annan ka turustuskanalid ja kontaktid müügiga
+          kaasa. Olen kindel, et see ettevõte võib pakkuda inspiratsiooni ja kasvuvõimalusi uuele omanikule, kes soovib edasi viia Kadastiku
+          Õunaaia senist edulugu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    p {
+      @apply mb-4;
+    }
+    .circle {
+      @apply scale-90;
+      shape-outside: none;
+    }
+
+    /* SM */
+    @media (min-width: 640px) {
+      .circle {
+        shape-outside: border-box ellipse();
+      }
+    }
+  </style>
+</Layout>
