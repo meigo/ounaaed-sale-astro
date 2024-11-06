@@ -13,21 +13,23 @@ import Button from "@lib/components/Button.astro";
   <!-- <div class={`bg-yellow-300 h-[80%] w-full sm:top-64 absolute ${false ? "skew-y-6 origin-top-right" : "-skew-y-6 origin-top-left"}`}></div> -->
 
   <!-- CONTAINER -->
-  <div class="max-w-5xl px-4 xl:px-0 sm:mx-auto relative">
+  <div class="max-w-5xl px-8 xl:px-0 sm:mx-auto relative">
     <div class="px-0 lg:px-24 h-full md-text">
-      <!-- TERE -->
-      <h2 class="text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[100px] xl:text-[9rem] relative text-center">
+      <!-- TITLE -->
+      <h2 class="mb-8 sm:mb-0 text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[200px] xl:text-[9rem] relative text-center">
         {frontmatter.title}
       </h2>
 
       <!-- IMAGE -->
       <div
-        class="w-full sm:w-[60vw] sm:-mt-10 lg:w-[40vw] xl:w-[500px] xl:-mt-14 rounded-full overflow-hidden border-black border-8 float-right circle">
+        class="w-full sm:w-[60vw] sm:-mt-10 lg:w-[40vw] xl:w-[500px] xl:-mt-14 rounded-full overflow-hidden border-black border-8 sm:float-right circle">
         <Picture src={riho} formats={["avif", "webp"]} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
       </div>
 
       <!-- TEXT -->
-      <Content />
+      <div class="mt-8 sm:mt-0">
+        <Content />
+      </div>
     </div>
   </div>
 </section>
