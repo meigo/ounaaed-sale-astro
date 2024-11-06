@@ -1,0 +1,28 @@
+---
+interface Props {
+  id?: string;
+  mp4?: string;
+  webm?: string;
+  poster?: string;
+}
+
+const { id = "", mp4, webm, poster = "" } = Astro.props;
+---
+
+<video
+  {id}
+  class="video-js"
+  controls
+  preload="auto"
+  width="960px"
+  height="540px"
+  {poster}
+  data-setup='{ "aspectRatio":"1920:1080" }'
+  class="w-full">
+  {mp4 && <source src={mp4} type="video/mp4" />}
+  {webm && <source src={webm} type="video/webm" />}
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that
+    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
+</video>
