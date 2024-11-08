@@ -6,7 +6,7 @@
 @layer base {
   @font-face {
     font-family: "Gelica";
-    src: url("gelica-semibold-webfont.woff2") format("woff2"), url("gelica-semibold-webfont.woff") format("woff");
+    src: url("/gelica-semibold-webfont.woff2") format("woff2"), url("/gelica-semibold-webfont.woff") format("woff");
     font-weight: bold;
     font-style: normal;
   }

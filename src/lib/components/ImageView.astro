@@ -1,0 +1,41 @@
+---
+import "src/app.css";
+import Layout from "@layouts/ImageLayout.astro";
+import { Picture } from "astro:assets";
+import ContainerSection from "@components/ContainerSection.astro";
+import HistorylessButton from "@lib/components/HistorylessButton.svelte";
+
+interface Props {
+  id?: string;
+  prevId?: string;
+  nextId?: string;
+  image?: any;
+}
+
+const { id, image, prevId, nextId } = Astro.props;
+---
+
+<Layout title=`Suurna Õunaaed - ${id}`>
+  <ContainerSection>
+    <h1>{id}</h1>
+
+    <div class="fixed inset-0 z-10 flex justify-center items-center bg-black">
+      <!-- IMAGE -->
+      <Picture
+        src={image}
+        formats={["avif", "webp"]}
+        alt="A description of my image."
+        class="object-cover w-full h-full"
+        sizes="(min-width: 1024px) 1024px, 100vw"
+      />
+      <!-- BUTTONS -->
+      <div class="fixed flex w-screen h-screen justify-between items-center">
+        <HistorylessButton label="<<" url=`./${prevId}` client:load />
+        <HistorylessButton label=">>" url=`./${nextId}` client:load />
+      </div>
+      <div class="fixed flex w-screen h-screen justify-end items-start text-white text-2xl font-gelica pointer-events-none">
+        <HistorylessButton label="X" url=`/suurna-ounaaed` back client:load />
+      </div>
+    </div>
+  </ContainerSection>
+</Layout>
