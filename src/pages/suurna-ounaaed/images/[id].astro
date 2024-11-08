@@ -4,6 +4,7 @@ import Layout from "@layouts/ImageLayout.astro";
 import { Picture } from "astro:assets";
 import ContainerSection from "@components/ContainerSection.astro";
 import { getImagesStaticPathsData } from "@lib/utils";
+import NextButton from "@lib/components/NextButton.svelte";
 
 export async function getStaticPaths() {
   const files = await Astro.glob("@assets/images/suurna/*");
@@ -22,14 +23,31 @@ const { id } = Astro.params;
 const { image, prevId, nextId } = Astro.props;
 ---
 
+<script>
+  function init() {
+    const stateObj = { image: "pilt" };
+    history.replaceState(stateObj, "", "/suurna-ounaaed");
+
+    // window.location.replace("/suurna-ounaaed/");
+  }
+
+  // VIEWTRANSITIONS
+  document.addEventListener("astro:after-swap", () => {
+    init();
+  });
+
+  init();
+</script>
+
 <Layout title=`Suurna Õunaaed - ${id}`>
   <ContainerSection>
     <h1>{id}</h1>
 
-    <a href=`./${prevId}` class="cursor-pointer">Prev</a>
-    <a href=`./${nextId}` class="cursor-pointer">Next</a>
+    <a href=`./suurna-ounaaed/images/${prevId}` class="cursor-pointer">Prev</a>
+    <a href=`./suurna-ounaaed/images/${nextId}` class="cursor-pointer">Next</a>
     <a href="../" class="cursor-pointer">X</a>
-
+    <!-- <button onclick="(function(){window.location.replace("/suurna-ounaaed/";)} )()">Click me</button> -->
+    <NextButton url=`./suurna-ounaaed/images/${nextId}` client:load />
     <!-- <Picture {image} class="min-w-0 max-h-screen object-contain" /> -->
 
     <Picture
