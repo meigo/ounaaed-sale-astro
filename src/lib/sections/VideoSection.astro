@@ -1,0 +1,34 @@
+---
+import ContainerSection from "@components/ContainerSection.astro";
+import VideoPlayer from "@lib/components/VideoPlayer.astro";
+
+import riho from "@assets/images/main/riho-main.png";
+---
+
+<!-- VIDEO CONTAINER -->
+<ContainerSection>
+  <h2 class="text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
+
+  <div class="bg-red-400 w-full">
+    <VideoPlayer id="kadastiku-video" mp4="https://animal.ee/files/kadastiku.mp4" webm="https://animal.ee/files/kadastiku.webm" />
+  </div>
+
+  <h3 class="text-center">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
+</ContainerSection>
+
+<style define:vars={{ mask: `url("${riho.src}")` }}>
+  .text-mask {
+    @apply scale-100;
+    shape-outside: none;
+  }
+
+  /* SM */
+  @media (min-width: 640px) {
+    .text-mask {
+      @apply scale-95;
+      shape-outside: var(--mask);
+      /* shape-image-threshold: 0.7; */
+      shape-margin: 2rem;
+    }
+  }
+</style>

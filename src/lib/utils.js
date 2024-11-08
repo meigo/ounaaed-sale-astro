@@ -28,3 +28,33 @@ export async function getImagesStaticPathsData(files) {
 
   return images;
 }
+
+export function pauseVideosWhenOutOfView() {
+  let videos = document.querySelectorAll("video");
+  videos.forEach((video) => {
+    let wasVideoPlaying = false;
+
+    let observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const isVideoPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
+
+          if (entry.isIntersecting) {
+            if (!isVideoPlaying && wasVideoPlaying) {
+              video.play();
+            }
+          } else {
+            if (isVideoPlaying) {
+              wasVideoPlaying = true;
+              video.pause();
+            } else {
+              wasVideoPlaying = false;
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(video);
+  });
+}

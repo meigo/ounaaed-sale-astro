@@ -9,7 +9,7 @@ interface Props {
 const { id = "", grain } = Astro.props;
 ---
 
-<section {id} class="z-1 relative">
+<section {id} class="z-1 relative bg-white pt-12">
   <slot />
   {grain && <GrainOverlay />}
 </section>

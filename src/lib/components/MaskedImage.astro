@@ -1,0 +1,33 @@
+---
+import { Image, Picture } from "astro:assets";
+
+interface Props {
+  image: any;
+  mask: any;
+  color?: "yellow" | "red";
+}
+
+const { image, mask, color = "red" } = Astro.props;
+---
+
+<!-- <Image src={mask} alt="Mask" class="bg-shape scale-95 -top-5 rotate-12 w-full absolute h-auto" class:list={color} /> -->
+<div class="mask">
+  <Picture src={image} formats={["avif", "webp"]} alt="Robots" class="w-full h-full" />
+</div>
+
+<style define:vars={{ mask: `url("${mask.src}")` }}>
+  .mask {
+    mask-image: var(--mask);
+    mask-size: contain;
+    mask-position: center center;
+    mask-repeat: no-repeat;
+  }
+
+  .yellow {
+    filter: invert(89%) sepia(92%) saturate(6418%) hue-rotate(358deg) brightness(108%) contrast(106%);
+  }
+
+  .red {
+    filter: invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%);
+  }
+</style>

@@ -20,23 +20,19 @@
   let scrollY = $state(0);
   let innerWidth = $state(0);
 
-  let bigMenuVisible = $derived(innerWidth > 1350 && scrollY < 350);
+  let bigMenuHidden = $derived(innerWidth < 1350 || scrollY > 350);
 </script>
 
 <svelte:window bind:scrollY bind:innerWidth onscroll={closeIfOpen} />
 
 <nav class="fixed z-10 w-full">
-  {#if bigMenuVisible}
+  {#if !bigMenuHidden}
     <div
       class="absolute w-full z-3"
       in:fly={{ delay: 0, duration: 400, opacity: 100, easing: sineOut, y: -50 }}
       out:fly={{ delay: 0, duration: 400, opacity: 100, easing: sineIn, y: -50 }}>
-      <div class="flex items-center justify-center w-full px-4 bg-white shadow-md h-14">
-        <!-- <div class="flex-shrink-0">
-          Your logo or brand here
-        </div> -->
-
-        <div class="flex ml-10 space-x-4">
+      <div class="flex items-center justify-center w-full px-4 py-4 bg-red-400 shadow-md">
+        <div class="flex flex-col items-center sm:flex-row sm:ml-10 sm:space-x-4">
           {#each data as { title, target }}
             <a href={target} class="px-3 menu-item">{title}</a>
           {/each}
@@ -46,7 +42,7 @@
   {/if}
 
   <!-- HAMBURGER MENU BUTTON -->
-  {#if !bigMenuVisible}
+  <!-- {#if bigMenuHidden}
     <div
       class="absolute left-0 w-16 h-16 z-2"
       in:fly={{ delay: 200, duration: 400, opacity: 100, easing: sineOut, y: -50 }}
@@ -71,14 +67,14 @@
         </button>
       </div>
     </div>
-  {/if}
+  {/if} -->
 
   <!-- HAMBURGER MENU -->
-  {#if isOpen}
-    <!-- BG CLOSE BUTTON -->
+  <!-- {#if isOpen}
+
     <button class="fixed w-full h-full" onclick={closeIfOpen}></button>
 
-    <!-- MENU ITEMS -->
+
     <div
       id="mobile-menu"
       class="absolute pt-16 pb-6 pl-4 pr-8 bg-white shadow-md rounded-br-2xl"
@@ -87,7 +83,7 @@
         <a href={target} class="block py-2 menu-item mobile" onclick={() => (isOpen = false)}>{title} </a>
       {/each}
     </div>
-  {/if}
+  {/if} -->
 </nav>
 
 <style lang="postcss">

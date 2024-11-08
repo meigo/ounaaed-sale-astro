@@ -9,14 +9,33 @@ interface Props {
 const { id = "", mp4, webm, poster = "" } = Astro.props;
 ---
 
+<script>
+  import { pauseVideosWhenOutOfView } from "@lib/utils";
+
+  function init() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://vjs.zencdn.net/8.16.1/video.min.js";
+    document.body.appendChild(script);
+
+    pauseVideosWhenOutOfView();
+  }
+
+  // VIEWTRANSITIONS
+  document.addEventListener("astro:after-swap", () => {
+    init();
+  });
+
+  init();
+</script>
+
 <video
   {id}
   class="video-js"
   controls
   preload="auto"
-  width="960px"
-  height="540px"
-  {poster}
+  width="1920px"
+  height="1080px"
   data-setup='{ "aspectRatio":"1920:1080" }'
   class="w-full">
   {mp4 && <source src={mp4} type="video/mp4" />}
