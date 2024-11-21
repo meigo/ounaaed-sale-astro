@@ -47,7 +47,7 @@
   dt,
   label,
   th {
-    @apply font-gelica font-bold leading-none;
+    @apply font-gelica uppercase font-bold leading-none;
   }
 
   h1 {
@@ -81,17 +81,30 @@
   }
 
   ::selection {
-    @apply bg-yellow-300 text-black;
+    @apply bg-zinc-400 text-zinc-800;
   }
 
   ul {
-    @apply mt-3 first:mt-0;
+    @apply mt-6 first:mt-0;
   }
 
   li {
-    @apply ml-4 pb-4 last:pb-0;
+    /* @apply ml-4 last:pb-0; */
     /* @apply ml-2 pl-2 pb-4 last:pb-0; */
     /* list-style-type: "⬩"; */
+  }
+
+  ul li {
+    list-style: none;
+    position: relative;
+    padding: 0px 0 18px 25px;
+  }
+
+  ul li::before {
+    content: "◆";
+    position: absolute;
+    top: 0px;
+    left: 0;
   }
 
   h3 {

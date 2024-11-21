@@ -10,12 +10,14 @@ const imageFiles = await Astro.glob("/src/assets/images/suurna/*");
 
 <Layout {title}>
   <ContainerSection>
-    <h1>{frontmatter.title}</h1>
-
     <div class="mt-10">
-      <Content />
-    </div>
+      <h1>{frontmatter.title}</h1>
 
-    <ImageGrid path="/suurna-ounaaed/images/" files={imageFiles} />
+      <div class="mt-10 md-text">
+        <Content />
+      </div>
+
+      <ImageGrid path="/suurna-ounaaed/images/" files={imageFiles} />
+    </div>
   </ContainerSection>
 </Layout>

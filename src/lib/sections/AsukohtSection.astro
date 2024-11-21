@@ -2,19 +2,22 @@
 import { Picture } from "astro:assets";
 import { Content, frontmatter } from "@content/sections/asukoht.md";
 import ContainerSection from "@components/ContainerSection.astro";
+import Hr from "@lib/components/Hr.astro";
 
 import image from "@assets/images/asukoht.png";
 ---
 
 <ContainerSection id={frontmatter.id}>
   <a href={frontmatter.link}>
-    <h2>{frontmatter.title}</h2>
+    <h2 class="text-center">{frontmatter.title}</h2>
 
-    <div class="mt-10">
+    <div class="mt-8 sm:mt-14 md-text">
       <Content />
     </div>
   </a>
   <div class="mt-10">
     <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
   </div>
+
+  <Hr />
 </ContainerSection>

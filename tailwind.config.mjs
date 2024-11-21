@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  safelist: ["bg-ka-cream", "bg-ka-cream-dark", "bg-ka-green", "text-ka-cream", "text-ka-cream"],
   theme: {
     extend: {
       fontFamily: {
@@ -32,6 +33,16 @@ export default {
       },
       scale: {
         102: "1.02",
+      },
+      colors: {
+        // "ka-cream": "#EEECE5",
+        "ka-cream": " #F9F7DE",
+        "ka-cream-dark": "#ECE8DB",
+
+        // "ka-green": "#5D7260",
+        "ka-green": "#008C5B",
+        "ka-red": "#E50B3B",
+        "ka-salmon": "#FF8B5A",
       },
     },
   },

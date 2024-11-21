@@ -3,6 +3,7 @@ import Layout from "@layouts/PageLayout.astro";
 import ContainerSection from "@components/ContainerSection.astro";
 import { Content, frontmatter } from "@content/pages/tehnika.md";
 import ImageGrid from "@components/ImageGrid.astro";
+import Hr from "@lib/components/Hr.astro";
 
 const title = frontmatter.title;
 const imageFiles = await Astro.glob("/src/assets/images/tehnika/*");
@@ -10,11 +11,15 @@ const imageFiles = await Astro.glob("/src/assets/images/tehnika/*");
 
 <Layout {title}>
   <ContainerSection>
-    <h1>{frontmatter.title}</h1>
+    <h1 class="mt-12">{frontmatter.title}</h1>
+
+    <Hr />
 
     <div class="mt-10">
       <Content />
     </div>
+
+    <Hr />
 
     <ImageGrid path="/tehnika/images/" files={imageFiles} />
   </ContainerSection>

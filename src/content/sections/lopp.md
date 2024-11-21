@@ -2,9 +2,9 @@
 id: "lopp"
 ---
 
-Et uus omanik ei peaks muret tundma kui mõni detail vajab tegevuse käigus selgitamist, siis olen valmis vajadusel sind toetama konsultatsiooniga 1 aasta jooksul alates omandi üleandmisest.
+_Et uus omanik ei peaks muret tundma kui mõni detail vajab tegevuse käigus selgitamist, siis olen valmis vajadusel sind toetama konsultatsiooniga 1 aasta jooksul alates omandi üleandmisest._
 
-## Miks võiksid sina olla huvitatud Kadastiku Õunaaia kompleksi ostmisest?</h2>
+## Miks võiksid sina olla huvitatud Kadastiku Õunaaia kompleksi ostmisest?
 
 - Sul on vabad rahalised vahendid, millele otsid pikaajalist paigutust.
 - Soovid teostada enda unistust tegeleda millegagi, mis on “päris” ja tähenduslik

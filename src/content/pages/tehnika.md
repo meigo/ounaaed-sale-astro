@@ -2,9 +2,22 @@
 title: "Tehnika"
 ---
 
-- Laokompleksi asukoht on Salme alevikus, Viiase tee 26, Kuressaare-Sõrve maantee vahetus läheduses, väga hea ligipääsuga kõvakattega teelt.
-- Kinnistu suurus 0,48ha
-- Laokompleks sisaldab avarat asfaltkattega parklat, tootmishoonet ja suurt varjualust
-- Tootmishoones netopinnaga 480m2 on 4 jahekambrit õunte hoiustamiseks vajalikul temperatuuril ning võimalik on tulevikus rajada veel üks lisakamber. Üks väike kamber on võimalik kohandada sügavkülmakambriks.
-- Lisaks asub tootmishoones veel õunte sorteerimise ja pakendamise ruum ning kontor + töötajate riietusruum, duširuum, wc.
-- Pakkumisesse kuuluvad ka õunte sorteerimisliin, väikepakendisse pakendamise masin ning kõik vajaminevad väiketarvikud – kaalud, etiketikaal, etiketiprinterid jm.
+Soovi korral pakun uuele omanikule kogu vajaminevat tehnikat ja sõidukeid, mis on vajalikud õunaaia hooldamiseks ning tööprotsesside korraldamiseks (kaubavedu jm).
+
+Kogu tehnika on kaasaegne ja sobiv just aiandi jaoks, paljud masinad on tipptootjate toodang. Kui soovid alustada tegevust kasvõi homme, on kõik vajalik kohe olemas.
+
+Kõik masinad ja seadmed on ostetud uuena. Mõned masinad on praeguseks ka vahetatud uue vastu.
+
+- Aianditraktor New Holland
+- Väiketraktor-laadur MultiOne (tootmisaasta 2021)
+- Õunte korjamise platvorm (sobiv ka teiste hooldustööde jaoks)
+- Suur traktorihaagis Pronar (õunakonteinerite veoks aiast lattu)
+- Reaaluste frees Rinieri – umbrohutõrjeks keskkonnasõbralikul viisil
+- Hooldusniiduk
+- Sahk lume lükkamiseks
+- Taimekaitsetööde pritsid
+- Sõidukid Isuzu D-max ja Citroen Berlingo, ATV
+- Mitmed vajalikud maaharimistööde haaked traktorile, väetisekülvik jt
+- 2 piduritega haagist sõiduautole
+- Elektriline laotõstuk
+- jm

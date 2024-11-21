@@ -3,6 +3,7 @@ import Layout from "@layouts/PageLayout.astro";
 import { Content, frontmatter } from "@content/pages/tehumardi-ounaaed.md";
 import ContainerSection from "@components/ContainerSection.astro";
 import ImageGrid from "@components/ImageGrid.astro";
+import Hr from "@lib/components/Hr.astro";
 
 const title = frontmatter.title;
 const imageFiles = await Astro.glob("/src/assets/images/tehumardi/*");
@@ -10,12 +11,20 @@ const imageFiles = await Astro.glob("/src/assets/images/tehumardi/*");
 
 <Layout {title}>
   <ContainerSection>
-    <h1>{frontmatter.title}</h1>
+    <h1 class="mt-12 text-center">{frontmatter.title}</h1>
+
+    <Hr />
 
     <div class="mt-10">
       <Content />
     </div>
 
+    <Hr />
+
     <ImageGrid path="/tehumardi-ounaaed/images/" files={imageFiles} />
+
+    <Hr />
+
+    <div class="pb-6"></div>
   </ContainerSection>
 </Layout>

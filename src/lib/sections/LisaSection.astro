@@ -3,6 +3,7 @@ import { Picture } from "astro:assets";
 import { Content, frontmatter } from "@content/sections/lisa.md";
 import ContainerSection from "@components/ContainerSection.astro";
 import ImageGrid from "@components/ImageGrid.astro";
+import Hr from "@lib/components/Hr.astro";
 
 const imageFiles = await Astro.glob("/src/assets/images/lisa/*");
 ---
@@ -10,9 +11,11 @@ const imageFiles = await Astro.glob("/src/assets/images/lisa/*");
 <ContainerSection id={frontmatter.id}>
   <h2>{frontmatter.title}</h2>
 
-  <div class="mt-10">
+  <div class="mt-10 md-text">
     <Content />
   </div>
 
   <ImageGrid path="/lisa/images/" files={imageFiles} />
+
+  <Hr />
 </ContainerSection>

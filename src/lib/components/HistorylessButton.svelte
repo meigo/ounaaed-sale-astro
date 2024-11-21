@@ -5,7 +5,7 @@
   let js = $state(false);
 
   onMount(async () => {
-    js = true;
+    js = false;
   });
 
   function next() {

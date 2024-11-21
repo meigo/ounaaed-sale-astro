@@ -3,33 +3,41 @@ import { Picture } from "astro:assets";
 import { Content, frontmatter } from "@content/sections/suurna.md";
 import ContainerSection from "@components/ContainerSection.astro";
 import MaskedImage from "@lib/components/MaskedImage.astro";
+import Hr from "@lib/components/Hr.astro";
 
-import image from "@assets/images/suurna/main.jpg";
+import image from "@assets/images/main/suurna.jpg";
 import blob1 from "@assets/svg/blob1.svg";
 import Button from "@lib/components/Button.astro";
+import riho from "@assets/images/main/riho-main.png";
 ---
 
 <ContainerSection id={frontmatter.id}>
-  <div class="mt-16">
-    <!-- TITLE -->
-    <h2 class="mb-8 sm:mb-0 text-10vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[200px] xl:text-[4rem] relative text-right">
-      {frontmatter.title}
-    </h2>
+  <!-- TITLE -->
+  <h2 class="mb-8 sm:mb-0 text-10vw leading-0 sm:leading-none sm:text-[4rem] xl:text-[4rem] relative text-left">
+    {frontmatter.title}
+  </h2>
 
-    <!-- IMAGE -->
-    <div class="w-full sm:w-[60vw] sm:-mt-10 lg:w-[40vw] xl:w-[500px] xl:-mt-14 sm:float-left text-mask">
-      <MaskedImage image={image} mask={blob1} color={"red"} />
-    </div>
-
-    <!-- TEXT -->
-    <div class="mt-8 sm:mt-0">
-      <Content />
-    </div>
-
-    <div>
-      <Button href="/suurna-ounaaed">Loe lähemalt Suurna õunaaia kohta →</Button>
-    </div>
+  <!-- IMAGE -->
+  <div class="w-full sm:w-[60vw] lg:w-[40vw] xl:w-[500px] sm:float-right text-mask">
+    <MaskedImage image={image} mask={blob1} color={"red"} />
   </div>
+  <!-- <Picture
+    src={riho}
+    formats={["avif", "webp"]}
+    alt="Riho"
+    class="text-mask w-full sm:w-[60vw] sm:max-w-[500px] mt-0 sm:-mt-0 mb-8 float-right"
+  /> -->
+
+  <!-- TEXT -->
+  <div class="mt-8 sm:mt-14 md-text">
+    <Content />
+  </div>
+
+  <div>
+    <Button href="/suurna-ounaaed">Loe lähemalt Suurna õunaaia kohta →</Button>
+  </div>
+
+  <Hr />
 </ContainerSection>
 
 <style define:vars={{ mask: `url("${blob1.src}")` }}>

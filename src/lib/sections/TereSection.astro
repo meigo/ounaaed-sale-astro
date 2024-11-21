@@ -2,45 +2,70 @@
 import { Picture } from "astro:assets";
 import { Content, frontmatter } from "@content/sections/tere.md";
 import ContainerSection from "@components/ContainerSection.astro";
+import VideoPlayer from "@lib/components/VideoPlayer.astro";
 
-import riho from "@assets/images/main/riho-main.png";
+import riho from "@assets/images/riho-square.png";
+import Button from "@lib/components/Button.astro";
 ---
 
-<ContainerSection>
-  <div class="">
-    <!-- TITLE -->
-    <h2 class="text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[200px] xl:text-[9rem] relative text-center">
-      {frontmatter.title}
-    </h2>
+<section class="z-1 relative flex items-center pt-16">
+  <!-- SKEWED BG -->
+  <div class={`bg-yellow-300 h-[80%] w-full sm:top-64 absolute ${false ? "skew-y-6 origin-top-right" : "-skew-y-6 origin-top-left"}`}></div>
 
-    <!-- IMAGE -->
-    <Picture
-      src={riho}
-      formats={["avif", "webp"]}
-      alt="Riho"
-      class="text-mask w-full sm:w-[60vw] sm:max-w-[500px] mt-8 sm:-mt-8 mb-8 float-right"
-    />
+  <!-- CONTAINER -->
+  <div class="max-w-5xl px-4 xl:px-0 sm:mx-auto relative">
+    <div class="px-0 lg:px-24 h-full md-text">
+      <!-- TERE -->
+      <h2 class="text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[100px] xl:text-[9rem] relative text-center">
+        {frontmatter.title}
+      </h2>
 
-    <!-- TEXT -->
-    <div class="md-text">
+      <!-- IMAGE -->
+      <div
+        class="w-full sm:w-[60vw] sm:-mt-10 lg:w-[40vw] xl:w-[500px] xl:-mt-14 rounded-full overflow-hidden border-white border-8 float-right circle">
+        <Picture src={riho} formats={["avif", "webp"]} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
+      </div>
+
+      <!-- TEXT -->
       <Content />
     </div>
   </div>
-</ContainerSection>
+</section>
 
-<style define:vars={{ mask: `url("${riho.src}")` }}>
-  .text-mask {
+<!-- VIDEO CONTAINER -->
+<section class="z-1 relative mt-32">
+  <!-- SKEWED BG -->
+  <div class={`bg-yellow-300 h-[80%] w-full sm:top-32 absolute ${false ? "skew-y-6 origin-top-right" : "-skew-y-6 origin-top-left"}`}></div>
+
+  <!-- CONTAINER -->
+  <div class="max-w-5xl px-4 xl:px-0 sm:mx-auto relative">
+    <h2 class="text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
+
+    <div class="bg-red-400 w-full">
+      <VideoPlayer id="kadastiku-video" mp4="https://animal.ee/files/kadastiku.mp4" webm="https://animal.ee/files/kadastiku.webm" />
+    </div>
+
+    <p>Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale</p>
+  </div>
+</section>
+
+<style>
+  .circle {
     @apply scale-100;
     shape-outside: none;
   }
 
   /* SM */
   @media (min-width: 640px) {
-    .text-mask {
-      /* @apply scale-95; */
-      shape-outside: var(--mask);
-      shape-image-threshold: 0.9;
-      shape-margin: 2rem;
+    .circle {
+      @apply scale-90;
+      shape-outside: border-box ellipse();
     }
   }
+  /* video {
+    @apply block;
+  
+    width: 50% !important;
+    height: auto !important;
+  } */
 </style>
