@@ -12,18 +12,27 @@ import LisaSection from "@lib/sections/LisaSection.astro";
 import AsukohtSection from "@lib/sections/AsukohtSection.astro";
 import LoppSection from "@lib/sections/LoppSection.astro";
 import OunaaiadSection from "@lib/sections/OunaaiadSection.astro";
+import MainContainer from "@lib/components/MainContainer.astro";
+import Hr from "@lib/components/Hr.astro";
 ---
 
-<Layout title="Kadastiku">
-  <TereSection />
-  <VideoSection />
-  <SuurnaSection />
-  <TehumardiSection />
-  <OunaaiadSection />
-  <LaokompleksSection />
-  <TehnikaSection />
-  <VillaSection />
-  <LisaSection />
-  <AsukohtSection />
-  <LoppSection />
+<Layout>
+  <MainContainer>
+    <TereSection />
+    <Hr />
+    <VideoSection />
+    <Hr />
+    <SuurnaSection />
+    <Hr />
+    <TehumardiSection />
+    <Hr />
+    <OunaaiadSection />
+    <Hr />
+    <LaokompleksSection />
+    <TehnikaSection />
+    <VillaSection />
+    <LisaSection />
+    <AsukohtSection />
+    <LoppSection />
+  </MainContainer>
 </Layout>

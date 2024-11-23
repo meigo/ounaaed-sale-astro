@@ -3,15 +3,18 @@ import Section from "@components/Section.astro";
 
 interface Props {
   id?: string;
-  grain?: boolean;
+
   bgColor?: "cream" | "cream-dark" | "green";
 }
 
-const { id = "", bgColor = "cream", grain } = Astro.props;
+const { id = "", bgColor = "cream" } = Astro.props;
 ---
 
-<Section {id} {grain} {bgColor}>
-  <div class="max-w-5xl px-6 mx-auto bg-white relative">
+<!-- <Section {id} {bgColor}> -->
+<section {id}>
+  <!-- <div class="absolute bg-red-400 w-[200vw]"></div> -->
+  <div class="py-16 px-6 max-w-5xl mx-auto">
     <slot />
   </div>
-</Section>
+</section>
+<!-- </Section> -->

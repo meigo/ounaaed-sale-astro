@@ -1,3 +1,5 @@
+import { log } from "node_modules/astro/dist/core/logger/core";
+
 /**
  * @param {string} src
  * @returns {string}
@@ -17,7 +19,7 @@ export async function getImagesStaticPathsData(files) {
 
     return {
       params: { id },
-      props: { image },
+      props: { id, image },
     };
   });
 

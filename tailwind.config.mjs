@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         gelica: "Gelica",
+        "aileron-ul": "aileronultralight",
       },
       lineHeight: {
         0: ".8",

@@ -9,19 +9,6 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<script>
-  function init() {
-    console.log("Hello Imagelayout");
-  }
-
-  // VIEWTRANSITIONS
-  document.addEventListener("astro:after-swap", () => {
-    init();
-  });
-
-  init();
-</script>
-
 <html lang="et">
   <head>
     <meta charset="utf-8" />

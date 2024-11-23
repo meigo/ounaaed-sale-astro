@@ -2,16 +2,11 @@
 import { Picture } from "astro:assets";
 import { Content, frontmatter } from "@content/sections/tere.md";
 import ContainerSection from "@components/ContainerSection.astro";
-import VideoPlayer from "@lib/components/VideoPlayer.astro";
 
 import riho from "@assets/images/riho-square.png";
-import Button from "@lib/components/Button.astro";
 ---
 
-<section class="z-1 relative flex items-center pt-16">
-  <!-- SKEWED BG -->
-  <div class={`bg-yellow-300 h-[80%] w-full sm:top-64 absolute ${false ? "skew-y-6 origin-top-right" : "-skew-y-6 origin-top-left"}`}></div>
-
+<ContainerSection>
   <!-- CONTAINER -->
   <div class="max-w-5xl px-4 xl:px-0 sm:mx-auto relative">
     <div class="px-0 lg:px-24 h-full md-text">
@@ -30,24 +25,7 @@ import Button from "@lib/components/Button.astro";
       <Content />
     </div>
   </div>
-</section>
-
-<!-- VIDEO CONTAINER -->
-<section class="z-1 relative mt-32">
-  <!-- SKEWED BG -->
-  <div class={`bg-yellow-300 h-[80%] w-full sm:top-32 absolute ${false ? "skew-y-6 origin-top-right" : "-skew-y-6 origin-top-left"}`}></div>
-
-  <!-- CONTAINER -->
-  <div class="max-w-5xl px-4 xl:px-0 sm:mx-auto relative">
-    <h2 class="text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
-
-    <div class="bg-red-400 w-full">
-      <VideoPlayer id="kadastiku-video" mp4="https://animal.ee/files/kadastiku.mp4" webm="https://animal.ee/files/kadastiku.webm" />
-    </div>
-
-    <p>Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale</p>
-  </div>
-</section>
+</ContainerSection>
 
 <style>
   .circle {
@@ -62,10 +40,4 @@ import Button from "@lib/components/Button.astro";
       shape-outside: border-box ellipse();
     }
   }
-  /* video {
-    @apply block;
-  
-    width: 50% !important;
-    height: auto !important;
-  } */
 </style>

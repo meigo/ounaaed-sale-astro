@@ -1,21 +1,30 @@
-<script>
+<script lang="ts">
   import { slide } from "svelte/transition";
   import { quintOut } from "svelte/easing";
 
   let { data } = $props();
   let open = $state(false);
+  let openDuration = $state(300);
+
+  let element: HTMLElement;
+
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  async function onOpenClick() {
+    open = !open;
+    await sleep(openDuration);
+    element.scrollIntoView();
+  }
 </script>
 
-<div class="pt-4">
+<div class="pt-4" bind:this={element}>
   <dt>
     <button
       type="button"
       class="flex w-full p-2 items-start justify-between text-left hover:text-neutral-600 focus:bg-neutral-200 outline-none"
       aria-controls="faq-0"
       aria-expanded="false"
-      onclick={() => {
-        open = !open;
-      }}>
+      onclick={onOpenClick}>
       <span class="text-xl lg:text-2xl font-bold">
         Kui sa tunned, et just sina võiksid jätkata Kadastiku Õunaaia edulugu, siis ära lase seda unikaalset võimalust mööda. Võta minuga
         isiklikult ühendust juba täna.
@@ -35,7 +44,7 @@
   </dt>
 
   {#if open}
-    <div class="mt-2 mb-6 pr-12" id="faq-0" transition:slide={{ duration: 300, easing: quintOut, axis: "y" }}>
+    <div class="mt-2 mb-6 pr-12" id="faq-0" transition:slide={{ duration: openDuration, easing: quintOut, axis: "y" }}>
       <ul class="text-base leading-7 p-2 list-none">
         <li>Riho Kadastik</li>
         <li>Kadastiku Õunaaed asutaja ja omanik</li>

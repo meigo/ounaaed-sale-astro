@@ -1,21 +1,25 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import Menu from "@lib/menu/Menu.svelte";
+import Menu from "@lib/components/Navbar.svelte";
 import "src/app.css";
 
+import { frontmatter } from "@content/pages/main.md";
+
+const mainTitle = frontmatter.title;
+
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
 
 const menuData = [
-  { title: "Tere", target: "#tere" },
-  { title: "Suurna õunaaed", target: "#suurna-ounaaed" },
-  { title: "Tehumardi õunaaed", target: "#tehumardi-ounaaed" },
-  { title: "Tehnika", target: "#tehnika" },
-  { title: "Villa", target: "#villa" },
-  { title: "Kontakt", target: "#kontakt" },
+  { label: "Suurna õunaaed", href: "/suurna-ounaaed" },
+  { label: "Tehumardi õunaaed", href: "/tehumardi-ounaaed" },
+  { label: "Laokompleks", href: "/laokompleks" },
+  { label: "Tehnika", href: "/tehnika" },
+  { label: "Villa", href: "/villa" },
+  { label: "Kontakt", href: "/#kontakt" },
 ];
 ---
 
@@ -38,7 +42,7 @@ const menuData = [
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{mainTitle} {title && ` | ${title}`}</title>
     <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
 
     <ViewTransitions />
@@ -46,20 +50,11 @@ const menuData = [
 
   <!-- SMOOTH SCROLL ONLY FOR ANCHOR NAVIGATION -->
   <body onload="document.documentElement.classList.add('smooth-scroll');">
-    <h1 class="absolute text-xs text-white -top-10">{title}</h1>
+    <!-- <h1 class="absolute text-xs text-white -top-10">{title}</h1> -->
 
     <Menu data={menuData} client:load />
 
     <slot />
-
-    <!-- <nav class="bg-white p-2 fixed top-0 w-full flex justify-center gap-4">
-      <a href="/">Tere</a>
-      <a href="/suurna-ounaaed">Suurna</a>
-      <a href="/tehumardi-ounaaed">Tehumardi</a>
-      <a href="/laokompleks">Laokompleks</a>
-      <a href="/tehnika">Tehnika</a>
-      <a href="/villa">Villa</a>
-    </nav> -->
 
     <!-- <noscript>
       <div>
@@ -70,7 +65,5 @@ const menuData = [
         </style>
       </div>
     </noscript> -->
-
-    <!-- <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script> -->
   </body>
 </html>

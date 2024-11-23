@@ -1,27 +1,25 @@
 ---
-import GrainOverlay from "@components/GrainOverlay.astro";
 import pattern from "@assets/images/gfx/pattern2.png";
 
 interface Props {
   id?: string;
   bgColor?: "cream" | "cream-dark" | "green";
-  grain?: boolean;
 }
 
-const { id = "", bgColor = "cream-dark", grain } = Astro.props;
+const { id = "", bgColor = "cream-dark" } = Astro.props;
 
 let textColor = bgColor != "green" ? "green" : "cream";
 ---
 
-<!-- <section {id} class:list=`relative text-ka-${textColor} bg-ka-${bgColor} bg-pattern`> -->
-<section {id} class:list=`relative text-ka-${textColor} bg-white bg-pattern`>
+<!-- <section {id} class:list=`relative text-ka-${textColor} bg-ka-${bgColor} bg-pattern`> --><!-- <section {id} class:list=`text-ka-${textColor} `> -->
+<section {id} class:list=` `>
+  <div class="absolute h-full w-[10vw] bg-pattern"></div>
   <!-- <div class=`absolute inset-0 bg-ka-${bgColor}`> -->
 
   <!-- <div class={`absolute  inset-0  bg-ka-${bgColor}`}></div> -->
+  <div class="absolute h-full w-[10vw] right-0 bg-pattern"></div>
 
   <slot />
-
-  <!-- {grain && <GrainOverlay />} -->
 </section>
 
 <style define:vars={{ pattern: `url("${pattern.src}")` }}>
@@ -36,7 +34,7 @@ let textColor = bgColor != "green" ? "green" : "cream";
     background: var(--pattern);
     background-size: 300px;
     opacity: 0.1;
-    filter: invert(16%) sepia(76%) saturate(5940%) hue-rotate(340deg) brightness(89%) contrast(101%);
+    /* filter: invert(16%) sepia(76%) saturate(5940%) hue-rotate(340deg) brightness(89%) contrast(101%); */
   }
   .red-tint {
     filter: invert(16%) sepia(76%) saturate(5940%) hue-rotate(340deg) brightness(89%) contrast(101%);

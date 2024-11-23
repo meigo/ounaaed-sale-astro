@@ -11,6 +11,13 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: "aileronultralight";
+    src: url("Aileron-UltraLight.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
   .smooth-scroll {
     scroll-behavior: smooth;
   }
@@ -47,7 +54,7 @@
   dt,
   label,
   th {
-    @apply font-gelica uppercase font-bold leading-none;
+    @apply font-aileron-ul uppercase font-normal leading-none;
   }
 
   h1 {

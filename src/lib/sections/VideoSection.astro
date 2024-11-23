@@ -8,30 +8,11 @@ import riho from "@assets/images/main/riho-main.png";
 
 <!-- VIDEO CONTAINER -->
 <ContainerSection bgColor={"green"}>
-  <h2 class="text-4xl mt-6 text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
+  <h2 class="text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
 
   <div class="bg-black w-full mt-16">
     <VideoPlayer id="kadastiku-video" mp4="https://animal.ee/files/kadastiku.mp4" webm="https://animal.ee/files/kadastiku.webm" />
   </div>
 
   <h3 class="text-center mt-16">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
-
-  <Hr />
 </ContainerSection>
-
-<style define:vars={{ mask: `url("${riho.src}")` }}>
-  .text-mask {
-    @apply scale-100;
-    shape-outside: none;
-  }
-
-  /* SM */
-  @media (min-width: 640px) {
-    .text-mask {
-      @apply scale-95;
-      shape-outside: var(--mask);
-      /* shape-image-threshold: 0.7; */
-      shape-margin: 2rem;
-    }
-  }
-</style>

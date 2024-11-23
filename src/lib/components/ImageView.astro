@@ -19,8 +19,6 @@ const { id, image, prevId, nextId, backUrl } = Astro.props;
 
 <Layout title=`Suurna Õunaaed - ${id}`>
   <ContainerSection>
-    <h1>{id}</h1>
-
     <div class="fixed inset-0 z-10 flex justify-center items-center">
       <!-- IMAGE -->
       <Picture
@@ -32,11 +30,11 @@ const { id, image, prevId, nextId, backUrl } = Astro.props;
       />
       <!-- BUTTONS -->
       <div class="fixed flex w-screen h-screen justify-between items-center">
-        <HistorylessButton label="<<" url=`./${prevId}` client:load />
-        <HistorylessButton label=">>" url=`./${nextId}` client:load />
+        <HistorylessButton label="<<" href=`./${prevId}` client:load />
+        <HistorylessButton label=">>" href=`./${nextId}` client:load />
       </div>
       <div class="fixed flex w-screen h-screen justify-end items-start text-white text-2xl font-gelica pointer-events-none">
-        <HistorylessButton label="X" url={backUrl} back client:load />
+        <HistorylessButton label="X" href={backUrl} back client:load />
       </div>
     </div>
   </ContainerSection>

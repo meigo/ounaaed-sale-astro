@@ -1,8 +1,8 @@
 ---
-import Layout from "@layouts/PageLayout.astro";
+import Layout from "@layouts/MainLayout.astro";
 import ContainerSection from "@components/ContainerSection.astro";
-import { Content, frontmatter } from "@content/pages/suurna-ounaaed.md";
 import ImageGrid from "@components/ImageGrid.astro";
+import { Content, frontmatter } from "@content/pages/suurna-ounaaed.md";
 
 const title = frontmatter.title;
 const imageFiles = await Astro.glob("/src/assets/images/suurna/*");
