@@ -8,4 +8,4 @@ Soovi korral pakun uuele omanikule kogu vajaminevat tehnikat ja sõidukeid, mis 
 
 Kogu tehnika on kaasaegne ja sobiv just aiandi jaoks, paljud masinad on tipptootjate toodang. Kui soovid alustada tegevust kasvõi homme, on kõik vajalik kohe olemas.
 
-Vaata lähemalt, milline tehnika on pakkumisega kaasas:
+[Vaata lähemalt, milline tehnika on pakkumisega kaasas](/tehnika)

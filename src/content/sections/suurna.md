@@ -13,3 +13,5 @@ Aastate jooksul on istutusala laienenud kokku 7,6 hektarile. Kinnistute kogupind
 Kõik sordid on aeda valitud silmas pidades klientide eelistusi ja sobivaid müügiperioode. Nii saab Suurnal alustada saagikoristust juba juulikuu teises pooles kui valmib imeliselt maitsev, väga varane eesti oma suveõun `Pirja´ ning koristushooaja lõpetavad hilised talvesordid alles oktoobris.
 
 Siin aias on igal hooajal tegevust ja kauneid vaateid - kevadine õitemeri ja mesilaste sumin, kesksuvine lopsakus, sügisene helde õunaaeg ning talvine härmas ja karge lumine rahu aias.
+
+[Loe lähemalt Suurna õunaaia kohta siit](/suurna-ounaaed)

@@ -9,3 +9,5 @@ Tehumardi õunaaed on rajatud 2011. aastal eesmärgiga laiendada istutusalasid j
 Selle aia õunapuud on valitud keskmisekasvulised ning annavad hektari kohta väga suuri saake. Aeda ümbritsevad ühest küljest puhtad rohumaad, rahu ning vaikus, teiselt poolt aga männimets ja selle taga linnulennul meri.
 
 Aed on väga hea ligipääsuga Tehumardi külateelt.
+
+[Loe lähemalt Tehumardi õunaaia kohta siit](/tehumardi-ounaaed)

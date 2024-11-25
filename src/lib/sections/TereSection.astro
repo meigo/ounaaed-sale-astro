@@ -1,31 +1,28 @@
 ---
 import { Picture } from "astro:assets";
 import { Content, frontmatter } from "@content/sections/tere.md";
-import ContainerSection from "@components/ContainerSection.astro";
+import PatternSection from "@lib/components/PatternSection.astro";
 
 import riho from "@assets/images/riho-square.png";
 ---
 
-<ContainerSection>
-  <!-- CONTAINER -->
-  <div class="max-w-5xl px-4 xl:px-0 sm:mx-auto relative">
-    <div class="px-0 lg:px-24 h-full md-text">
-      <!-- TERE -->
-      <h2 class="text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[100px] xl:text-[9rem] relative text-center">
-        {frontmatter.title}
-      </h2>
+<PatternSection>
+  <!-- TERE -->
+  <h2 class="text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[100px] xl:text-[9rem] relative text-center">
+    {frontmatter.title}
+  </h2>
 
-      <!-- IMAGE -->
-      <div
-        class="w-full sm:w-[60vw] sm:-mt-10 lg:w-[40vw] xl:w-[500px] xl:-mt-14 rounded-full overflow-hidden border-white border-8 float-right circle">
-        <Picture src={riho} formats={["avif", "webp"]} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
-      </div>
-
-      <!-- TEXT -->
-      <Content />
-    </div>
+  <!-- IMAGE -->
+  <div
+    class="w-full sm:w-[50vw] mt-8 sm:-mt-10 lg:w-[40vw] xl:w-[500px] xl:-mt-14 rounded-full overflow-hidden border-white border-8 float-none sm:float-right circle">
+    <Picture src={riho} formats={["avif", "webp"]} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
   </div>
-</ContainerSection>
+
+  <!-- TEXT -->
+  <div class="pt-8 md-text">
+    <Content />
+  </div>
+</PatternSection>
 
 <style>
   .circle {

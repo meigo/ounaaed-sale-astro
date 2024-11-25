@@ -3,7 +3,7 @@ import { getImagesStaticPathsData } from "@lib/utils";
 import ImageView from "@lib/components/ImageView.astro";
 
 export async function getStaticPaths() {
-  const files = await Astro.glob("@assets/images/villa/*");
+  const files = await Astro.glob("../../../assets/images/villa/*");
   return getImagesStaticPathsData(files);
 }
 

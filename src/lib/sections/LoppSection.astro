@@ -1,17 +1,15 @@
 ---
-import ContainerSection from "@components/ContainerSection.astro";
+import PatternSection from "@lib/components/PatternSection.astro";
 import ContactAccordion from "@lib/sections/ContactAccordion.svelte";
 import { Content, frontmatter } from "@content/sections/lopp.md";
 ---
 
-<ContainerSection id={frontmatter.id}>
-  <div class="bg-zinc-500 text-zinc-800 p-8">
-    <div class="mt-10 md-text">
-      <Content />
-    </div>
+<PatternSection id={frontmatter.id}>
+  <div class="mt-8 sm:mt-14">
+    <Content />
   </div>
 
   <div id="kontakt" class="mt-10">
     <ContactAccordion client:load />
   </div>
-</ContainerSection>
+</PatternSection>

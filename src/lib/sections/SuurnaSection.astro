@@ -1,15 +1,14 @@
 ---
 import { Content, frontmatter } from "@content/sections/suurna.md";
-import ContainerSection from "@components/ContainerSection.astro";
 import MaskedImage from "@lib/components/MaskedImage.astro";
 import Button from "@lib/components/Button.astro";
+import PatternSection from "@lib/components/PatternSection.astro";
 
 import image from "@assets/images/main/suurna.jpg";
 import blob1 from "@assets/svg/blob1.svg";
-import riho from "@assets/images/main/riho-main.png";
 ---
 
-<ContainerSection id={frontmatter.id}>
+<PatternSection id={frontmatter.id}>
   <!-- TITLE -->
   <h2 class="text-10vw leading-0 sm:leading-none sm:text-[4rem] xl:text-[4rem] relative text-left">
     {frontmatter.title}
@@ -34,7 +33,7 @@ import riho from "@assets/images/main/riho-main.png";
   <div>
     <Button href="/suurna-ounaaed">Loe lähemalt Suurna õunaaia kohta →</Button>
   </div>
-</ContainerSection>
+</PatternSection>
 
 <style define:vars={{ mask: `url("${blob1.src}")` }}>
   .text-mask {

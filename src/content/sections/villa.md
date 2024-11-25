@@ -12,4 +12,4 @@ Mererand on kiviviske kaugusel. Parajalt kaugel, et ette võtta väike jalgratta
 
 Hoolitsetud õueala kutsub veetma pere ja sõpradega aega terrassil, mängima lastega murul või kuulama vihmasabinat avaras katusealuses grillinurgas.
 
-Vaata lähemalt detaile Tehumardi villa kohta siit: →
+[Vaata lähemalt detaile Tehumardi villa kohta siit](/villa)

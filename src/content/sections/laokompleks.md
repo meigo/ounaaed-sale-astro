@@ -12,4 +12,4 @@ Et enda toodangut tõhusamalt turustada, oleme aja jooksul pidevalt arendanud pa
 Laokompleksis asuv sorteerimisliin aitab nii õunte müügiks ettevalmistamisel kui ka võimaldab õunad konteineritest eelsorteerida kastidesse vastavalt kvaliteediklassidele. Nii on õunu edasi lihtne pakendada või täita tellimusi, mis sisaldavad vaid kindla kvaliteediklassiga õunu. Loomulikult on ka kõik vajalikud kastid ja tarvikud sinu jaoks olemas.
 Laokompleksi oluliseks osaks on ka suur varjualune, milles hoiustada hooajavälisel perioodil tühjasid õunakonteinereid. Konteinerite varu on piisav, et mahutada ka suured tulevased saagid.
 
-Vaata lähemalt, mida laokompleks sisaldab: →
+[Vaata lähemalt, mida laokompleks sisaldab](/laokompleks)

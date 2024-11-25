@@ -1,23 +1,21 @@
 ---
 import { Picture } from "astro:assets";
+import PatternSection from "@lib/components/PatternSection.astro";
 import { Content, frontmatter } from "@content/sections/tehnika.md";
-import ContainerSection from "@components/ContainerSection.astro";
-import Hr from "@lib/components/Hr.astro";
 
-// import image from "@assets/images/tehnika/YvKHiUmA.png";
+import image from "@assets/images/tehnika/TThCXZCg.png";
 ---
 
-<ContainerSection id={frontmatter.id}>
-  <a href={frontmatter.link}>
-    <h2 class="text-center">{frontmatter.title}</h2>
+<PatternSection id={frontmatter.id} class="bg-violet-200">
+  <h2 class="text-center">{frontmatter.title}</h2>
 
-    <div class="mt-8 sm:mt-14 md-text">
-      <Content />
-    </div>
-  </a>
-  <!-- <div class="mt-10">
+  <div class="mt-8 sm:mt-14 md-text">
+    <Content />
+  </div>
+
+  <div class="mt-10">
     <a href={frontmatter.link}>
       <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
     </a>
-  </div> -->
-</ContainerSection>
+  </div>
+</PatternSection>

@@ -11,9 +11,51 @@
     font-style: normal;
   }
 
-  @font-face {
+  /* @font-face {
     font-family: "aileronultralight";
     src: url("Aileron-UltraLight.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  } */
+
+  @font-face {
+    font-family: "aileronthin";
+    src: url("/Aileron-Thin.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "aileronlight";
+    src: url("/Aileron-Light.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "aileronregular";
+    src: url("/Aileron-Regular.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "outfit";
+    src: url("/Outfit-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "outfit";
+    src: url("/Outfit-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "outfit-light";
+    src: url("/Outfit-Light.woff") format("woff");
     font-weight: normal;
     font-style: normal;
   }
@@ -54,7 +96,11 @@
   dt,
   label,
   th {
-    @apply font-aileron-ul uppercase font-normal leading-none;
+    @apply font-outfit-light uppercase font-normal leading-none;
+  }
+
+  p {
+    @apply font-outfit-light;
   }
 
   h1 {
@@ -123,7 +169,7 @@
   }
 
   .md-text h3 {
-    @apply sm:underline;
+    /* @apply sm:underline; */
     text-underline-offset: 0.75rem;
     text-decoration-thickness: 1px;
   }
@@ -135,23 +181,25 @@
   }
 
   .md-text p {
-    @apply mt-4 first:mt-0;
+    @apply text-lg mt-4 first:mt-0;
   }
 
   .md-text p em {
-    @apply font-bold italic text-xl;
+    @apply not-italic font-bold;
   }
 
   .md-text a {
-    @apply font-medium;
+    @apply font-bold bg-red-200 p-4 my-8 inline-block;
+  }
+
+  .md-text a::after {
+    @apply whitespace-pre;
+    content: " »";
+    display: inline-block;
   }
 
   .justified p {
     @apply text-justify hyphens-auto;
-  }
-
-  .contact-form-button {
-    @apply h-12 py-0 mt-4 px-4 text-white bg-green-500 hover:bg-lime-600 rounded-lg whitespace-nowrap inline-flex justify-center items-center;
   }
 }
 

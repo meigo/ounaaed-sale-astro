@@ -1,23 +1,21 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
-import ContainerSection from "@components/ContainerSection.astro";
+import PatternSection from "@lib/components/PatternSection.astro";
 import ImageGrid from "@components/ImageGrid.astro";
 import { Content, frontmatter } from "@content/pages/suurna-ounaaed.md";
 
 const title = frontmatter.title;
-const imageFiles = await Astro.glob("/src/assets/images/suurna/*");
+const imageFiles = await Astro.glob("../../assets/images/suurna/*");
 ---
 
 <Layout {title}>
-  <ContainerSection>
-    <div class="mt-10">
-      <h1>{frontmatter.title}</h1>
+  <PatternSection>
+    <h1 class="mt-6">{frontmatter.title}</h1>
 
-      <div class="mt-10 md-text">
-        <Content />
-      </div>
-
-      <ImageGrid path="/suurna-ounaaed/images/" files={imageFiles} />
+    <div class="mt-10 md-text">
+      <Content />
     </div>
-  </ContainerSection>
+
+    <ImageGrid path="/suurna-ounaaed/images/" files={imageFiles} />
+  </PatternSection>
 </Layout>

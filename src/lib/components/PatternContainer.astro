@@ -1,0 +1,33 @@
+---
+import pattern from "@assets/images/gfx/bg-pattern.png";
+---
+
+<div class="relative">
+  <div class="absolute w-full h-full top-0 flex mix-blend-multiply pointer-events-none">
+    <div class="bg-pattern bg-left g-left w-[5%] lg:w-[10%] hidden sm:block"></div>
+    <div class="w-full sm:w-[90%] lg:w-[80%]">
+      <div class="relative bg-pattern w-[500px] h-[250px] left-0 top-0"></div>
+    </div>
+    <div class="bg-pattern bg-right w-[5%] lg:w-[10%] hidden sm:block"></div>
+  </div>
+
+  <slot />
+</div>
+
+<style define:vars={{ pattern: `url("${pattern.src}")` }}>
+  .bg-pattern {
+    background: var(--pattern);
+    background-size: 250px;
+    background-position: top right;
+    opacity: 0.25;
+    mix-blend-mode: multiply;
+    filter: invert(77%) sepia(4%) saturate(3568%) hue-rotate(69deg) brightness(92%) contrast(87%);
+    /* filter: sepia(0.5); */
+  }
+  .bg-left {
+    background-position: top right;
+  }
+  .bg-right {
+    background-position: top left;
+  }
+</style>

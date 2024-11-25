@@ -1,13 +1,12 @@
 ---
 import { Picture } from "astro:assets";
+import PatternSection from "@lib/components/PatternSection.astro";
 import { Content, frontmatter } from "@content/sections/tehumardi.md";
-import ContainerSection from "@components/ContainerSection.astro";
-import Hr from "@lib/components/Hr.astro";
 
 import image from "@assets/images/tehumardi/YvKHiUmA.png";
 ---
 
-<ContainerSection id={frontmatter.id} bgColor={"green"}>
+<PatternSection id={frontmatter.id}>
   <h2 class="text-center">{frontmatter.title}</h2>
 
   <div class="mt-8 sm:mt-14 md-text">
@@ -19,4 +18,4 @@ import image from "@assets/images/tehumardi/YvKHiUmA.png";
       <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
     </a>
   </div>
-</ContainerSection>
+</PatternSection>

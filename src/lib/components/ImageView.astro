@@ -2,9 +2,12 @@
 import "src/app.css";
 
 import Layout from "@layouts/ImageLayout.astro";
-import { Picture } from "astro:assets";
-import ContainerSection from "@components/ContainerSection.astro";
+import { Picture, Image } from "astro:assets";
+
 import HistorylessButton from "@lib/components/HistorylessButton.svelte";
+import ChevronRight from "./icons/IconChevronRight.svelte";
+import ChevronLeft from "./icons/IconChevronLeft.svelte";
+import X from "./icons/IconX.svelte";
 
 interface Props {
   id: string;
@@ -18,24 +21,22 @@ const { id, image, prevId, nextId, backUrl } = Astro.props;
 ---
 
 <Layout title=`Suurna Õunaaed - ${id}`>
-  <ContainerSection>
-    <div class="fixed inset-0 z-10 flex justify-center items-center">
-      <!-- IMAGE -->
-      <Picture
-        src={image}
-        formats={["avif", "webp"]}
-        alt="A description of my image."
-        class="object-cover w-full h-full"
-        sizes="(min-width: 1024px) 1024px, 100vw"
-      />
-      <!-- BUTTONS -->
-      <div class="fixed flex w-screen h-screen justify-between items-center">
-        <HistorylessButton label="<<" href=`./${prevId}` client:load />
-        <HistorylessButton label=">>" href=`./${nextId}` client:load />
-      </div>
-      <div class="fixed flex w-screen h-screen justify-end items-start text-white text-2xl font-gelica pointer-events-none">
-        <HistorylessButton label="X" href={backUrl} back client:load />
-      </div>
+  <div class="fixed inset-0 z-10 flex justify-center items-center">
+    <!-- IMAGE -->
+    <Picture
+      src={image}
+      formats={["avif", "webp"]}
+      alt="A description of my image."
+      class="object-cover w-full h-full"
+      sizes="(min-width: 1024px) 1024px, 100vw"
+    />
+    <!-- BUTTONS -->
+    <div class="fixed flex w-screen h-screen justify-between items-center">
+      <HistorylessButton href=`./${prevId}` client:load><ChevronLeft class="size-10 mx-4" /></HistorylessButton>
+      <HistorylessButton href=`./${nextId}` client:load><ChevronRight class="size-10 mx-4" /></HistorylessButton>
     </div>
-  </ContainerSection>
+    <div class="fixed flex w-screen h-screen justify-end items-start text-white text-2xl font-gelica pointer-events-none">
+      <HistorylessButton href={backUrl} back client:load><X class="size-10" /></HistorylessButton>
+    </div>
+  </div>
 </Layout>

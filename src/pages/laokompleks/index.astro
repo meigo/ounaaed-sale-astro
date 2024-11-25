@@ -1,28 +1,21 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
-import ContainerSection from "@components/ContainerSection.astro";
-import { Content, frontmatter } from "@content/pages/laokompleks.md";
+import PatternSection from "@lib/components/PatternSection.astro";
 import ImageGrid from "@components/ImageGrid.astro";
-import Hr from "@lib/components/Hr.astro";
+import { Content, frontmatter } from "@content/pages/laokompleks.md";
 
 const title = frontmatter.title;
-const imageFiles = await Astro.glob("/src/assets/images/laokompleks/*");
+const imageFiles = await Astro.glob("../../assets/images/laokompleks/*");
 ---
 
 <Layout {title}>
-  <ContainerSection>
-    <h1 class="mt-12 text-center text-[9vw] sm:text-6xl">{frontmatter.title}</h1>
+  <PatternSection>
+    <h1 class="mt-6">{frontmatter.title}</h1>
 
-    <Hr />
-
-    <div class="md-text">
+    <div class="mt-10 md-text">
       <Content />
     </div>
 
-    <Hr />
-
     <ImageGrid path="/laokompleks/images/" files={imageFiles} />
-
-    <Hr />
-  </ContainerSection>
+  </PatternSection>
 </Layout>

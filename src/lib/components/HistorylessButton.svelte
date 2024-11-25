@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  let { label = ">>", href = "", back = false } = $props();
+
+  let { label, href = "", back = false } = $props();
 
   let js = $state(false);
 
@@ -9,10 +10,14 @@
   });
 </script>
 
-<div class="m-4 pointer-events-auto text-white text-3xl font-gelica">
+<div class="pointer-events-auto text-white hover:scale-110">
   {#if js && back}
-    <button type="button" onclick={() => history.back()}>{label}</button>
+    <button type="button" class="p-4 text-white" onclick={() => history.back()}>
+      <slot />
+    </button>
   {:else}
-    <a {href} class="cursor-pointer" data-astro-history="replace">{label}</a>
+    <a {href} class="cursor-pointer p-4 text-white" data-astro-history="replace">
+      <slot />
+    </a>
   {/if}
 </div>

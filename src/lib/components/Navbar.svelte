@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import { fly, scale } from "svelte/transition";
   import { quintOut, sineOut, sineIn } from "svelte/easing";
-  import BurgerIcon from "../../assets/svg/BurgerIcon.svelte";
-  import XIcon from "../../assets/svg/XIcon.svelte";
+  import BurgerIcon from "./icons/BurgerIcon.svelte";
+  import XIcon from "./icons/XIcon.svelte";
   // import SpaceTimeLogo from "../components/SpaceTimeLogo.svelte";
 
   let { id, data } = $props();
@@ -33,7 +33,7 @@
 <svelte:window bind:scrollY bind:innerWidth onscroll={closeIfOpen} />
 
 {#if js}
-  <header class="absolute z-40 w-full bg-blue-500">
+  <header class="absolute z-40 w-full bg-white">
     <nav class="max-w-6xl w-full mx-auto">
       <!-- JS -->
       <div class="absolute h-12 flex items-center z-2">
@@ -44,7 +44,7 @@
         <div class="h-12 flex items-center justify-center w-full">
           {#each data as { label, href }}
             <div class="h-full">
-              <div class="h-[1px] bg-white {id === label.trim().toLowerCase() ? 'visible' : 'invisible'}"></div>
+              <!-- <div class="h-[1px] bg-white {id === label.trim().toLowerCase() ? 'visible' : 'invisible'}"></div> -->
               <div class="h-full flex items-center mx-1">
                 <a {href} class="px-3 menu-item">{label}</a>
               </div>
@@ -55,7 +55,7 @@
 
       <!-- HAMBURGER MENU BUTTON -->
       {#if bigMenuHidden && !isOpen}
-        <div class="absolute right-0 w-12 h-12 z-2">
+        <div class="absolute right-0 w-14 h-14 z-2">
           <button
             type="button"
             class="flex items-center justify-center w-full h-full p-2"
@@ -88,7 +88,7 @@
         </div>
 
         <div class="fixed right-3 top-3 pointer-events-none">
-          <XIcon class="text-white  size-6  " />
+          <XIcon class="text-white size-8" />
         </div>
       {/if}
     </nav>
@@ -97,12 +97,12 @@
 
 <style lang="postcss">
   .menu-item {
-    @apply text-base space-x-8 whitespace-nowrap text-white;
+    @apply text-base space-x-8 whitespace-nowrap text-black;
   }
   .menu-item.mobile {
-    @apply text-3xl whitespace-normal;
+    @apply text-3xl whitespace-normal text-white;
   }
   .menu-item:hover {
-    @apply opacity-80;
+    @apply opacity-90 scale-102;
   }
 </style>

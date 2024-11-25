@@ -3,7 +3,7 @@ id: "olulist"
 title: "Veel olulist, mis võiks Sind huvitada"
 ---
 
-- Ostuga tuleb kaasa Salme aleviku keskuses, 2korruselises väikeses kortermajas 2. korrusel asuv renoveeritud 1-toaline korter, mida uus omanik saab kasutada enda äranägemise järgi (näiteks majutades töötajat, pakkudes majutusteenust vmt). Korteri kütteks on õhksoojuspump ja lisaks on võimalik kasutada ka kaminakütet. Korteri juurde kuulub keldriboks.
+- Ostuga tuleb kaasa Salme aleviku keskuses, 2-korruselises väikeses kortermajas 2. korrusel asuv renoveeritud 1-toaline korter, mida uus omanik saab kasutada enda äranägemise järgi (näiteks majutades töötajat, pakkudes majutusteenust vmt). Korteri kütteks on õhksoojuspump ja lisaks on võimalik kasutada ka kaminakütet. Korteri juurde kuulub keldriboks.
 - Ettevõttel on sõlmitud koostööleping Saaremaa vallaga lumetõrje teenuse pakkumiseks talveperioodil enda lähipiirkonna teedel. Kogu vajalik tehnika selleks on olemas. Lumelükkamine pakub võimalust lisatuluks talveperioodil. Lepingu täpseid tingimusi tutvustatakse ostuläbirääkimiste käigus. Omanikuvahetusega seoses on võimalik leping soovi korral üles öelda.
 - Uuele omanikule lähevad üle kõik müügihetkel laoseisus olevad tarvikud, kulumaterjalid (pakendid, laoseisus olevad mahlad, omatoodang, väetised jne), väikevahendid, tööriistad.
 - Soovi korral saab uus omanik enda käsutusse kõik ettevõtte digitaalsed varad: ettevõtte logo, “Tehumardi” kaubamärk, koduleht, Facebooki konto, edukalt toimiv e-pood (hetkel peatatud, kuid aktiveerimisvalmis).

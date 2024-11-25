@@ -1,32 +1,70 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import PatternContainer from "@lib/components/PatternContainer.astro";
 import Menu from "@lib/components/Navbar.svelte";
 import "src/app.css";
-
 import { frontmatter } from "@content/pages/main.md";
-
-const mainTitle = frontmatter.title;
 
 interface Props {
   title?: string;
+  menuType?: "main" | "page";
 }
 
-const { title } = Astro.props;
+const { title, menuType = "page" } = Astro.props;
 
-const menuData = [
-  { label: "Suurna õunaaed", href: "/suurna-ounaaed" },
-  { label: "Tehumardi õunaaed", href: "/tehumardi-ounaaed" },
-  { label: "Laokompleks", href: "/laokompleks" },
-  { label: "Tehnika", href: "/tehnika" },
-  { label: "Villa", href: "/villa" },
-  { label: "Kontakt", href: "/#kontakt" },
-];
+const mainTitle = frontmatter.title;
+
+const menuData = {
+  main: [
+    { label: "Suurna õunaaed", href: "#suurna-ounaaed" },
+    { label: "Tehumardi õunaaed", href: "#tehumardi-ounaaed" },
+    { label: "Laokompleks", href: "#laokompleks" },
+    { label: "Tehnika", href: "#tehnika" },
+    { label: "Villa", href: "#villa" },
+    { label: "Kontakt", href: "#kontakt" },
+  ],
+  page: [
+    { label: "Suurna õunaaed", href: "/suurna-ounaaed" },
+    { label: "Tehumardi õunaaed", href: "/tehumardi-ounaaed" },
+    { label: "Laokompleks", href: "/laokompleks" },
+    { label: "Tehnika", href: "/tehnika" },
+    { label: "Villa", href: "/villa" },
+    { label: "Kontakt", href: "/#kontakt" },
+  ],
+};
 ---
 
 <script>
-  function init() {
-    document.documentElement.classList.add("smooth-scroll");
+  import Lenis from "lenis";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  //*******************************************************************************************************************/
+  // SMOOTH SCROLL
+
+  const lenis = new Lenis();
+
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
   }
+  requestAnimationFrame(raf);
+
+  // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+  // lenis.on("scroll", ScrollTrigger.update);
+
+  // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker. This ensures Lenis's smooth scroll animation updates on each GSAP tick
+  // gsap.ticker.add((time) => {
+  //   lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+  // });
+
+  // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+  // gsap.ticker.lagSmoothing(0);
+
+  //*******************************************************************************************************************/
+  function init() {}
 
   // VIEWTRANSITIONS
   document.addEventListener("astro:after-swap", () => {
@@ -44,26 +82,18 @@ const menuData = [
     <meta name="generator" content={Astro.generator} />
     <title>{mainTitle} {title && ` | ${title}`}</title>
     <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.16/dist/lenis.css" />
     <ViewTransitions />
   </head>
 
   <!-- SMOOTH SCROLL ONLY FOR ANCHOR NAVIGATION -->
-  <body onload="document.documentElement.classList.add('smooth-scroll');">
+  <!-- <body onload="document.documentElement.classList.add('smooth-scroll');"> -->
+  <body>
     <!-- <h1 class="absolute text-xs text-white -top-10">{title}</h1> -->
 
-    <Menu data={menuData} client:load />
-
-    <slot />
-
-    <!-- <noscript>
-      <div>
-        <style>
-          html {
-            scroll-behavior: smooth;
-          }
-        </style>
-      </div>
-    </noscript> -->
+    <Menu data={menuData[menuType]} client:load />
+    <PatternContainer>
+      <slot />
+    </PatternContainer>
   </body>
 </html>

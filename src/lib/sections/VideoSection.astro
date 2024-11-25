@@ -1,18 +1,17 @@
 ---
-import ContainerSection from "@components/ContainerSection.astro";
 import VideoPlayer from "@lib/components/VideoPlayer.astro";
-import Hr from "@lib/components/Hr.astro";
-
-import riho from "@assets/images/main/riho-main.png";
+import PatternSection from "@lib/components/PatternSection.astro";
 ---
 
 <!-- VIDEO CONTAINER -->
-<ContainerSection bgColor={"green"}>
+<PatternSection>
   <h2 class="text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
 
-  <div class="bg-black w-full mt-16">
+  <div class="bg-black w-full my-16">
     <VideoPlayer id="kadastiku-video" mp4="https://animal.ee/files/kadastiku.mp4" webm="https://animal.ee/files/kadastiku.webm" />
   </div>
 
-  <h3 class="text-center mt-16">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
-</ContainerSection>
+  <div class="bg-[#7DC578] p-12">
+    <h3 class="text-center block mt-0">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
+  </div>
+</PatternSection>

@@ -12,8 +12,8 @@ Laokompleksis asuv sorteerimisliin aitab nii õunte müügiks ettevalmistamisel 
 Laokompleksi oluliseks osaks on ka suur varjualune, milles hoiustada hooajavälisel perioodil tühjasid õunakonteinereid. Konteinerite varu on piisav, et mahutada ka suured tulevased saagid.
 
 - Laokompleksi asukoht on Salme alevikus, Viiase tee 26, Kuressaare-Sõrve maantee vahetus läheduses, väga hea ligipääsuga kõvakattega teelt.
-- Kinnistu suurus 0,48ha.
+- Kinnistu suurus 0,48 ha.
 - Laokompleks sisaldab avarat asfaltkattega parklat, tootmishoonet ja suurt varjualust.
-- Tootmishoones netopinnaga 480m2 on 4 jahekambrit õunte hoiustamiseks vajalikul temperatuuril ning võimalik on tulevikus rajada veel üks lisakamber. Üks väike kamber on võimalik kohandada sügavkülmakambriks.
-- Lisaks asub tootmishoones veel õunte sorteerimise ja pakendamise ruum ning kontor + töötajate riietusruum, duširuum, wc.
+- Tootmishoones netopinnaga 480 m2 on 4 jahekambrit õunte hoiustamiseks vajalikul temperatuuril ning võimalik on tulevikus rajada veel üks lisakamber. Üks väike kamber on võimalik kohandada sügavkülmakambriks.
+- Lisaks asub tootmishoones veel õunte sorteerimise ja pakendamise ruum ning kontor + töötajate riietusruum, duširuum, WC.
 - Pakkumisesse kuuluvad ka õunte sorteerimisliin, väikepakendisse pakendamise masin ning kõik vajaminevad väiketarvikud – kaalud, etiketikaal, etiketiprinterid jm.

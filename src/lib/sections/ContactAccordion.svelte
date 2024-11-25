@@ -21,7 +21,7 @@
   <dt>
     <button
       type="button"
-      class="flex w-full p-2 items-start justify-between text-left hover:text-neutral-600 focus:bg-neutral-200 outline-none"
+      class="flex w-full p-2 items-start justify-between text-left hover:text-neutral-600 focus:text-neutral-200 bg-red-400 outline-none"
       aria-controls="faq-0"
       aria-expanded="false"
       onclick={onOpenClick}>
