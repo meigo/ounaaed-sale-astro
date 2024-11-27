@@ -36,7 +36,8 @@ export default {
         102: "1.02",
       },
       colors: {
-        "ka-light": "#F6F3EF",
+        // "ka-light": "#F6F3EF",
+        "ka-light": "#F4F2EA",
         "ka-main": "#6EC8AA",
         "ka-dark": "#1A252B",
         // "ka-main": "#68AA87",
