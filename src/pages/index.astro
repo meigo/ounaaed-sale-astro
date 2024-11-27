@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/MainLayout.astro";
+import GfxContainer from "@lib/components/GfxContainer.astro";
 
+import SaleSection from "@lib/sections/SaleSection.astro";
 import TereSection from "@lib/sections/TereSection.astro";
 import VideoSection from "@lib/sections/VideoSection.astro";
 import SuurnaSection from "@lib/sections/SuurnaSection.astro";
@@ -17,17 +19,18 @@ import Hr from "@lib/components/Hr.astro";
 ---
 
 <Layout menuType="main">
-  <TereSection />
-  <VideoSection />
-  <SuurnaSection />
-  <Hr />
-  <TehumardiSection />
-  <OunaaiadSection />
-  <LaokompleksSection />
-  <TehnikaSection />
-  <VillaSection />
-  <Hr />
-  <LisaSection />
-  <AsukohtSection />
-  <LoppSection />
+  <GfxContainer>
+    <SaleSection />
+    <TereSection />
+    <VideoSection />
+    <SuurnaSection />
+    <TehumardiSection />
+    <OunaaiadSection />
+    <LaokompleksSection />
+    <TehnikaSection />
+    <VillaSection />
+    <LisaSection />
+    <AsukohtSection />
+    <LoppSection />
+  </GfxContainer>
 </Layout>

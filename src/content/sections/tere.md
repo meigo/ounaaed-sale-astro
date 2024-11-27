@@ -18,5 +18,5 @@ Kompleks hõlmab kinnistuid, kus asuvad kaks suurt õunaaeda, nende juurde kuulu
 Kogu kompleksi olen üles ehitanud ja hoidnud hoole ja armastusega, õunaaedu olen viimase 7 aasta jooksul sihikindlat uuendanud, seda põhjusel, et tagada turustamise seisukohalt parim sordivalik. Võin öelda, et aiad on alles jõudmas enda saagikuse täie potentsiaalini.
 Uuel omanikul jääb võimalus kaaluda, kas ta soovib planeerida mingeid uuendusi või jätkata senisel kursil.
 
-Pakun sulle kogu kompleksi ja äritegevust “võtmed kätte” lahendusena, sealhulgas annan ka turustuskanalid ja kontaktid müügiga kaasa.
+Pakun sulle kogu kompleksi ja äritegevust "võtmed kätte" lahendusena, sealhulgas annan ka turustuskanalid ja kontaktid müügiga kaasa.
 Olen kindel, et see ettevõte võib pakkuda inspiratsiooni ja kasvuvõimalusi uuele omanikule, kes soovib edasi viia Kadastiku Õunaaia senist edulugu.

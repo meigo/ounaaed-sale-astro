@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import GfxContainer from "@lib/components/GfxContainer.astro";
+import Layout from "@layouts/MainLayout.astro";
+import ImageGrid from "@components/ImageGrid.astro";
+
+interface Props {
+  content: CollectionEntry<"pages">;
+  imagesPath: string;
+  images: any;
+}
+const { content, images, imagesPath } = Astro.props;
+const { Content } = await content.render();
+---
+
+<GfxContainer>
+  <Layout title={content.data.title}>
+    <section class="relative w-full max-w-5xl mx-auto py-16 sm:py-24 px-4 pointer-events-auto">
+      <h1 class="mt-6 text-center xl:text-left">{content.data.title}</h1>
+
+      <div class="mt-10 md-text">
+        <Content />
+      </div>
+
+      <ImageGrid path={imagesPath} files={images} />
+    </section>
+  </Layout>
+</GfxContainer>

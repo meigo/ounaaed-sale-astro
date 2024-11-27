@@ -1,0 +1,55 @@
+---
+import borderImg from "@assets/images/gfx/section-border.png";
+
+interface Props {
+  id?: string;
+  bgColor?: string;
+  borderColor?: "" | "main" | "light" | "dark" | "accent";
+  pattern?: boolean;
+}
+
+const { id = "", bgColor = "", borderColor = "main", pattern } = Astro.props;
+---
+
+<section {id} class="relative">
+  <!-- BG COLOR OVERLAY -->
+  <!-- <div class:list={["absolute w-full h-full", pattern && "mix-blend-multiply", bgColor]}></div> -->
+  <div class:list={["absolute w-full h-full", bgColor]}></div>
+
+  <!-- BORDER GFX -->
+  <div class="absolute gradient-mask w-full h-[90px]">
+    <div
+      class="absolute border-image w-full h-[90px]"
+      class:list={[
+        {
+          "bg-ka-main": borderColor === "main",
+          "bg-ka-light": borderColor === "light",
+          "bg-ka-accent": borderColor === "accent",
+          "bg-ka-dark": borderColor === "dark",
+        },
+      ]}>
+    </div>
+  </div>
+
+  <!-- CONTENT CONTAINER -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto pb-24 pt-32 sm:pb-32 sm:pt-44 px-4 pointer-events-auto">
+    <slot />
+  </div>
+</section>
+
+<style define:vars={{ bgSrc: `url("${borderImg.src}")`, borderColor: borderColor }}>
+  .border-image {
+    /* background-color: var(--borderColor); */
+    mask-image: var(--bgSrc);
+    mask-size: 350px;
+    mask-position: top center;
+    /* background: var(--src); */
+    /* background-size: 300px; */
+    /* background-position: top right; */
+    opacity: 1;
+  }
+
+  .gradient-mask {
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
+  }
+</style>

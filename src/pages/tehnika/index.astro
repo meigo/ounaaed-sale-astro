@@ -1,21 +1,9 @@
 ---
-import Layout from "@layouts/MainLayout.astro";
-import PatternSection from "@lib/components/PatternSection.astro";
-import ImageGrid from "@components/ImageGrid.astro";
-import { Content, frontmatter } from "@content/pages/tehnika.md";
+import { getEntry } from "astro:content";
+import PageView from "@lib/components/PageView.astro";
 
-const title = frontmatter.title;
+const content = await getEntry("pages", "tehnika");
 const imageFiles = await Astro.glob("../../assets/images/tehnika/*");
 ---
 
-<Layout {title}>
-  <PatternSection>
-    <h1 class="mt-6">{frontmatter.title}</h1>
-
-    <div class="mt-10 md-text">
-      <Content />
-    </div>
-
-    <ImageGrid path="/tehnika/images/" files={imageFiles} />
-  </PatternSection>
-</Layout>
+<PageView content={content} images={imageFiles} imagesPath="/tehnika/images/" />

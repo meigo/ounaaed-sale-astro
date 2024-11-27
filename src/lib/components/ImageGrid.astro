@@ -23,7 +23,7 @@ const images = files.map((file) => {
     <div class="grid gap-2 mt-12 sm:grid-cols-2 lg:grid-cols-3">
       {images.map((image, index) => (
         <div
-          class={`image group relative bg-neutral-500 overflow-hidden rounded-lg max-h-64 ${index % 2 == 0 && "lg:row-span-2 lg:max-h-full"} ${index % 7 == 0 && "lg:col-span-2"}`}>
+          class={`image group relative bg-neutral-500 overflow-hidden max-h-64 ${index % 2 == 0 && "lg:row-span-2 lg:max-h-full"} ${index % 7 == 0 && "lg:col-span-2"}`}>
           <a href={`${path}${image.id}`} class="cursor-pointer">
             <Picture
               src={image.image}

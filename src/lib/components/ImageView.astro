@@ -8,6 +8,7 @@ import HistorylessButton from "@lib/components/HistorylessButton.svelte";
 import ChevronRight from "./icons/IconChevronRight.svelte";
 import ChevronLeft from "./icons/IconChevronLeft.svelte";
 import X from "./icons/IconX.svelte";
+import a3 from "@assets/images/gfx/a3.png";
 
 interface Props {
   id: string;
@@ -22,6 +23,8 @@ const { id, image, prevId, nextId, backUrl } = Astro.props;
 
 <Layout title=`Suurna Õunaaed - ${id}`>
   <div class="fixed inset-0 z-10 flex justify-center items-center">
+    <!-- BG PATTERN -->
+    <div class="bg-pattern absolute w-full h-full"></div>
     <!-- IMAGE -->
     <Picture
       src={image}
@@ -40,3 +43,12 @@ const { id, image, prevId, nextId, backUrl } = Astro.props;
     </div>
   </div>
 </Layout>
+
+<style define:vars={{ img: `url("${a3.src}")` }}>
+  .bg-pattern {
+    background: var(--img);
+    background-size: 150px;
+    background-position: center center;
+    opacity: 0.4;
+  }
+</style>

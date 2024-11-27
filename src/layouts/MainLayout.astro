@@ -1,9 +1,9 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import PatternContainer from "@lib/components/PatternContainer.astro";
-import Menu from "@lib/components/Navbar.svelte";
-import "src/app.css";
+import Navbar from "@lib/components/Navbar.svelte";
 import { frontmatter } from "@content/pages/main.md";
+
+import "src/app.css";
 
 interface Props {
   title?: string;
@@ -53,18 +53,20 @@ const menuData = {
   requestAnimationFrame(raf);
 
   // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-  // lenis.on("scroll", ScrollTrigger.update);
+  lenis.on("scroll", ScrollTrigger.update);
 
   // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker. This ensures Lenis's smooth scroll animation updates on each GSAP tick
-  // gsap.ticker.add((time) => {
-  //   lenis.raf(time * 1000); // Convert time from seconds to milliseconds
-  // });
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+  });
 
   // Disable lag smoothing in GSAP to prevent any delay in scroll animations
-  // gsap.ticker.lagSmoothing(0);
+  gsap.ticker.lagSmoothing(0);
 
   //*******************************************************************************************************************/
-  function init() {}
+  function init() {
+    document.documentElement.classList.add("smooth-scroll");
+  }
 
   // VIEWTRANSITIONS
   document.addEventListener("astro:after-swap", () => {
@@ -87,13 +89,8 @@ const menuData = {
   </head>
 
   <!-- SMOOTH SCROLL ONLY FOR ANCHOR NAVIGATION -->
-  <!-- <body onload="document.documentElement.classList.add('smooth-scroll');"> -->
-  <body>
-    <!-- <h1 class="absolute text-xs text-white -top-10">{title}</h1> -->
-
-    <Menu data={menuData[menuType]} client:load />
-    <PatternContainer>
-      <slot />
-    </PatternContainer>
+  <body onload="document.documentElement.classList.add('smooth-scroll');">
+    <Navbar data={menuData[menuType]} client:load />
+    <slot />
   </body>
 </html>

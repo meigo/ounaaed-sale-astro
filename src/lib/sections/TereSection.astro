@@ -1,14 +1,14 @@
 ---
 import { Picture } from "astro:assets";
 import { Content, frontmatter } from "@content/sections/tere.md";
-import PatternSection from "@lib/components/PatternSection.astro";
+import Section from "@lib/components/ContainerSection.astro";
 
 import riho from "@assets/images/riho-square.png";
 ---
 
-<PatternSection>
+<Section borderColor="">
   <!-- TERE -->
-  <h2 class="text-30vw leading-0 sm:leading-none sm:text-[9rem] sm:-ml-[100px] xl:text-[9rem] relative text-center">
+  <h2 class="relative -mt-6 sm:-mt-12 text-[25vw] leading-0 sm:leading-none sm:text-[7rem] sm:-ml-[100px] text-center">
     {frontmatter.title}
   </h2>
 
@@ -22,7 +22,9 @@ import riho from "@assets/images/riho-square.png";
   <div class="pt-8 md-text">
     <Content />
   </div>
-</PatternSection>
+
+  <div class="clear-both"></div>
+</Section>
 
 <style>
   .circle {

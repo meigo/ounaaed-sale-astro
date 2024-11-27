@@ -2,7 +2,7 @@
 title: "Suurna õunaaed"
 ---
 
-Aed, mille rajamisega algas ka Kadastiku Õunaaia lugu.
+_Aed, mille rajamisega algas ka Kadastiku Õunaaia lugu._
 
 Sobivat kohta aia rajamiseks otsisin kaua. Siin, Sõrve poolsaare alguses, kus meri on väga lähedal kahest küljest, on aastaringselt ühtlasem kliima, talved on siin mahedamad, suved pikad ja päikeserohked. Samas on see asukoht hea ka logistiliselt, sest Salme ja suured maanteed on kohe lähedal ja ligipääs on väga mugav.
 

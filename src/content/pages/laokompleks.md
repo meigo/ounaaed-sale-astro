@@ -1,10 +1,10 @@
 ---
-title: "Laokompleks"
+title: "Laokompleks koos jahekambritega"
 ---
 
 Aiandusettevõtet on võimatu ette kujutada ilma hoidlata.
 
-Kadastiku Õunaaia ladu Salme aleviku servas sai ehitatud koheselt kui aed hakkas andma suuremaid saake ning endine hoidla Nasva külas ei mahutanud enam vajalikku. Alates nullist laokompleksi kavandades oli võimalik arvesse võtta kõiki õunakasvatuse vajadusi. Siin on olemas suured hoiukambrid, mille temperatuuri saab reguleerida ja kus õunad säilivad kvaliteetsena kuni müügiperioodi lõpuni varakevadel – see annab meile turul suure eelise võrreldes nende tootjatega, kellel head hoiustamisvõimalused puuduvad.
+Kadastiku Õunaaia ladu Salme aleviku servas sai ehitatud koheselt kui aed hakkas andma suuremaid saake ning endine hoidla Nasva külas ei mahutanud enam vajalikku. Alates nullist laokompleksi kavandades oli võimalik arvesse võtta kõiki õunakasvatuse vajadusi. Siin on olemas suured hoiukambrid, mille temperatuuri saab reguleerida ja kus õunad säilivad kvaliteetsena kuni müügiperioodi lõpuni varakevadel - see annab meile turul suure eelise võrreldes nende tootjatega, kellel head hoiustamisvõimalused puuduvad.
 
 Et enda toodangut tõhusamalt turustada, oleme aja jooksul pidevalt arendanud pakendamise võimalusi ja lisanud erinevaid pakendite variante. Nii saame enda ilusaid õunu pakkuda kliendile poes nii lahtisena, pakendatuna nägusasse kotti või hoopis kaunilt väikekandikule pakituna. Kõiges aitavad meid seadmed, millesse olen järjekindlalt investeerinud.
 
@@ -16,4 +16,4 @@ Laokompleksi oluliseks osaks on ka suur varjualune, milles hoiustada hooajaväli
 - Laokompleks sisaldab avarat asfaltkattega parklat, tootmishoonet ja suurt varjualust.
 - Tootmishoones netopinnaga 480 m2 on 4 jahekambrit õunte hoiustamiseks vajalikul temperatuuril ning võimalik on tulevikus rajada veel üks lisakamber. Üks väike kamber on võimalik kohandada sügavkülmakambriks.
 - Lisaks asub tootmishoones veel õunte sorteerimise ja pakendamise ruum ning kontor + töötajate riietusruum, duširuum, WC.
-- Pakkumisesse kuuluvad ka õunte sorteerimisliin, väikepakendisse pakendamise masin ning kõik vajaminevad väiketarvikud – kaalud, etiketikaal, etiketiprinterid jm.
+- Pakkumisesse kuuluvad ka õunte sorteerimisliin, väikepakendisse pakendamise masin ning kõik vajaminevad väiketarvikud - kaalud, etiketikaal, etiketiprinterid jm.

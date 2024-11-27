@@ -1,17 +1,15 @@
 ---
-import { Image, Picture } from "astro:assets";
+import { Picture } from "astro:assets";
 
 interface Props {
   image: any;
   mask: any;
-  color?: "yellow" | "red";
 }
 
-const { image, mask, color = "red" } = Astro.props;
+const { image, mask } = Astro.props;
 ---
 
-<!-- <Image src={mask} alt="Mask" class="bg-shape scale-95 -top-5 rotate-12 w-full absolute h-auto" class:list={color} /> -->
-<div class="mask">
+<div class="mask scale-90">
   <Picture src={image} formats={["avif", "webp"]} alt="Robots" class="w-full h-full" />
 </div>
 

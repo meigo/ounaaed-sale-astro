@@ -1,11 +1,12 @@
 ---
-id: "tehnika"
-title: "Tehnika"
-link: "/tehnika"
+id: tehnika
+title: Tehnika
+link: /tehnika
+linkLabel: Vaata lähemalt, milline tehnika on pakkumisega kaasas
 ---
 
 Soovi korral pakun uuele omanikule kogu vajaminevat tehnikat ja sõidukeid, mis on vajalikud õunaaia hooldamiseks ning tööprotsesside korraldamiseks (kaubavedu jm).
 
 Kogu tehnika on kaasaegne ja sobiv just aiandi jaoks, paljud masinad on tipptootjate toodang. Kui soovid alustada tegevust kasvõi homme, on kõik vajalik kohe olemas.
 
-[Vaata lähemalt, milline tehnika on pakkumisega kaasas](/tehnika)
+Kõik masinad ja seadmed on ostetud uuena. Mõned masinad on praeguseks ka vahetatud uue vastu.

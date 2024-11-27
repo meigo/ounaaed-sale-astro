@@ -5,58 +5,16 @@
 
 @layer base {
   @font-face {
-    font-family: "Gelica";
-    src: url("/gelica-semibold-webfont.woff2") format("woff2"), url("/gelica-semibold-webfont.woff") format("woff");
+    font-family: "walsheim";
+    src: url("/GT-Walsheim.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "walsheim";
+    src: url("/GT-Walsheim-Bold.woff") format("woff");
     font-weight: bold;
-    font-style: normal;
-  }
-
-  /* @font-face {
-    font-family: "aileronultralight";
-    src: url("Aileron-UltraLight.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  } */
-
-  @font-face {
-    font-family: "aileronthin";
-    src: url("/Aileron-Thin.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "aileronlight";
-    src: url("/Aileron-Light.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "aileronregular";
-    src: url("/Aileron-Regular.woff") format("woff");
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "outfit";
-    src: url("/Outfit-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "outfit";
-    src: url("/Outfit-Bold.woff") format("woff");
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "outfit-light";
-    src: url("/Outfit-Light.woff") format("woff");
-    font-weight: normal;
     font-style: normal;
   }
 
@@ -70,7 +28,7 @@
   }
 
   body {
-    @apply text-base sm:text-17 m-0 bg-white text-black;
+    @apply text-base sm:text-17 m-0 bg-ka-light text-ka-dark;
   }
 
   /* *,
@@ -96,11 +54,11 @@
   dt,
   label,
   th {
-    @apply font-outfit-light uppercase font-normal leading-none;
+    @apply font-walsheim uppercase leading-none text-ka-dark;
   }
 
   p {
-    @apply font-outfit-light;
+    @apply font-walsheim;
   }
 
   h1 {
@@ -134,14 +92,16 @@
   }
 
   ::selection {
-    @apply bg-zinc-400 text-zinc-800;
+    @apply bg-ka-dark text-ka-light;
   }
 
   ul {
-    @apply mt-6 first:mt-0;
+    @apply mt-8 first:mt-0 lg:columns-2;
+    column-gap: 50px;
   }
 
   li {
+    @apply font-walsheim text-lg;
     /* @apply ml-4 last:pb-0; */
     /* @apply ml-2 pl-2 pb-4 last:pb-0; */
     /* list-style-type: "⬩"; */
@@ -154,7 +114,8 @@
   }
 
   ul li::before {
-    content: "◆";
+    /* @apply text-ka-accent; */
+    content: "✱";
     position: absolute;
     top: 0px;
     left: 0;
@@ -165,13 +126,7 @@
   }
 
   .md-text h3 + hr {
-    @apply sm:hidden;
-  }
-
-  .md-text h3 {
-    /* @apply sm:underline; */
-    text-underline-offset: 0.75rem;
-    text-decoration-thickness: 1px;
+    @apply sm:hidden font-walsheim;
   }
 
   .md-text h3,
@@ -188,19 +143,19 @@
     @apply not-italic font-bold;
   }
 
-  .md-text a {
-    @apply font-bold bg-red-200 p-4 my-8 inline-block;
+  /* .md-text a {
+    @apply px-4;
+  }
+
+  p:has(a) {
+    @apply inline-block relative py-4 my-8;
   }
 
   .md-text a::after {
     @apply whitespace-pre;
     content: " »";
     display: inline-block;
-  }
-
-  .justified p {
-    @apply text-justify hyphens-auto;
-  }
+  } */
 }
 
 @layer components {

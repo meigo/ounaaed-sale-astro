@@ -4,9 +4,9 @@
   import { quintOut, sineOut, sineIn } from "svelte/easing";
   import BurgerIcon from "./icons/BurgerIcon.svelte";
   import XIcon from "./icons/XIcon.svelte";
-  // import SpaceTimeLogo from "../components/SpaceTimeLogo.svelte";
+  import HomeIcon from "./icons/HomeIcon.svelte";
 
-  let { id, data } = $props();
+  let { id, data, class: className = "bg-ka-main" } = $props();
 
   let js = $state(false);
 
@@ -27,27 +27,27 @@
   let scrollY = $state(0);
   let innerWidth = $state(0);
 
-  let bigMenuHidden = $derived(innerWidth < 640 || scrollY > 350);
+  //sm: 640px, md: 768px, lg: 1024px
+  let bigMenuHidden = $derived(innerWidth < 850);
+  // let bigMenuHidden = $derived(innerWidth < 1024 || scrollY > 350);
 </script>
 
 <svelte:window bind:scrollY bind:innerWidth onscroll={closeIfOpen} />
 
 {#if js}
-  <header class="absolute z-40 w-full bg-white">
-    <nav class="max-w-6xl w-full mx-auto">
-      <!-- JS -->
-      <div class="absolute h-12 flex items-center z-2">
-        <a href="/" class="hover:opacity-80 outline-offset-4">LOGO</a>
-      </div>
-
+  <header class={`relative z-40 w-full max-h-12 ${className}`}>
+    <nav class="w-full mx-auto">
       {#if !bigMenuHidden}
-        <div class="h-12 flex items-center justify-center w-full">
-          {#each data as { label, href }}
-            <div class="h-full">
-              <!-- <div class="h-[1px] bg-white {id === label.trim().toLowerCase() ? 'visible' : 'invisible'}"></div> -->
+        <div class=" h-12 flex items-center justify-center w-full">
+          {#each data as { label, href }, index}
+            {#if index == 0}
               <div class="h-full flex items-center mx-1">
-                <a {href} class="px-3 menu-item">{label}</a>
+                <a href="/" class="px-3 menu-item"><HomeIcon /></a>
               </div>
+            {/if}
+
+            <div class="h-full flex items-center mx-1">
+              <a {href} class="px-3 menu-item">{label}</a>
             </div>
           {/each}
         </div>
@@ -55,26 +55,41 @@
 
       <!-- HAMBURGER MENU BUTTON -->
       {#if bigMenuHidden && !isOpen}
-        <div class="absolute right-0 w-14 h-14 z-2">
-          <button
-            type="button"
-            class="flex items-center justify-center w-full h-full p-2"
-            aria-controls="mobile-menu"
-            aria-expanded={isOpen}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            onclick={toggleMenu}>
-            <BurgerIcon />
-          </button>
+        <div class="w-full flex justify-end items-center">
+          <div class=" right-0 w-12 h-12">
+            <button
+              type="button"
+              class="flex items-center justify-center w-full h-full text-white"
+              aria-controls="mobile-menu"
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              onclick={toggleMenu}>
+              <BurgerIcon />
+            </button>
+          </div>
         </div>
       {/if}
 
       <!-- HAMBURGER MENU -->
       {#if isOpen}
-        <button class="fixed w-full h-full backdrop-blur-md bg-black bg-opacity-50" aria-label="Toggle menu button" onclick={closeIfOpen}
-        ></button>
+        <button
+          class="fixed top-0 w-full h-full backdrop-blur-md bg-ka-dark bg-opacity-90"
+          aria-label="Toggle menu button"
+          onclick={closeIfOpen}></button>
 
-        <div id="mobile-menu" class="absolute h-screen w-full flex flex-col justify-center items-center pointer-events-none">
+        <div id="mobile-menu" class="fixed top-0 h-screen w-full flex flex-col justify-center items-center pointer-events-none">
           {#each data as { label, href }, index}
+            {#if index == 0}
+              <div class="relative py-2 pointer-events-none">
+                <a
+                  href="/"
+                  class="block menu-item mobile pointer-events-auto"
+                  onclick={() => (isOpen = false)}
+                  in:fly|global={{ delay: index * 50, duration: 300, easing: quintOut, y: 20 }}
+                  ><HomeIcon />
+                </a>
+              </div>
+            {/if}
             <div class="relative py-2 pointer-events-none">
               <a
                 {href}
@@ -97,12 +112,12 @@
 
 <style lang="postcss">
   .menu-item {
-    @apply text-base space-x-8 whitespace-nowrap text-black;
+    @apply text-base text-lg uppercase space-x-8  whitespace-nowrap text-ka-dark;
   }
   .menu-item.mobile {
-    @apply text-3xl whitespace-normal text-white;
+    @apply text-3xl whitespace-normal text-ka-light;
   }
   .menu-item:hover {
-    @apply opacity-90 scale-102;
+    @apply opacity-70 scale-102 text-ka-accent;
   }
 </style>

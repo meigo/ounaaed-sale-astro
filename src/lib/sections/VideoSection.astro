@@ -1,17 +1,19 @@
 ---
 import VideoPlayer from "@lib/components/VideoPlayer.astro";
-import PatternSection from "@lib/components/PatternSection.astro";
+import Section from "@lib/components/ContainerSection.astro";
+import HandIcon from "@components/icons/HandIcon.astro";
 ---
 
 <!-- VIDEO CONTAINER -->
-<PatternSection>
+<Section bgColor="bg-ka-main" borderColor="light" pattern>
   <h2 class="text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
 
   <div class="bg-black w-full my-16">
     <VideoPlayer id="kadastiku-video" mp4="https://animal.ee/files/kadastiku.mp4" webm="https://animal.ee/files/kadastiku.webm" />
   </div>
 
-  <div class="bg-[#7DC578] p-12">
-    <h3 class="text-center block mt-0">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
+  <div class="bg-ka-accent p-12 flex justify-center items-center">
+    <HandIcon class="w-8" />
+    <h3 class="text-center block ml-4 mt-0">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
   </div>
-</PatternSection>
+</Section>

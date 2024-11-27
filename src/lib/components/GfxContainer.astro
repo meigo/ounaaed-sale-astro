@@ -1,0 +1,38 @@
+---
+import gfx1 from "@assets/images/gfx/gfx1.png";
+import grain from "@assets/images/gfx/grain.jpg";
+---
+
+<div class="relative">
+  <div class="absolute w-full h-full top-0 flex pointer-events-none">
+    <!-- GFX -->
+    <div class="gfx1 bg-left relative -top-[250px] md:-top-[200px] xl:-top-[50px] h-[500px] w-[70%] sm:w-[100%] xl:w-[500px] max-w-[500px]">
+    </div>
+    <div class="relative hidden sm:block w-full"></div>
+  </div>
+  <div class="absolute mix-blend-overlay grain w-full h-full pointer-events-none"></div>
+  <slot />
+</div>
+
+<style define:vars={{ gfx1: `url("${gfx1.src}")`, grain: `url("${grain.src}")` }}>
+  .gfx1 {
+    background: var(--gfx1);
+    background-size: 500px;
+    background-position: top right;
+    opacity: 1;
+  }
+  .bg-left {
+    background-position: top right;
+  }
+  .bg-right {
+    background-position: top right;
+    transform: scaleX(-1);
+  }
+
+  .grain {
+    background: var(--grain);
+    background-size: 50px;
+    background-position: center center;
+    opacity: 1;
+  }
+</style>

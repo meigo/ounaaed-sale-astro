@@ -1,21 +1,49 @@
 ---
-import { Picture } from "astro:assets";
-import PatternSection from "@lib/components/PatternSection.astro";
-import { Content, frontmatter } from "@content/sections/laokompleks.md";
+import MaskedImage from "@lib/components/MaskedImage.astro";
+import Section from "@lib/components/ContainerSection.astro";
+import IconChevronRight from "@lib/components/icons/IconChevronRight.astro";
 
-import image from "@assets/images/laokompleks/41Gq7CtQ.png";
+import { Content, frontmatter } from "@content/sections/laokompleks.md";
+import image from "@assets/images/main/laokompleks.jpg";
+import blob from "@assets/svg/blob2.svg";
 ---
 
-<PatternSection id={frontmatter.id}>
-  <h2 class="text-center">{frontmatter.title}</h2>
+<Section id={frontmatter.id}>
+  <!-- TITLE -->
+  <h2 class="text-10vw leading-0 sm:leading-none sm:text-[4rem] xl:text-[3rem] relative text-right">
+    {frontmatter.title}
+  </h2>
 
-  <div class="mt-8 sm:mt-14 md-text">
+  <!-- IMAGE -->
+  <div class="mt-8 sm:mt-4 w-full sm:w-[60vw] lg:w-[40vw] xl:w-[500px] sm:float-left text-mask">
+    <MaskedImage image={image} mask={blob} />
+  </div>
+
+  <!-- TEXT -->
+  <div class="mt-8 sm:mt-14 md-text text-right">
     <Content />
   </div>
 
-  <div class="mt-10">
-    <a href={frontmatter.link}>
-      <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
-    </a>
-  </div>
-</PatternSection>
+  <a href={frontmatter.link} class="flex block mt-8 text-ka-main text-2xl hover:text-ka-accent items-center h-8"
+    >{frontmatter.linkLabel} <IconChevronRight class="w-8" /></a
+  >
+
+  <div class="clear-both"></div>
+</Section>
+
+<style define:vars={{ mask: `url("${blob.src}")` }}>
+  .text-mask {
+    @apply scale-90;
+    shape-outside: none;
+  }
+
+  /* SM */
+  @media (min-width: 640px) {
+    .text-mask {
+      /* @apply scale-95; */
+      shape-outside: var(--mask);
+      shape-image-threshold: 0.9;
+      shape-margin: 2rem;
+    }
+  }
+</style>

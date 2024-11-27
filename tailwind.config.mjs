@@ -1,16 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  safelist: ["bg-ka-cream", "bg-ka-cream-dark", "bg-ka-green", "text-ka-cream", "text-ka-cream"],
+  safelist: ["bg-ka-main", "bg-ka-light", "bg-ka-dark", "bg-ka-accent", "text-ka-main", "text-ka-light", "text-ka-dark", "text-ka-accent"],
   theme: {
     extend: {
       fontFamily: {
-        gelica: "Gelica",
-        outfit: "outfit",
-        "outfit-light": "outfit-light",
-        aileron: "aileronregular",
-        "aileron-thin": "aileronthin",
-        "aileron-light": "aileronlight",
+        raleway: "raleway",
+        walsheim: "walsheim",
       },
       lineHeight: {
         0: ".8",
@@ -40,14 +36,27 @@ export default {
         102: "1.02",
       },
       colors: {
-        // "ka-cream": "#EEECE5",
-        "ka-cream": " #F9F7DE",
-        "ka-cream-dark": "#ECE8DB",
-
-        // "ka-green": "#5D7260",
-        "ka-green": "#008C5B",
-        "ka-red": "#E50B3B",
-        "ka-salmon": "#FF8B5A",
+        "ka-light": "#F6F3EF",
+        "ka-main": "#6EC8AA",
+        "ka-dark": "#1A252B",
+        // "ka-main": "#68AA87",
+        // "ka-dark": "#00002C",
+        // "ka-main": "#E65136",
+        // "ka-dark": "#31181F",
+        // "ka-main": "#EE3F37",
+        // "ka-dark": "#132C31",
+        // "ka-main": "#EC254E",
+        // "ka-dark": "#011936",
+        "ka-accent": "#FE3346",
+      },
+      animation: {
+        wiggle: "wiggle 1s ease-in-out infinite",
+      },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
       },
     },
   },

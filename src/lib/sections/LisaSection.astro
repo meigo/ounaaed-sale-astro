@@ -1,12 +1,12 @@
 ---
-import PatternSection from "@lib/components/PatternSection.astro";
+import Section from "@lib/components/ContainerSection.astro";
 import ImageGrid from "@components/ImageGrid.astro";
 import { Content, frontmatter } from "@content/sections/lisa.md";
 
 const imageFiles = await Astro.glob("../../assets/images/lisa/*");
 ---
 
-<PatternSection id={frontmatter.id}>
+<Section id={frontmatter.id} bgColor="bg-ka-accent" borderColor="dark">
   <h2>{frontmatter.title}</h2>
 
   <div class="mt-10 md-text">
@@ -14,4 +14,4 @@ const imageFiles = await Astro.glob("../../assets/images/lisa/*");
   </div>
 
   <ImageGrid path="/lisa/images/" files={imageFiles} />
-</PatternSection>
+</Section>

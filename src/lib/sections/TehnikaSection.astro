@@ -1,21 +1,43 @@
 ---
 import { Picture } from "astro:assets";
-import PatternSection from "@lib/components/PatternSection.astro";
+import Section from "@lib/components/ContainerSection.astro";
 import { Content, frontmatter } from "@content/sections/tehnika.md";
 
-import image from "@assets/images/tehnika/TThCXZCg.png";
+import image from "@assets/images/main/tehnika.jpg";
 ---
 
-<PatternSection id={frontmatter.id} class="bg-violet-200">
-  <h2 class="text-center">{frontmatter.title}</h2>
+<Section id={frontmatter.id} bgColor="bg-ka-main" borderColor="light">
+  <!-- <h2 class="text-center">{frontmatter.title}</h2> -->
+  <h2 class="text-[18vw] leading-0 sm:leading-none sm:text-[5rem] relative text-center sm:text-right">
+    {frontmatter.title}
+  </h2>
 
-  <div class="mt-8 sm:mt-14 md-text">
+  <!-- IMAGE -->
+  <div class="w-full sm:w-[40vw] xl:w-[450px] mt-8 sm:mt-0 float-none sm:float-left circle">
+    <Picture src={image} formats={["avif", "webp"]} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
+  </div>
+
+  <div class="mt-8 sm:mt-14 md-text text-right">
     <Content />
   </div>
 
-  <div class="mt-10">
-    <a href={frontmatter.link}>
-      <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
-    </a>
-  </div>
-</PatternSection>
+  <a href={frontmatter.link}><span class="bg-ka-light text-ka-main text-2xl">{frontmatter.linkLabel}</span></a>
+
+  <div class="clear-both"></div>
+</Section>
+
+<style>
+  .circle {
+    @apply scale-100 rounded-full overflow-hidden;
+    shape-outside: none;
+  }
+
+  /* SM */
+  @media (min-width: 640px) {
+    .circle {
+      @apply scale-75;
+      shape-margin: 5px;
+      shape-outside: circle(50%) margin-box;
+    }
+  }
+</style>

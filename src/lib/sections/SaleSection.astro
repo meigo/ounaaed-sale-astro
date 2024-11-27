@@ -1,0 +1,56 @@
+---
+import KadastikuLogo from "@lib/components/gfx/KadastikuLogo.astro";
+import Sale from "@lib/components/gfx/Sale.astro";
+---
+
+<script>
+  import { gsap } from "gsap";
+
+  let inited = false;
+
+  function init() {
+    // SALE GFX
+    var saleElement = document.querySelector("#sale-gfx");
+    var saleInElement = document.querySelector("#sale-gfx-inner");
+    if (saleElement) {
+      if (!inited) {
+        gsap.from(saleElement, {
+          scale: 0,
+          delay: 0.5,
+          duration: 1,
+          ease: "elastic.out(1,0.3)",
+        });
+      }
+    }
+    if (saleInElement) {
+      gsap.from(saleInElement, {
+        delay: 0,
+        duration: 2,
+        repeat: -1,
+        keyframes: {
+          scale: [1, 0.95, 1],
+        },
+      });
+    }
+
+    inited = true;
+  }
+
+  // VIEWTRANSITIONS
+  document.addEventListener("astro:after-swap", () => {
+    init();
+  });
+
+  init();
+</script>
+
+<section class="flex flex-col sm:flex-row justify-center scale-90 sm:scale-100 items-center pt-6 transition:persist">
+  <div id="sale-gfx" class="relative sm:-right-10">
+    <div id="sale-gfx-inner">
+      <Sale class="w-56" />
+    </div>
+  </div>
+  <div class="relative">
+    <KadastikuLogo class="w-72" />
+  </div>
+</section>
