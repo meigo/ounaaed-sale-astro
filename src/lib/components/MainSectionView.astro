@@ -44,9 +44,13 @@ const { Content } = await content.render();
   </div>
 
   <!-- LOE LISAKS BUTTON -->
-  <div class="mt-12 flex" class:list={[align === "left" ? "justify-end" : "justify-start"]}>
-    <ArrowButton href={content.data.link}>{content.data.linkLabel}</ArrowButton>
-  </div>
+  {
+    content.data.link && (
+      <div class="mt-12 flex" class:list={[align === "left" ? "justify-end" : "justify-start"]}>
+        <ArrowButton href={content.data.link}>{content.data.linkLabel}</ArrowButton>
+      </div>
+    )
+  }
 
   <slot />
 </SectionView>

@@ -61,7 +61,9 @@ export default {
       colors: {
         // "ka-light": "#F6F3EF",
         "ka-light": "#F4F2EA",
-        "ka-main": "#6EC8AA",
+        // "ka-main": "#6EC8AA",
+        "ka-main": "#C2D93E",
+        "ka-main-dark": "#007236",
         "ka-dark": "#1A252B",
         "ka-accent": "#FE3346",
       },
