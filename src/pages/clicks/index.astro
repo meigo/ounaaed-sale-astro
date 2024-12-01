@@ -1,0 +1,11 @@
+---
+import "src/app.css";
+import Layout from "@layouts/ImageLayout.astro";
+import ContactClicks from "@lib/components/ContactClicks.svelte";
+---
+
+<Layout title="Contact clicks">
+  <div class="fixed inset-0 z-10 flex justify-center items-center">
+    <ContactClicks client:load />
+  </div>
+</Layout>

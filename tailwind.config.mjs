@@ -1,11 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  safelist: ["bg-ka-main", "bg-ka-light", "bg-ka-dark", "bg-ka-accent", "text-ka-main", "text-ka-light", "text-ka-dark", "text-ka-accent"],
+  safelist: [
+    "bg-ka-main",
+    "bg-ka-light",
+    "bg-ka-dark",
+    "bg-ka-accent",
+    "text-ka-main",
+    "text-ka-light",
+    "text-ka-dark",
+    "text-ka-accent",
+    "border-ka-main",
+    "border-ka-light",
+    "border-ka-dark",
+    "border-ka-accent",
+  ],
   theme: {
     extend: {
+      zIndex: {
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+      },
+      maxWidth: {
+        "8xl": "96rem",
+        "9xl": "120rem",
+      },
       fontFamily: {
-        raleway: "raleway",
         walsheim: "walsheim",
       },
       lineHeight: {
@@ -36,17 +59,9 @@ export default {
         102: "1.02",
       },
       colors: {
-        "ka-light": "#F6F3EF",
+        "ka-light": "#F1EDE7",
         "ka-main": "#6EC8AA",
         "ka-dark": "#1A252B",
-        // "ka-main": "#68AA87",
-        // "ka-dark": "#00002C",
-        // "ka-main": "#E65136",
-        // "ka-dark": "#31181F",
-        // "ka-main": "#EE3F37",
-        // "ka-dark": "#132C31",
-        // "ka-main": "#EC254E",
-        // "ka-dark": "#011936",
         "ka-accent": "#FE3346",
       },
       animation: {

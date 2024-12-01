@@ -1,0 +1,183 @@
+---
+import BurgerIcon from "./icons/BurgerIcon.astro";
+import XIcon from "./icons/XIcon.astro";
+import HomeIcon from "./icons/HomeIcon.astro";
+
+interface Props {
+  id?: string;
+  type: MenuType;
+}
+const { id, type } = Astro.props;
+
+const data: MenuData = {
+  main: [
+    { label: "Suurna õunaaed", href: "#suurna-ounaaed" },
+    { label: "Tehumardi õunaaed", href: "#tehumardi-ounaaed" },
+    { label: "Laokompleks", href: "#laokompleks" },
+    { label: "Tehnika", href: "#tehnika" },
+    { label: "Villa", href: "#villa" },
+    { label: "Kontakt", href: "#kontakt" },
+  ],
+  page: [
+    { label: "Home", href: "/" },
+    { label: "Suurna õunaaed", href: "/suurna-ounaaed" },
+    { label: "Tehumardi õunaaed", href: "/tehumardi-ounaaed" },
+    { label: "Laokompleks", href: "/laokompleks" },
+    { label: "Tehnika", href: "/tehnika" },
+    { label: "Villa", href: "/villa" },
+    { label: "Kontakt", href: "/#kontakt" },
+  ],
+};
+---
+
+<script>
+  let isOpen: boolean;
+  let burgerButton: HTMLElement;
+  let mobileMenu: HTMLElement;
+  let mobileMenuButton: HTMLElement;
+  let mobileMenuItems: NodeListOf<HTMLAnchorElement>;
+  // let wideMenuItems: NodeListOf<HTMLAnchorElement>;
+
+  function hideElement(element: HTMLElement) {
+    element.style.display = "none";
+  }
+
+  function showElement(element: HTMLElement) {
+    element.style.display = "block";
+  }
+
+  function closeIfOpen() {
+    // if (!isOpen) return;
+    isOpen = false;
+    updateState();
+  }
+
+  function toggleOpen() {
+    isOpen = !isOpen;
+    updateState();
+  }
+
+  function updateState() {
+    if (!mobileMenu) return;
+    if (isOpen) {
+      hideElement(burgerButton);
+      showElement(mobileMenu);
+    } else {
+      hideElement(mobileMenu);
+      showElement(burgerButton);
+    }
+  }
+
+  function hasMenu() {
+    return burgerButton && mobileMenu && mobileMenuButton && mobileMenuItems.length > 0;
+  }
+
+  async function init() {
+    isOpen = false;
+
+    burgerButton = document.getElementById("burger-button");
+    mobileMenu = document.getElementById("mobile-menu");
+    mobileMenuButton = document.getElementById("mobile-menu-button");
+    mobileMenuItems = document.querySelectorAll("a.menu-item.mobile");
+    // wideMenuItems = document.querySelectorAll("a.menu-item.menu-anchor");
+
+    // Init only if navbar elements exist on the page
+    if (!hasMenu()) return;
+
+    burgerButton.addEventListener("click", toggleOpen);
+    mobileMenuButton.addEventListener("click", closeIfOpen);
+    mobileMenuItems.forEach((element) => {
+      element.addEventListener("click", closeIfOpen);
+    });
+    window.addEventListener("scroll", closeIfOpen);
+
+    updateState();
+  }
+
+  // REMOVE EVENT LISTENERS
+  document.addEventListener("astro:before-swap", (event) => {
+    if (!hasMenu()) return;
+
+    burgerButton.removeEventListener("click", toggleOpen);
+    mobileMenuButton.removeEventListener("click", closeIfOpen);
+    window.removeEventListener("scroll", closeIfOpen);
+    mobileMenuItems.forEach((element) => {
+      element.removeEventListener("click", closeIfOpen);
+    });
+  });
+
+  // ADD EVENT LISTENERS
+  document.addEventListener("astro:after-swap", () => {
+    init();
+  });
+
+  init();
+</script>
+
+<header class="relative z-40 w-full max-h-12">
+  <nav class="w-full mx-auto lg:bg-ka-main">
+    <!-- WIDE MENU -->
+    <div id="wide-menu" class="hidden lg:block">
+      <div class="h-12 flex items-center justify-center w-full">
+        {
+          data[type].map((item, index) => (
+            <div class="h-full flex items-center mx-1">
+              <a href={item.href} class="px-3 menu-item" class:list={[{ "menu-anchor": type == "main" }]}>
+                {item.href === "/" ? <HomeIcon /> : item.label}
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- HAMBURGER MENU BUTTON -->
+    <div class="lg:hidden">
+      <div id="burger-button">
+        <div class="w-full flex justify-end items-center">
+          <div class="right-0 w-14">
+            <button type="button" class="flex items-center justify-center text-ka-dark p-2">
+              <BurgerIcon />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="lg:hidden">
+      <div id="mobile-menu">
+        <button
+          id="mobile-menu-button"
+          class="fixed top-0 w-full h-full backdrop-blur-md bg-ka-dark bg-opacity-90"
+          aria-label="Toggle menu button"></button>
+        <div id="mobile-menu" class="fixed top-0 h-screen w-full flex flex-col justify-center items-center pointer-events-none">
+          {
+            data[type].map((item, index) => (
+              <div class="relative py-2 pointer-events-none">
+                <a href={item.href} class="block menu-item mobile pointer-events-auto" class:list={[{ "menu-anchor": type == "main" }]}>
+                  {item.href === "/" ? <HomeIcon class="w-12" /> : item.label}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+        <div class="fixed right-2 top-2 pointer-events-none">
+          <XIcon class="text-white size-10" />
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style lang="postcss">
+  .menu-item {
+    @apply text-base text-lg uppercase space-x-8  whitespace-nowrap text-ka-dark;
+  }
+  .menu-item.mobile {
+    @apply text-3xl whitespace-normal text-ka-light;
+  }
+  .menu-item:hover {
+    @apply opacity-70 scale-102 text-ka-accent;
+  }
+</style>

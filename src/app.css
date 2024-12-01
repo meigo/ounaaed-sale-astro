@@ -54,7 +54,7 @@
   dt,
   label,
   th {
-    @apply font-walsheim uppercase leading-none text-ka-dark;
+    @apply font-walsheim uppercase leading-none;
   }
 
   p {
@@ -71,12 +71,15 @@
   }
 
   h3 {
-    @apply text-xl lg:leading-6 uppercase;
+    @apply text-3xl;
   }
 
-  h4,
+  h4 {
+    @apply text-xl;
+  }
+
   h5 {
-    @apply text-lg lg:leading-6 uppercase;
+    @apply text-lg;
   }
 
   label {
@@ -125,9 +128,9 @@
     @apply mt-2;
   }
 
-  .md-text h3 + hr {
+  /* .md-text h3 + hr {
     @apply sm:hidden font-walsheim;
-  }
+  } */
 
   .md-text h3,
   .md-text h4,

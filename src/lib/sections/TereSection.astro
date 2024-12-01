@@ -1,42 +1,42 @@
 ---
-import { Picture } from "astro:assets";
-import { Content, frontmatter } from "@content/sections/tere.md";
-import Section from "@lib/components/ContainerSection.astro";
+import { getEntry } from "astro:content";
+import SectionView from "@lib/components/SectionView.astro";
+import MaskedImage from "@lib/components/MaskedImage.astro";
+// import MainSectionView from "@lib/components/MainSectionView.astro";
 
-import riho from "@assets/images/riho-square.png";
+import image from "@assets/images/main/riho.jpg";
+import mask from "@assets/svg/mask-circle.svg";
+const content = await getEntry("sections", "tere");
+const { Content } = await content.render();
 ---
 
-<Section borderColor="">
-  <!-- TERE -->
-  <h2 class="relative -mt-6 sm:-mt-12 text-[25vw] leading-0 sm:leading-none sm:text-[7rem] sm:-ml-[100px] text-center">
-    {frontmatter.title}
+<SectionView color="" borderColor="light">
+  <!-- TITLE -->
+  <h2 class="relative -mt-16 sm:-mt-28 text-[25vw] leading-0 sm:leading-none sm:text-[7rem] sm:-ml-[100px] text-center">
+    {content.data.title}
   </h2>
 
   <!-- IMAGE -->
-  <div
-    class="w-full sm:w-[50vw] mt-8 sm:-mt-10 lg:w-[40vw] xl:w-[500px] xl:-mt-14 rounded-full overflow-hidden border-white border-8 float-none sm:float-right circle">
-    <Picture src={riho} formats={["avif", "webp"]} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
+  <div class="mt-2 sm:mt-4 w-full sm:w-[60vw] lg:w-[40vw] xl:w-[500px] float-right text-mask">
+    <MaskedImage image={image} mask={mask} />
   </div>
 
   <!-- TEXT -->
-  <div class="pt-8 md-text">
+  <div class="mt-8 sm:mt-14 md-text text-left">
     <Content />
   </div>
+</SectionView>
 
-  <div class="clear-both"></div>
-</Section>
-
-<style>
-  .circle {
-    @apply scale-100;
+<style define:vars={{ mask: mask && `url("${mask.src}")` }}>
+  .text-mask {
+    @apply scale-90;
     shape-outside: none;
   }
 
-  /* SM */
   @media (min-width: 640px) {
-    .circle {
-      @apply scale-90;
-      shape-outside: border-box ellipse();
+    .text-mask {
+      /* @apply scale-95; */
+      shape-outside: var(--mask);
     }
   }
 </style>

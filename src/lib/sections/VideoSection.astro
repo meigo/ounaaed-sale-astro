@@ -1,19 +1,20 @@
 ---
 import VideoPlayer from "@lib/components/VideoPlayer.astro";
-import Section from "@lib/components/ContainerSection.astro";
-import HandIcon from "@components/icons/HandIcon.astro";
+import IconChevronsDown from "@components/icons/IconChevronsDown.astro";
+import SectionView from "@lib/components/SectionView.astro";
 ---
 
-<!-- VIDEO CONTAINER -->
-<Section bgColor="bg-ka-main" borderColor="light" pattern>
-  <h2 class="text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
+<SectionView color="main">
+  <h2 class="text-2xl sm:text-4xl text-center uppercase">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
 
-  <div class="bg-black w-full my-16">
-    <VideoPlayer id="kadastiku-video" mp4="https://animal.ee/files/kadastiku.mp4" webm="https://animal.ee/files/kadastiku.webm" />
+  <div class="bg-ka-dark w-full mt-16">
+    <VideoPlayer id="kadastiku-video" mp4="/kadastiku.mp4" webm="/kadastiku.webm" />
   </div>
 
-  <div class="bg-ka-accent p-12 flex justify-center items-center">
-    <HandIcon class="w-8" />
-    <h3 class="text-center block ml-4 mt-0">Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.</h3>
+  <div class="mt-16 sm:mt-24 max-w-2xl mx-auto flex flex-col justify-center items-center">
+    <h3 class="text-center block text-2xl sm:text-3xl mt-0 text-ka-light">
+      Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.
+    </h3>
+    <IconChevronsDown class="size-14 mt-4 text-ka-light animate-bounce" />
   </div>
-</Section>
+</SectionView>

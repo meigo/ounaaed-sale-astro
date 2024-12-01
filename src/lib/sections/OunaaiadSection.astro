@@ -1,17 +1,14 @@
 ---
-import Section from "@lib/components/ContainerSection.astro";
-import TehumardiIcon from "@lib/components/gfx/TehumardiLogo.astro";
-import { Content, frontmatter } from "@content/sections/ounaaiad.md";
+import MainSectionView from "@lib/components/MainSectionView.astro";
+import { getEntry } from "astro:content";
+
+import TehumardiLogo from "@lib/components/gfx/TehumardiLogo.astro";
+const content = await getEntry("sections", "ounaaiad");
 ---
 
-<Section bgColor="bg-ka-main" borderColor="light">
-  <!-- TEXT -->
-  <div class="text-ka-dark md-text">
-    <Content />
-  </div>
-
+<MainSectionView color="main" {content}>
   <!-- TEHUMARDI LOGO -->
-  <div class="mt-12 flex w-full justify-center">
-    <TehumardiIcon class="fill-ka-light max-w-96" />
+  <div class="flex w-full justify-center">
+    <TehumardiLogo class="fill-ka-light max-w-96" />
   </div>
-</Section>
+</MainSectionView>

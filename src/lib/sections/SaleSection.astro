@@ -7,36 +7,54 @@ import Sale from "@lib/components/gfx/Sale.astro";
   import { gsap } from "gsap";
 
   let inited = false;
+  let saleElement: HTMLElement;
+  let saleInElement: HTMLElement;
+  let logoElement: HTMLElement;
 
   function init() {
-    // SALE GFX
-    var saleElement = document.querySelector("#sale-gfx");
-    var saleInElement = document.querySelector("#sale-gfx-inner");
-    if (saleElement) {
-      if (!inited) {
-        gsap.from(saleElement, {
-          scale: 0,
-          delay: 0.5,
-          duration: 1,
-          ease: "elastic.out(1,0.3)",
-        });
-      }
-    }
-    if (saleInElement) {
-      gsap.from(saleInElement, {
-        delay: 0,
-        duration: 2,
-        repeat: -1,
-        keyframes: {
-          scale: [1, 0.95, 1],
-        },
+    saleElement = document.querySelector("#sale-gfx");
+    saleInElement = document.querySelector("#sale-gfx-inner");
+    logoElement = document.querySelector("#kadastiku-logo");
+
+    if (!saleElement || !saleInElement || !logoElement) return;
+
+    // PLAY ONLY ONCE
+    if (!inited) {
+      gsap.set(saleElement, { scale: 0 });
+      gsap.to(saleElement, {
+        scale: 1,
+        delay: 0.5,
+        duration: 1,
+        ease: "elastic.out(1,0.3)",
+      });
+
+      gsap.set(logoElement, { opacity: 0 });
+      gsap.to(logoElement, {
+        opacity: 1,
+        duration: 1,
+        delay: 0.1,
       });
     }
+
+    gsap.from(saleInElement, {
+      delay: 0,
+      duration: 2,
+      repeat: -1,
+      keyframes: {
+        scale: [1, 0.95, 1],
+      },
+    });
 
     inited = true;
   }
 
-  // VIEWTRANSITIONS
+  // REMOVE TWEENS
+  document.addEventListener("astro:before-swap", (event) => {
+    gsap.killTweensOf("#sale-gfx");
+    gsap.killTweensOf("#sale-gfx-inner");
+  });
+
+  // ADD TWEENS
   document.addEventListener("astro:after-swap", () => {
     init();
   });
@@ -44,13 +62,13 @@ import Sale from "@lib/components/gfx/Sale.astro";
   init();
 </script>
 
-<section class="flex flex-col sm:flex-row justify-center scale-90 sm:scale-100 items-center pt-6 transition:persist">
+<section class="flex flex-col sm:flex-row justify-center scale-90 sm:scale-100 items-center pt-6">
   <div id="sale-gfx" class="relative sm:-right-10">
     <div id="sale-gfx-inner">
-      <Sale class="w-56" />
+      <Sale class="w-full sm:w-56" />
     </div>
   </div>
-  <div class="relative">
-    <KadastikuLogo class="w-72" />
+  <div id="kadastiku-logo" class="relative">
+    <KadastikuLogo class="w-full sm:w-72" />
   </div>
 </section>

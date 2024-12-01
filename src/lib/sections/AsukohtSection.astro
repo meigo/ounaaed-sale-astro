@@ -1,19 +1,21 @@
 ---
+import { getEntry } from "astro:content";
 import { Picture } from "astro:assets";
-import Section from "@lib/components/ContainerSection.astro";
-import { Content, frontmatter } from "@content/sections/asukoht.md";
+import SectionView from "@lib/components/SectionView.astro";
 
-import image from "@assets/images/asukoht.png";
+import image from "@assets/images/main/asukoht.jpg";
+const content = await getEntry("sections", "asukoht");
+const { Content } = await content.render();
 ---
 
-<Section id={frontmatter.id} borderColor="accent">
-  <h2 class="text-center">{frontmatter.title}</h2>
+<SectionView color="main">
+  <h2 class="text-center">{content.data.title}</h2>
 
   <div class="mt-8 sm:mt-14 md-text">
     <Content />
   </div>
 
-  <div class="mt-10">
+  <div class="mt-12">
     <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
   </div>
-</Section>
+</SectionView>

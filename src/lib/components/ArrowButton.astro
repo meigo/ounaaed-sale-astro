@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  color?: SiteColor; // Colors have to be in tailwind safelist
+  bgColor?: SiteColor;
+}
+
+const { href = "#", color = "text-ka-light", bgColor = "bg-ka-main" } = Astro.props;
+---
+
+<a {href}>
+  <div
+    class="triangle relative text-xl font-bold uppercase inline-block p-3 pr-6 text-center hover:opacity-90"
+    class:list={[color, bgColor]}>
+    <slot />
+  </div>
+</a>
+
+<style>
+  .triangle {
+    clip-path: polygon(0% 0%, calc(100% - 1rem) 0, 100% 50%, calc(100% - 1rem) 100%, 0% 100%);
+  }
+</style>

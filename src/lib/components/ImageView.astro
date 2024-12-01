@@ -1,30 +1,27 @@
 ---
-import "src/app.css";
-
+import { Picture } from "astro:assets";
+import { getBaseUrl } from "@lib/utils";
 import Layout from "@layouts/ImageLayout.astro";
-import { Picture, Image } from "astro:assets";
-
 import HistorylessButton from "@lib/components/HistorylessButton.svelte";
 import ChevronRight from "./icons/IconChevronRight.svelte";
 import ChevronLeft from "./icons/IconChevronLeft.svelte";
 import X from "./icons/IconX.svelte";
-import a3 from "@assets/images/gfx/a3.png";
+import "src/app.css";
 
 interface Props {
   id: string;
   prevId: string;
   nextId: string;
   image: any;
+  basePath: string;
   backUrl: string;
 }
 
-const { id, image, prevId, nextId, backUrl } = Astro.props;
+const { id, image, prevId, nextId, backUrl, basePath } = Astro.props;
 ---
 
 <Layout title=`Suurna Õunaaed - ${id}`>
-  <div class="fixed inset-0 z-10 flex justify-center items-center">
-    <!-- BG PATTERN -->
-    <div class="bg-pattern absolute w-full h-full"></div>
+  <div class="fixed w-full h-lvh z-10 flex justify-center items-center">
     <!-- IMAGE -->
     <Picture
       src={image}
@@ -35,20 +32,11 @@ const { id, image, prevId, nextId, backUrl } = Astro.props;
     />
     <!-- BUTTONS -->
     <div class="fixed flex w-screen h-screen justify-between items-center">
-      <HistorylessButton href=`./${prevId}` client:load><ChevronLeft class="size-10 mx-4" /></HistorylessButton>
-      <HistorylessButton href=`./${nextId}` client:load><ChevronRight class="size-10 mx-4" /></HistorylessButton>
+      <HistorylessButton href=`${getBaseUrl()}/${basePath}/${prevId}` client:load><ChevronLeft class="size-10 mx-4" /></HistorylessButton>
+      <HistorylessButton href=`${getBaseUrl()}/${basePath}/${nextId}` client:load><ChevronRight class="size-10 mx-4" /></HistorylessButton>
     </div>
     <div class="fixed flex w-screen h-screen justify-end items-start text-white text-2xl font-gelica pointer-events-none">
       <HistorylessButton href={backUrl} back client:load><X class="size-10" /></HistorylessButton>
     </div>
   </div>
 </Layout>
-
-<style define:vars={{ img: `url("${a3.src}")` }}>
-  .bg-pattern {
-    background: var(--img);
-    background-size: 150px;
-    background-position: center center;
-    opacity: 0.4;
-  }
-</style>

@@ -1,0 +1,29 @@
+---
+import image from "@assets/images/gfx/section-border.png";
+
+interface Props {
+  color?: SiteColor; // Colors have to be in tailwind safelist
+  line?: boolean;
+}
+const { color = "main", line } = Astro.props;
+---
+
+<!-- BORDER GFX -->
+<div class="relative flex justify-center">
+  <div class="absolute gradient-mask w-full max-w-8xl h-[80px]" class:list={[line && "border-t-2", `border-ka-${color}`]}>
+    <div class="absolute border-image w-full h-[80px]" class:list={[`bg-ka-${color}`]}></div>
+  </div>
+</div>
+
+<style define:vars={{ src: `url("${image.src}")` }}>
+  .border-image {
+    mask-image: var(--src);
+    mask-size: 300px;
+    mask-position: top center;
+    opacity: 1;
+  }
+
+  .gradient-mask {
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
+  }
+</style>

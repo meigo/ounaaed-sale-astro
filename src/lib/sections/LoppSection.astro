@@ -1,15 +1,29 @@
 ---
-import Section from "@lib/components/ContainerSection.astro";
+import { getEntry } from "astro:content";
+import SectionView from "@lib/components/SectionView.astro";
 import ContactAccordion from "@lib/components/ContactAccordion.svelte";
-import { Content, frontmatter } from "@content/sections/lopp.md";
+
+const content = await getEntry("sections", "lopp");
+const { Content } = await content.render();
 ---
 
-<Section id={frontmatter.id}>
-  <div class="mt-8 sm:mt-14">
+<SectionView border={false}>
+  <!-- TEXT -->
+  <div class="md-text">
     <Content />
   </div>
 
   <div id="kontakt" class="mt-10">
     <ContactAccordion client:load />
   </div>
-</Section>
+</SectionView>
+
+<style>
+  .h4 {
+    @apply text-2xl;
+  }
+
+  .md-text h3 {
+    @apply mt-16;
+  }
+</style>

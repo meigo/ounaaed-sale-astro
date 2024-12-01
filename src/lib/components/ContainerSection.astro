@@ -4,16 +4,14 @@ import borderImg from "@assets/images/gfx/section-border.png";
 interface Props {
   id?: string;
   bgColor?: string;
-  borderColor?: "" | "main" | "light" | "dark" | "accent";
-  pattern?: boolean;
+  borderColor?: SiteColor;
 }
 
-const { id = "", bgColor = "", borderColor = "main", pattern } = Astro.props;
+const { id = "", bgColor = "", borderColor = "main" } = Astro.props;
 ---
 
 <section {id} class="relative">
   <!-- BG COLOR OVERLAY -->
-  <!-- <div class:list={["absolute w-full h-full", pattern && "mix-blend-multiply", bgColor]}></div> -->
   <div class:list={["absolute w-full h-full", bgColor]}></div>
 
   <!-- BORDER GFX -->

@@ -1,5 +1,5 @@
 <script>
-  let className = "size-6";
+  let className = "w-10";
   export { className as class };
 </script>
 

@@ -21,11 +21,26 @@ const { image, mask } = Astro.props;
     mask-repeat: no-repeat;
   }
 
-  .yellow {
-    filter: invert(89%) sepia(92%) saturate(6418%) hue-rotate(358deg) brightness(108%) contrast(106%);
+  /* .tint {
+    position: relative;
+    float: left;
+    cursor: pointer;
   }
 
-  .red {
-    filter: invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%);
+  .tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(110, 200, 170, 0.6);
+
+    transition: background 0.3s linear;
   }
+
+  .tint:hover:before {
+    background: none;
+  } */
 </style>

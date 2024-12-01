@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from "astro:content";
+import MaskedImage from "@lib/components/MaskedImage.astro";
+import SectionView from "./SectionView.astro";
+import ArrowButton from "./ArrowButton.astro";
+
+interface Props {
+  color?: SiteColor; // Colors have to be in tailwind safelist
+  textColor?: SiteColor; // Colors have to be in tailwind safelist
+  borderColor?: SiteColor; // Colors have to be in tailwind safelist
+  border?: boolean;
+  content?: CollectionEntry<"sections">;
+  image?: any;
+  mask?: any;
+  align?: "left" | "right";
+}
+
+const { color = "", textColor = "dark", borderColor, border, content, image, mask, align = "right" } = Astro.props;
+const { Content } = await content.render();
+---
+
+<SectionView id={content.data.id} {color} {border} {borderColor}>
+  <!-- <div class="border border-green-400 absolute w-full h-full"></div> -->
+
+  <!-- TITLE -->
+  <h2 class="relative text-10vw leading-none sm:text-[4rem] xl:text-[3rem] text-center" class:list={[`text-ka-${textColor}`]}>
+    {content.data.title}
+  </h2>
+
+  <!-- IMAGE -->
+  {
+    image && (
+      <div
+        class="mt-8 sm:mt-4 w-full sm:w-[60vw] lg:w-[40vw] xl:w-[550px] text-mask"
+        class:list={[align === "left" ? "sm:float-left" : "sm:float-right"]}>
+        <MaskedImage image={image} mask={mask} />
+      </div>
+    )
+  }
+
+  <!-- TEXT -->
+  <div class="mt-8 sm:mt-14 md-text" class:list={[align === "left" ? "text-right" : "text-left", `text-ka-${textColor}`]}>
+    <Content />
+  </div>
+
+  <!-- LOE LISAKS BUTTON -->
+  <div class="mt-12 flex" class:list={[align === "left" ? "justify-end" : "justify-start"]}>
+    <ArrowButton href={content.data.link}>{content.data.linkLabel}</ArrowButton>
+  </div>
+
+  <slot />
+</SectionView>
+
+<style define:vars={{ mask: mask && `url("${mask.src}")` }}>
+  .text-mask {
+    /* @apply scale-90; */
+    shape-outside: none;
+  }
+
+  @media (min-width: 640px) {
+    .text-mask {
+      /* @apply scale-95; */
+      shape-outside: var(--mask);
+      /* shape-margin: 30px; */
+    }
+  }
+</style>

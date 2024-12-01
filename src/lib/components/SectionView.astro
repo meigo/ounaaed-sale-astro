@@ -1,0 +1,34 @@
+---
+import SectionBorder from "./SectionBorder.astro";
+
+interface Props {
+  id?: string;
+  color?: SiteColor; // Colors have to be in tailwind safelist
+  border?: boolean;
+  borderColor?: SiteColor; // Colors have to be in tailwind safelist
+}
+
+const { id, color = "", border = true, borderColor = "" } = Astro.props;
+---
+
+<section {id} class="relative">
+  <!-- BG COLOR OVERLAY -->
+  <div class:list={["absolute w-full h-full", `bg-ka-${color}`]}></div>
+
+  <!-- BORDER GFX -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto pb-24 pt-32 sm:pb-32 sm:pt-44 px-4 pointer-events-auto">
+    <!-- SLOT -->
+    <slot />
+
+    <!-- Clear possible floats -->
+    <div class="clear-both"></div>
+  </div>
+
+  {
+    border && (
+      <div class="relative z-5 bottom-0 w-full h-full">
+        <SectionBorder color={borderColor || color} line={!!borderColor} />
+      </div>
+    )
+  }
+</section>

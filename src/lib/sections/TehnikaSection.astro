@@ -1,43 +1,10 @@
 ---
-import { Picture } from "astro:assets";
-import Section from "@lib/components/ContainerSection.astro";
-import { Content, frontmatter } from "@content/sections/tehnika.md";
+import MainSectionView from "@lib/components/MainSectionView.astro";
+import { getEntry } from "astro:content";
 
+const content = await getEntry("sections", "tehnika");
 import image from "@assets/images/main/tehnika.jpg";
+import mask from "@assets/svg/mask-circle.svg";
 ---
 
-<Section id={frontmatter.id} bgColor="bg-ka-main" borderColor="light">
-  <!-- <h2 class="text-center">{frontmatter.title}</h2> -->
-  <h2 class="text-[18vw] leading-0 sm:leading-none sm:text-[5rem] relative text-center sm:text-right">
-    {frontmatter.title}
-  </h2>
-
-  <!-- IMAGE -->
-  <div class="w-full sm:w-[40vw] xl:w-[450px] mt-8 sm:mt-0 float-none sm:float-left circle">
-    <Picture src={image} formats={["avif", "webp"]} alt="A bird sitting on a nest of eggs." class="w-full h-full object-cover" />
-  </div>
-
-  <div class="mt-8 sm:mt-14 md-text text-right">
-    <Content />
-  </div>
-
-  <a href={frontmatter.link}><span class="bg-ka-light text-ka-main text-2xl">{frontmatter.linkLabel}</span></a>
-
-  <div class="clear-both"></div>
-</Section>
-
-<style>
-  .circle {
-    @apply scale-100 rounded-full overflow-hidden;
-    shape-outside: none;
-  }
-
-  /* SM */
-  @media (min-width: 640px) {
-    .circle {
-      @apply scale-75;
-      shape-margin: 5px;
-      shape-outside: circle(50%) margin-box;
-    }
-  }
-</style>
+<MainSectionView borderColor="main" {content} {image} {mask} align="left" />

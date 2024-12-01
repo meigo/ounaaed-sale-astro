@@ -1,18 +1,32 @@
-<script>
-  import { onMount } from "svelte";
+<script lang="ts">
   import { fly, scale } from "svelte/transition";
   import { quintOut, sineOut, sineIn } from "svelte/easing";
   import BurgerIcon from "./icons/BurgerIcon.svelte";
   import XIcon from "./icons/XIcon.svelte";
   import HomeIcon from "./icons/HomeIcon.svelte";
 
-  let { id, data, class: className = "bg-ka-main" } = $props();
+  // /** @type {{ id: string; data: MenuData }} */
+  let { id, type = "page" }: { id: string; type: MenuType } = $props();
 
-  let js = $state(false);
-
-  onMount(async () => {
-    js = true;
-  });
+  const data: MenuData = {
+    main: [
+      { label: "Suurna õunaaed", href: "#suurna-ounaaed" },
+      { label: "Tehumardi õunaaed", href: "#tehumardi-ounaaed" },
+      { label: "Laokompleks", href: "#laokompleks" },
+      { label: "Tehnika", href: "#tehnika" },
+      { label: "Villa", href: "#villa" },
+      { label: "Kontakt", href: "#kontakt" },
+    ],
+    page: [
+      { label: "Home", href: "/" },
+      { label: "Suurna õunaaed", href: "/suurna-ounaaed" },
+      { label: "Tehumardi õunaaed", href: "/tehumardi-ounaaed" },
+      { label: "Laokompleks", href: "/laokompleks" },
+      { label: "Tehnika", href: "/tehnika" },
+      { label: "Villa", href: "/villa" },
+      { label: "Kontakt", href: "/#kontakt" },
+    ],
+  };
 
   let isOpen = $state(false);
 
@@ -34,81 +48,81 @@
 
 <svelte:window bind:scrollY bind:innerWidth onscroll={closeIfOpen} />
 
-{#if js}
-  <header class={`relative z-40 w-full max-h-12 ${className}`}>
-    <nav class="w-full mx-auto">
-      {#if !bigMenuHidden}
-        <div class=" h-12 flex items-center justify-center w-full">
-          {#each data as { label, href }, index}
-            {#if index == 0}
-              <div class="h-full flex items-center mx-1">
-                <a href="/" class="px-3 menu-item"><HomeIcon /></a>
-              </div>
-            {/if}
-
+<header class={`relative z-40 w-full max-h-12 ${!bigMenuHidden ? "bg-ka-main" : "bg-transparent"}`}>
+  <nav class="w-full mx-auto">
+    {#if !bigMenuHidden}
+      <div class=" h-12 flex items-center justify-center w-full">
+        {#each data[type] as { label, href }, index}
+          {#if index == 0 && href === "/"}
             <div class="h-full flex items-center mx-1">
-              <a {href} class="px-3 menu-item">{label}</a>
+              <a href="/" class="px-3 menu-item"><HomeIcon /></a>
             </div>
-          {/each}
+          {:else}
+            <div class="h-full flex items-center mx-1">
+              <a {href} class="px-3 menu-item" class:menu-anchor={type == "main"}>{label}</a>
+            </div>
+          {/if}
+        {/each}
+      </div>
+    {/if}
+
+    <!-- HAMBURGER MENU BUTTON -->
+    {#if bigMenuHidden && !isOpen}
+      <div class="w-full flex justify-end items-center">
+        <div class="right-0 w-14">
+          <button
+            type="button"
+            class="flex items-center justify-center text-ka-dark p-2"
+            aria-controls="mobile-menu"
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            onclick={toggleMenu}>
+            <BurgerIcon />
+          </button>
         </div>
-      {/if}
+      </div>
+    {/if}
 
-      <!-- HAMBURGER MENU BUTTON -->
-      {#if bigMenuHidden && !isOpen}
-        <div class="w-full flex justify-end items-center">
-          <div class=" right-0 w-12 h-12">
-            <button
-              type="button"
-              class="flex items-center justify-center w-full h-full text-white"
-              aria-controls="mobile-menu"
-              aria-expanded={isOpen}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-              onclick={toggleMenu}>
-              <BurgerIcon />
-            </button>
-          </div>
-        </div>
-      {/if}
+    <!-- HAMBURGER MENU -->
+    {#if isOpen}
+      <button
+        class="fixed top-0 w-full h-full backdrop-blur-md bg-ka-dark bg-opacity-90"
+        aria-label="Toggle menu button"
+        onclick={closeIfOpen}></button>
 
-      <!-- HAMBURGER MENU -->
-      {#if isOpen}
-        <button
-          class="fixed top-0 w-full h-full backdrop-blur-md bg-ka-dark bg-opacity-90"
-          aria-label="Toggle menu button"
-          onclick={closeIfOpen}></button>
-
-        <div id="mobile-menu" class="fixed top-0 h-screen w-full flex flex-col justify-center items-center pointer-events-none">
-          {#each data as { label, href }, index}
-            {#if index == 0}
-              <div class="relative py-2 pointer-events-none">
-                <a
-                  href="/"
-                  class="block menu-item mobile pointer-events-auto"
-                  onclick={() => (isOpen = false)}
-                  in:fly|global={{ delay: index * 50, duration: 300, easing: quintOut, y: 20 }}
-                  ><HomeIcon />
-                </a>
-              </div>
-            {/if}
+      <div id="mobile-menu" class="fixed top-0 h-screen w-full flex flex-col justify-center items-center pointer-events-none">
+        {#each data[type] as { label, href }, index}
+          {#if index == 0 && href === "/"}
+            <div class="relative py-2 pointer-events-none">
+              <a
+                href="/"
+                class="block menu-item mobile pointer-events-auto"
+                onclick={() => (isOpen = false)}
+                in:fly|global={{ delay: index * 50, duration: 300, easing: quintOut, y: 20 }}
+                ><HomeIcon class="w-12" />
+              </a>
+            </div>
+          {:else}
             <div class="relative py-2 pointer-events-none">
               <a
                 {href}
                 class="block menu-item mobile pointer-events-auto"
+                class:menu-anchor={type == "main"}
                 onclick={() => (isOpen = false)}
                 in:fly|global={{ delay: index * 50, duration: 300, easing: quintOut, y: 20 }}
                 >{label}
               </a>
             </div>
-          {/each}
-        </div>
+          {/if}
+        {/each}
+      </div>
 
-        <div class="fixed right-3 top-3 pointer-events-none">
-          <XIcon class="text-white size-8" />
-        </div>
-      {/if}
-    </nav>
-  </header>
-{/if}
+      <div class="fixed right-2 top-2 pointer-events-none">
+        <XIcon class="text-white size-10" />
+      </div>
+    {/if}
+  </nav>
+</header>
 
 <style lang="postcss">
   .menu-item {
