@@ -6,9 +6,9 @@ import TehumardiLogo from "@lib/components/gfx/TehumardiLogo.astro";
 const content = await getEntry("sections", "ounaaiad");
 ---
 
-<MainSectionView color="main" {content}>
+<MainSectionView color="secondary" textColor="light" {content}>
   <!-- TEHUMARDI LOGO -->
-  <div class="flex w-full justify-center">
+  <div class="flex w-full justify-center mt-16">
     <TehumardiLogo class="fill-ka-light max-w-96" />
   </div>
 </MainSectionView>

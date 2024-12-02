@@ -139,7 +139,7 @@
   }
 
   .md-text p {
-    @apply text-lg mt-4 first:mt-0;
+    @apply text-xl mt-4 first:mt-0;
   }
 
   .md-text p em {

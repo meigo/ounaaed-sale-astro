@@ -1,16 +1,25 @@
 ---
-import { Picture } from "astro:assets";
+import { Picture, Image } from "astro:assets";
+import CircleSVG from "@lib/components/gfx/CircleSVG.astro";
 
 interface Props {
   image: any;
   mask: any;
+  bgColor?: SiteColor; // Colors have to be in tailwind safelist
 }
 
-const { image, mask } = Astro.props;
+const { image, mask, bgColor = "accent" } = Astro.props;
 ---
 
-<div class="mask scale-90">
-  <Picture src={image} formats={["avif", "webp"]} alt="Robots" class="w-full h-full" />
+<div class="relative w-full h-full scale-90">
+  <CircleSVG class="absolute w-full h-full top-2 left-1" class:list={[`fill-ka-${bgColor}`]} />
+  <!--<CircleSVG class="absolute w-full h-full scale-102 -top-2 -left-1 fill-none stroke-[3] stroke-ka-main" /> -->
+  <!-- <CircleSVG class="absolute w-full h-full scale-103 fill-none stroke-[4] stroke-ka-main" />
+  <CircleSVG class="absolute w-full h-full scale-106 fill-none stroke-[2] stroke-ka-main" /> -->
+
+  <div class="mask">
+    <Picture src={image} formats={["avif", "webp"]} alt="Robots" class="w-full h-full" />
+  </div>
 </div>
 
 <style define:vars={{ mask: `url("${mask.src}")` }}>
@@ -20,27 +29,4 @@ const { image, mask } = Astro.props;
     mask-position: center center;
     mask-repeat: no-repeat;
   }
-
-  /* .tint {
-    position: relative;
-    float: left;
-    cursor: pointer;
-  }
-
-  .tint:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(110, 200, 170, 0.6);
-
-    transition: background 0.3s linear;
-  }
-
-  .tint:hover:before {
-    background: none;
-  } */
 </style>

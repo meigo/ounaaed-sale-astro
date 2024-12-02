@@ -2,16 +2,16 @@
 interface Props {
   href: string;
   color?: SiteColor; // Colors have to be in tailwind safelist
-  bgColor?: SiteColor;
+  bgColor?: SiteColor; // Colors have to be in tailwind safelist
 }
 
-const { href = "#", color = "text-ka-light", bgColor = "bg-ka-main-dark" } = Astro.props;
+const { href = "#", color = "light", bgColor = "accent" } = Astro.props;
 ---
 
 <a {href}>
   <div
     class="triangle relative text-xl font-bold uppercase inline-block p-3 pr-6 text-center hover:opacity-90"
-    class:list={[color, bgColor]}>
+    class:list={[`text-ka-${color} bg-ka-${bgColor}`]}>
     <slot />
   </div>
 </a>

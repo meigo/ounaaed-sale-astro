@@ -8,14 +8,14 @@ const content = await getEntry("sections", "asukoht");
 const { Content } = await content.render();
 ---
 
-<SectionView color="main">
-  <h2 class="text-center">{content.data.title}</h2>
+<SectionView color="dark">
+  <h2 class="text-center text-ka-light">{content.data.title}</h2>
 
-  <div class="mt-8 sm:mt-14 md-text">
+  <div class="mt-8 sm:mt-14 md-text text-ka-light">
     <Content />
   </div>
 
-  <div class="mt-12">
-    <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." />
+  <div class="mt-16">
+    <Picture src={image} formats={["avif", "webp"]} alt="A description of my image." class="rounded-2xl" />
   </div>
 </SectionView>

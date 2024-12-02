@@ -8,6 +8,9 @@ interface Props {
   color?: SiteColor; // Colors have to be in tailwind safelist
   textColor?: SiteColor; // Colors have to be in tailwind safelist
   borderColor?: SiteColor; // Colors have to be in tailwind safelist
+  imageBgColor?: SiteColor; // Colors have to be in tailwind safelist
+  buttonTextColor?: SiteColor; // Colors have to be in tailwind safelist
+  buttonBgColor?: SiteColor; // Colors have to be in tailwind safelist
   border?: boolean;
   content?: CollectionEntry<"sections">;
   image?: any;
@@ -15,7 +18,19 @@ interface Props {
   align?: "left" | "right";
 }
 
-const { color = "", textColor = "dark", borderColor, border, content, image, mask, align = "right" } = Astro.props;
+const {
+  color = "",
+  textColor = "dark",
+  imageBgColor,
+  borderColor,
+  buttonTextColor,
+  buttonBgColor,
+  border,
+  content,
+  image,
+  mask,
+  align = "right",
+} = Astro.props;
 const { Content } = await content.render();
 ---
 
@@ -33,7 +48,7 @@ const { Content } = await content.render();
       <div
         class="mt-8 sm:mt-4 w-full sm:w-[60vw] lg:w-[40vw] xl:w-[550px] text-mask"
         class:list={[align === "left" ? "sm:float-left" : "sm:float-right"]}>
-        <MaskedImage image={image} mask={mask} />
+        <MaskedImage image={image} mask={mask} bgColor={imageBgColor} />
       </div>
     )
   }
@@ -47,7 +62,9 @@ const { Content } = await content.render();
   {
     content.data.link && (
       <div class="mt-12 flex" class:list={[align === "left" ? "justify-end" : "justify-start"]}>
-        <ArrowButton href={content.data.link}>{content.data.linkLabel}</ArrowButton>
+        <ArrowButton href={content.data.link} color={buttonTextColor} bgColor={buttonBgColor}>
+          {content.data.linkLabel}
+        </ArrowButton>
       </div>
     )
   }

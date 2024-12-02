@@ -13,7 +13,7 @@ const { id, color = "", border = true, borderColor = "" } = Astro.props;
 
 <section {id} class="relative">
   <!-- BG COLOR OVERLAY -->
-  <div class:list={["absolute w-full h-full", `bg-ka-${color}`]}></div>
+  <div class:list={["absolute w-full h-full -z-1", `bg-ka-${color}`]}></div>
 
   <!-- BORDER GFX -->
   <div class="relative z-10 w-full max-w-5xl mx-auto pb-24 pt-32 sm:pb-32 sm:pt-44 px-4 pointer-events-auto">

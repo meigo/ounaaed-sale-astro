@@ -1,4 +1,4 @@
-type SiteColor = "" | "main" | "light" | "dark" | "accent";
+type SiteColor = "" | "main" | "secondary" | "light" | "dark" | "accent";
 
 type MenuType = "main" | "page";
 
