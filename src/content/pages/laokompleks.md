@@ -1,5 +1,5 @@
 ---
-title: "Laokompleks koos jahekambritega"
+title: Laokompleks koos jahekambritega
 ---
 
 Aiandusettevõtet on võimatu ette kujutada ilma hoidlata.
