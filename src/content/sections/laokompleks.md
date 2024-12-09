@@ -1,7 +1,7 @@
 ---
 title: "Laokompleks koos jahekambritega"
 id: "laokompleks"
-link: "/laokompleks"
+link: "/laokompleks/"
 linkLabel: Vaata lähemalt, mida laokompleks sisaldab
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: "suurna-ounaaed"
 title: "Suurna Õunaaed"
-link: "/suurna-ounaaed"
+link: "/suurna-ounaaed/"
 linkLabel: Loe lähemalt Suurna õunaaia kohta siit
 ---
 

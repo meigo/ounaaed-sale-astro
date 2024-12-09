@@ -1,10 +1,6 @@
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-/**
- * @param {string} src
- * @returns {string}
- */
-export function getImageIdFromPath(src) {
+export function getImageIdFromPath(src: string) {
   const id = import.meta.env.DEV
     ? src.substring(src.lastIndexOf("/") + 1, src.lastIndexOf("?")).replace("/", "-")
     : src.substring(8, src.length); // id = folder-filename.ext
@@ -16,7 +12,7 @@ export function getBaseUrl() {
   return isDev ? import.meta.env.DEV_BASEURL : import.meta.env.BASEURL;
 }
 
-export function getImageParentPath(path) {
+export function getImageParentPath(path: string) {
   return path.substring(0, path.lastIndexOf("/"));
 }
 
@@ -32,10 +28,12 @@ export async function getImagesStaticPathsData(files) {
     };
   });
 
-  images.forEach((image, index) => {
-    image.props["prevId"] = index == 0 ? images[images.length - 1].params.id : images[index - 1].params.id;
-    image.props["nextId"] = index == images.length - 1 ? images[0].params.id : images[index + 1].params.id;
-  });
+  if (images.length > 1) {
+    images.forEach((image, index: number) => {
+      image.props["prevId"] = index == 0 ? images[images.length - 1].params.id : images[index - 1].params.id;
+      image.props["nextId"] = index == images.length - 1 ? images[0].params.id : images[index + 1].params.id;
+    });
+  }
 
   return images;
 }

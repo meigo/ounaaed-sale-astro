@@ -8,9 +8,9 @@ interface Props {
 const { href = "#", color = "light", bgColor = "accent" } = Astro.props;
 ---
 
-<a {href}>
+<a {href} class="group focus:outline-none hover:opacity-90">
   <div
-    class="triangle relative text-xl font-bold uppercase inline-block p-3 pr-6 text-center hover:opacity-90"
+    class="triangle relative text-xl font-bold uppercase inline-block p-3 pr-6 text-center underline-offset-2 group-focus:underline"
     class:list={[`text-ka-${color} bg-ka-${bgColor}`]}>
     <slot />
   </div>

@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 import PageView from "@lib/components/PageView.astro";
 
 const content = await getEntry("pages", "villa");
-const imageFiles = await Astro.glob("../../assets/images/villa/*");
+const imageFiles = Object.values(import.meta.glob("../../assets/images/villa/*", { eager: true }));
 ---
 
 <PageView content={content} images={imageFiles} imagesPath="/villa/images/" />

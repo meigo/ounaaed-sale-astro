@@ -1,0 +1,26 @@
+---
+import { Picture } from "astro:assets";
+import Layout from "@layouts/ImageLayout.astro";
+import HistorylessButton from "@lib/components/HistorylessButton.svelte";
+import X from "./icons/IconX.svelte";
+import "src/app.css";
+
+interface Props {
+  image: any;
+  backUrl: string;
+}
+
+const { image, backUrl } = Astro.props;
+---
+
+<Layout title="Pilt">
+  <div class="fixed w-full h-lvh z-10 flex justify-center items-center bg-ka-dark">
+    <!-- IMAGE -->
+    <Picture src={image} formats={["avif", "webp"]} alt="" class="object-contain" widths={[400, 700, 1000, image.width]} sizes="100vw" />
+
+    <!-- BACK BUTTON -->
+    <div class="fixed flex w-screen h-screen justify-end items-start text-white text-2xl font-gelica pointer-events-none">
+      <HistorylessButton href={backUrl} back client:load><X class="size-10" /></HistorylessButton>
+    </div>
+  </div>
+</Layout>

@@ -31,17 +31,6 @@
     @apply text-base sm:text-17 m-0 bg-ka-light text-ka-dark;
   }
 
-  /* *,
-  ::before,
-  ::after {
-    @apply border-neutral-700;
-
-  } */
-
-  /* em {
-    @apply font-bold underline uppercase decoration-yellow-400 decoration-[0.5rem];
-  } */
-
   ul {
     @apply list-disc;
   }
@@ -65,7 +54,6 @@
     @apply text-6xl;
   }
 
-  /* SECTION TITLES */
   h2 {
     @apply text-8vw sm:text-5xl leading-normal;
   }
@@ -90,10 +78,6 @@
     @apply font-medium;
   }
 
-  strong {
-    font-variation-settings: "wght" 1000;
-  }
-
   ::selection {
     @apply bg-ka-dark text-ka-light;
   }
@@ -105,9 +89,6 @@
 
   li {
     @apply font-walsheim text-lg;
-    /* @apply ml-4 last:pb-0; */
-    /* @apply ml-2 pl-2 pb-4 last:pb-0; */
-    /* list-style-type: "⬩"; */
   }
 
   ul li {
@@ -117,7 +98,6 @@
   }
 
   ul li::before {
-    /* @apply text-ka-accent; */
     content: "✱";
     position: absolute;
     top: 0px;
@@ -127,10 +107,6 @@
   h3 {
     @apply mt-2;
   }
-
-  /* .md-text h3 + hr {
-    @apply sm:hidden font-walsheim;
-  } */
 
   .md-text h3,
   .md-text h4,
@@ -145,93 +121,7 @@
   .md-text p em {
     @apply not-italic font-bold;
   }
-
-  /* .md-text a {
-    @apply px-4;
-  }
-
-  p:has(a) {
-    @apply inline-block relative py-4 my-8;
-  }
-
-  .md-text a::after {
-    @apply whitespace-pre;
-    content: " »";
-    display: inline-block;
-  } */
 }
 
 @layer components {
-  @keyframes fade-in {
-    0% {
-      opacity: 0.01;
-    }
-    100% {
-      opacity: 0.99;
-    }
-  }
-
-  @keyframes slide-fade-up {
-    0% {
-      transform: translateY(10vh);
-      opacity: 0.01;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slide-fade-down {
-    0% {
-      transform: translateY(-40px);
-      opacity: 0.01;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slide-fade-right {
-    0% {
-      transform: translateX(-40px);
-      opacity: 0.01;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slide-fade-left {
-    0% {
-      transform: translateX(40px);
-      opacity: 0.01;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes rotate-fade-y {
-    0% {
-      transform: rotateY(-360deg);
-      opacity: 0.01;
-    }
-    100% {
-      transform: rotateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes scale-in {
-    0% {
-      transform: scale(0.01);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
 }

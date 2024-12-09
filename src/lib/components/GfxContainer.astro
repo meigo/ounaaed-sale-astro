@@ -1,74 +1,26 @@
 ---
-import gfx1 from "@assets/images/gfx/gfx2.png";
-// import grain from "@assets/images/gfx/grain.jpg";
+import gfx from "@assets/images/gfx/side-gfx-438.png";
 ---
 
 <div class="relative">
-  <div class="absolute w-full h-full top-0 flex pointer-events-none">
-    <!-- <div class="blur absolute w-full h-full">
-      <div class="blob bg-ka-main w-full h-[200px]"></div>
-    </div> -->
-
-    <!-- GFX -->
-    <div
-      class="gfx1 bg-left relative -top-[260px] md:-left-24 md:-top-[200px] xl:left-0 xl:-top-[50px] h-[500px] w-[70%] sm:w-[100%] xl:w-[500px] max-w-[500px]">
-    </div>
-    <div class="relative hidden sm:block w-full"></div>
+  <!-- TOP GFX -->
+  <div class="absolute w-full h-full overflow-hidden">
+    <div class="gfx absolute -top-12 sm:top-12 left-0 w-full max-w-[438px] h-[350px]"></div>
   </div>
-  <!-- GRAIN -->
-  <!-- <div class="absolute z-10 mix-blend-overlay grain w-full h-full pointer-events-none"></div> -->
+
+  <!-- BOTTOM GFX -->
+  <div class="absolute w-full h-full overflow-hidden">
+    <div class="gfx absolute -right-24 bottom-0 -scale-100 w-full max-w-[438px] h-[350px]"></div>
+  </div>
+
+  <!-- CONTENT -->
   <slot />
 </div>
 
-<!-- <style define:vars={{ gfx1: `url("${gfx1.src}")`, grain: `url("${grain.src}")` }}> -->
-<style define:vars={{ gfx1: `url("${gfx1.src}")` }}>
-  .gfx1 {
-    background: var(--gfx1);
-    background-size: 500px;
-    background-position: top right;
-    opacity: 1;
+<style define:vars={{ gfx: `url("${gfx.src}")` }}>
+  .gfx {
+    background: var(--gfx);
+    /* background-size: 438px;
+    background-position: top right; */
   }
-  .bg-left {
-    background-position: top right;
-  }
-  .bg-right {
-    background-position: top right;
-    transform: scaleX(-1);
-  }
-
-  .grain {
-    background: var(--grain);
-    background-size: 50px;
-    background-position: center center;
-    opacity: 1;
-  }
-
-  /* .blur {
-    opacity: 100%;
-    filter: blur(100px);
-  }
-  .blob {
-    clip-path: polygon(
-      28% 64%,
-      96% 47%,
-      23% 22%,
-      61% 38%,
-      34% 50%,
-      99% 21%,
-      69% 76%,
-      74% 2%,
-      49% 58%,
-      27% 2%,
-      16% 14%,
-      90% 42%,
-      50% 19%,
-      12% 95%,
-      63% 39%,
-      34% 76%,
-      54% 84%,
-      62% 33%,
-      9% 39%,
-      6% 34%
-    );
-  } */
 </style>

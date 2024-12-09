@@ -1,5 +1,7 @@
 ---
+// import type { CollectionEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
 import GfxContainer from "@lib/components/GfxContainer.astro";
 import Layout from "@layouts/MainLayout.astro";
 import ImageGrid from "@components/ImageGrid.astro";
@@ -10,13 +12,16 @@ interface Props {
   images: any;
 }
 const { content, images, imagesPath } = Astro.props;
-const { Content } = await content.render();
+
+const { Content } = await render(content);
 ---
 
 <Layout title={content.data.title}>
   <GfxContainer>
-    <section class="relative w-full max-w-5xl mx-auto py-16 sm:py-24 px-4 pointer-events-auto">
-      <h1 class="mt-6 text-center xl:text-left">{content.data.title}</h1>
+    <section class="relative w-full max-w-5xl mx-auto py-16 sm:py-24 px-4 pointer-events-auto overflow-hidden">
+      <div class="mt-14"></div>
+
+      <h1 class="text-4xl sm:text-6xl text-center">{content.data.title}</h1>
 
       <div class="mt-10 md-text">
         <Content />

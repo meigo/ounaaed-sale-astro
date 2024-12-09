@@ -1,7 +1,7 @@
 ---
 title: "Villa Tehumardi külas"
 id: "villa"
-link: "/villa"
+link: "/villa/"
 linkLabel: Vaata lähemalt detaile Tehumardi villa kohta siit
 ---
 

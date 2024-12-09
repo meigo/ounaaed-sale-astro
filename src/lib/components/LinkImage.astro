@@ -1,0 +1,33 @@
+---
+import { Picture } from "astro:assets";
+import MagnifyIcon from "./icons/IconMagnify.astro";
+
+interface Props {
+  image: any;
+  path: string;
+  alt?: string;
+}
+
+const { image, path, alt = "" } = Astro.props;
+---
+
+<!-- PICTURES -->{
+  image && (
+    <div class="image group relative bg-ka-dark rounded-xl overflow-hidden outline-none -outline-offset-2 has-[:focus]:outline-ka-main has-[:focus]:outline has-[:focus]:outline-4">
+      <a href={`${path}`} class="cursor-pointer">
+        <Picture
+          src={image}
+          formats={["avif", "webp"]}
+          {alt}
+          class="object-cover w-full h-full"
+          widths={[400, 700, 1000, image.width]}
+          sizes="(min-width: 1024px) 1000px, 100vw"
+        />
+      </a>
+
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <MagnifyIcon class="text-white transition duration-500 opacity-0 size-24 group-hover:opacity-50 group-hover:scale-75" />
+      </div>
+    </div>
+  )
+}

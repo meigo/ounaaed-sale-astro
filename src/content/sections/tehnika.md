@@ -1,7 +1,7 @@
 ---
 id: tehnika
 title: Tehnika
-link: /tehnika
+link: "/tehnika/"
 linkLabel: Vaata lähemalt, milline tehnika on pakkumisega kaasas
 ---
 

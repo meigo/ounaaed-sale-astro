@@ -4,10 +4,9 @@ import XIcon from "./icons/XIcon.astro";
 import HomeIcon from "./icons/HomeIcon.astro";
 
 interface Props {
-  id?: string;
   type: MenuType;
 }
-const { id, type } = Astro.props;
+const { type } = Astro.props;
 
 const data: MenuData = {
   main: [
@@ -95,7 +94,7 @@ const data: MenuData = {
   }
 
   // REMOVE EVENT LISTENERS
-  document.addEventListener("astro:before-swap", (event) => {
+  document.addEventListener("astro:before-swap", () => {
     if (!hasMenu()) return;
 
     burgerButton.removeEventListener("click", toggleOpen);
@@ -114,15 +113,19 @@ const data: MenuData = {
   init();
 </script>
 
-<header class="relative z-40 w-full max-h-12">
-  <nav class="w-full mx-auto lg:bg-ka-main">
+<header class="relative z-40 w-full">
+  <nav>
     <!-- WIDE MENU -->
-    <div id="wide-menu" class="hidden lg:block">
+    <div id="wide-menu" class="absolute w-full max-h-12 bg-ka-main hidden lg:block">
       <div class="h-12 flex items-center justify-center w-full">
         {
-          data[type].map((item, index) => (
+          data[type].map((item) => (
             <div class="h-full flex items-center mx-1">
-              <a href={item.href} class="px-3 menu-item" class:list={[{ "menu-anchor": type == "main" }]}>
+              <a
+                href={item.href}
+                class="px-3 menu-item focus:outline-none focus:underline underline-offset-2"
+                class:list={[{ "menu-anchor": type == "main" }]}
+                aria-label="Pealehele">
                 {item.href === "/" ? <HomeIcon /> : item.label}
               </a>
             </div>
@@ -132,11 +135,11 @@ const data: MenuData = {
     </div>
 
     <!-- HAMBURGER MENU BUTTON -->
-    <div class="lg:hidden">
+    <div class="absolute flex items-center justify-end w-full max-h-12 bg-ka-main lg:hidden">
       <div id="burger-button">
         <div class="w-full flex justify-end items-center">
           <div class="right-0 w-14">
-            <button type="button" class="flex items-center justify-center text-ka-dark p-2">
+            <button type="button" class="flex items-center justify-center text-ka-dark p-2" aria-label="Open menu">
               <BurgerIcon />
             </button>
           </div>
@@ -146,16 +149,18 @@ const data: MenuData = {
 
     <!-- MOBILE MENU -->
     <div class="lg:hidden">
-      <div id="mobile-menu">
-        <button
-          id="mobile-menu-button"
-          class="fixed top-0 w-full h-full backdrop-blur-md bg-ka-secondary bg-opacity-90"
-          aria-label="Toggle menu button"></button>
+      <div id="mobile-menu" style="display:none">
+        <button id="mobile-menu-button" class="fixed top-0 w-full h-full backdrop-blur-md bg-ka-dark bg-opacity-90" aria-label="Open menu"
+        ></button>
         <div id="mobile-menu" class="fixed top-0 h-screen w-full flex flex-col justify-center items-center pointer-events-none">
           {
-            data[type].map((item, index) => (
-              <div class="relative py-2 pointer-events-none">
-                <a href={item.href} class="block menu-item mobile pointer-events-auto" class:list={[{ "menu-anchor": type == "main" }]}>
+            data[type].map((item) => (
+              <div class="relative py-2 pointer-events-none text-center">
+                <a
+                  href={item.href}
+                  class="block menu-item mobile pointer-events-auto "
+                  class:list={[{ "menu-anchor": type == "main" }]}
+                  aria-label="Pealehele">
                   {item.href === "/" ? <HomeIcon class="w-12" /> : item.label}
                 </a>
               </div>
@@ -163,7 +168,7 @@ const data: MenuData = {
           }
         </div>
         <div class="fixed right-2 top-2 pointer-events-none">
-          <XIcon class="text-white size-10" />
+          <XIcon class="text-ka-light size-10" />
         </div>
       </div>
     </div>
@@ -172,12 +177,12 @@ const data: MenuData = {
 
 <style lang="postcss">
   .menu-item {
-    @apply text-base text-lg uppercase space-x-8  whitespace-nowrap text-ka-dark;
+    @apply text-base text-lg font-medium uppercase space-x-8 text-ka-dark;
   }
   .menu-item.mobile {
-    @apply text-3xl whitespace-normal text-ka-light;
+    @apply text-2xl xxs:text-3xl whitespace-normal text-ka-light;
   }
   .menu-item:hover {
-    @apply opacity-70 scale-102 text-ka-accent;
+    @apply opacity-100 text-ka-accent;
   }
 </style>

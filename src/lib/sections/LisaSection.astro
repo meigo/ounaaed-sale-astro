@@ -1,20 +1,21 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import SectionView from "@lib/components/SectionView.astro";
-import ImageGrid from "@components/ImageGrid.astro";
+import LinkImage from "@components/LinkImage.astro";
 
 const content = await getEntry("sections", "lisa");
-const { Content } = await content.render();
-
-const imageFiles = await Astro.glob("../../assets/images/lisa/*");
+const { Content } = await render(content);
+import image from "@assets/images/main/ounad.jpg";
 ---
 
-<SectionView color="light">
+<SectionView color="accent">
   <h2 class="text-center">{content.data.title}</h2>
 
   <div class="mt-8 sm:mt-14 md-text">
     <Content />
   </div>
 
-  <ImageGrid path="/lisa/images/" files={imageFiles} />
+  <div class="mt-16">
+    <LinkImage path="/lisa/image" image={image} alt="Õunad" />
+  </div>
 </SectionView>

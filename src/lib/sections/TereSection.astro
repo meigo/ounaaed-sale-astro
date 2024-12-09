@@ -1,5 +1,6 @@
 ---
-import { getEntry } from "astro:content";
+// import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import SectionView from "@lib/components/SectionView.astro";
 import MaskedImage from "@lib/components/MaskedImage.astro";
 import KadastikuLogo from "@lib/components/gfx/KadastikuLogo.astro";
@@ -7,11 +8,14 @@ import KadastikuLogo from "@lib/components/gfx/KadastikuLogo.astro";
 
 import image from "@assets/images/main/riho.jpg";
 import mask from "@assets/svg/mask-circle.svg";
+
 const content = await getEntry("sections", "tere");
-const { Content } = await content.render();
+const { Content } = await render(content);
 ---
 
 <SectionView color="" borderColor="light">
+  <div class="mt-16"></div>
+
   <!-- TITLE -->
   <!-- <h2 class="relative -mt-16 sm:-mt-28 text-[25vw] leading-0 sm:leading-none sm:text-[7rem] sm:-ml-[100px] text-center"> -->
   <h2 class="relative -mt-16 sm:-mt-28 text-[20vw] leading-0 sm:leading-none sm:text-[5rem] sm:-ml-[100px] text-center">
@@ -21,7 +25,7 @@ const { Content } = await content.render();
   <!-- IMAGE -->
   <div class="mt-2 sm:mt-4 w-full sm:w-[60vw] lg:w-[40vw] xl:w-[500px] float-right text-mask">
     <!-- <MaskedImage image={mask} /> -->
-    <MaskedImage image={image} mask={mask} />
+    <MaskedImage image={image} mask={mask} lazy={false} />
   </div>
 
   <!-- TEXT -->

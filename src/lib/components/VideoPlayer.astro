@@ -31,7 +31,8 @@ const { id = "", mp4, webm } = Astro.props;
   {id}
   class="video-js"
   controls
-  preload="auto"
+  preload="none"
+  poster="/video-poster.jpg"
   width="1920px"
   height="1080px"
   data-setup='{ "aspectRatio":"1920:1080" }'

@@ -1,9 +1,8 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-// import Navbar from "@lib/components/Navbar.svelte";
-import Navbar from "@lib/components/Navbar.astro";
-import { frontmatter } from "@content/pages/main.md";
+import { ClientRouter } from "astro:transitions";
 import { getBaseUrl } from "@lib/utils";
+import { frontmatter } from "@content/pages/main.md";
+import Navbar from "@lib/components/Navbar.astro";
 
 import "src/app.css";
 
@@ -41,15 +40,13 @@ const mainTitle = frontmatter.title;
   function init() {
     lenis = new Lenis();
     requestAnimationFrame(raf);
-
     // Menu smooth scroll event listeners are here because of lenis instance
     getMenuAnchorLinks().forEach((anchor) => anchor.addEventListener("click", smoothScrollToAnchor));
   }
 
   // OUT
-  document.addEventListener("astro:before-swap", (event) => {
+  document.addEventListener("astro:before-swap", () => {
     lenis.destroy(); // Prevent lenis to scroll on next page
-
     getMenuAnchorLinks().forEach((anchor) => anchor.removeEventListener("click", smoothScrollToAnchor));
   });
 
@@ -67,16 +64,24 @@ const mainTitle = frontmatter.title;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light only" />
+    <meta name="description" content="Müüa Kadastiku Õunaaed" />
     <title>{mainTitle} {title && ` | ${title}`}</title>
     <base href={getBaseUrl()} />
-    <meta name="description" content="Müüa Kadastiku Õunaaed" />
     <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
     <link rel="stylesheet" href="/lenis.css" />
-    <ViewTransitions />
+    <ClientRouter fallback="none" />
   </head>
 
   <body>
-    <Navbar type={menuType} />
-    <slot />
+    <!-- FIREFOX! -->
+    <script is:inline>
+      true;
+    </script>
+
+    <div>
+      <Navbar type={menuType} />
+      <slot />
+    </div>
   </body>
 </html>

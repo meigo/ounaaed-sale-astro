@@ -1,24 +1,30 @@
 ---
-import { Picture, Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import CircleSVG from "@lib/components/gfx/CircleSVG.astro";
 
 interface Props {
   image: any;
   mask: any;
   bgColor?: SiteColor; // Colors have to be in tailwind safelist
+  lazy?: boolean;
 }
 
-const { image, mask, bgColor = "accent" } = Astro.props;
+const { image, mask, bgColor = "accent", lazy = true } = Astro.props;
 ---
 
 <div class="relative w-full h-full scale-90">
   <CircleSVG class="absolute w-full h-full top-2 left-1" class:list={[`fill-ka-${bgColor}`]} />
-  <!--<CircleSVG class="absolute w-full h-full scale-102 -top-2 -left-1 fill-none stroke-[3] stroke-ka-main" /> -->
-  <!-- <CircleSVG class="absolute w-full h-full scale-103 fill-none stroke-[4] stroke-ka-main" />
-  <CircleSVG class="absolute w-full h-full scale-106 fill-none stroke-[2] stroke-ka-main" /> -->
 
   <div class="mask">
-    <Picture src={image} formats={["avif", "webp"]} alt="Robots" class="w-full h-full" />
+    <Picture
+      src={image}
+      formats={["avif", "webp"]}
+      alt="Robots"
+      class="w-full h-full"
+      loading=`${lazy ? "lazy" : "eager"}`
+      widths={[400, 800]}
+      sizes="(min-width: 640px) 800px, 100vw"
+    />
   </div>
 </div>
 

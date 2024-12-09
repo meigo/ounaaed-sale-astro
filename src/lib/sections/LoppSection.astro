@@ -1,10 +1,10 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import SectionView from "@lib/components/SectionView.astro";
 import ContactAccordion from "@lib/components/ContactAccordion.svelte";
 
 const content = await getEntry("sections", "lopp");
-const { Content } = await content.render();
+const { Content } = await render(content);
 ---
 
 <SectionView border={false}>

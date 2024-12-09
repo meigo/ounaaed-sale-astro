@@ -3,7 +3,7 @@ import { getImagesStaticPathsData } from "@lib/utils";
 import ImageView from "@lib/components/ImageView.astro";
 
 export async function getStaticPaths() {
-  const files = await Astro.glob("../../../assets/images/tehumardi/*");
+  const files = Object.values(import.meta.glob("../../../assets/images/tehumardi/*", { eager: true }));
   return getImagesStaticPathsData(files);
 }
 

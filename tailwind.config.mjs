@@ -1,3 +1,5 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -24,6 +26,11 @@ export default {
     "fill-ka-accent",
   ],
   theme: {
+    screens: {
+      xxs: "320px",
+      xs: "475px",
+      ...defaultTheme.screens,
+    },
     extend: {
       zIndex: {
         1: "1",

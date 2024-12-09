@@ -1,20 +1,26 @@
 ---
+import { getEntry, render } from "astro:content";
 import VideoPlayer from "@lib/components/VideoPlayer.astro";
 import IconChevronsDown from "@components/icons/IconChevronsDown.astro";
 import SectionView from "@lib/components/SectionView.astro";
+
+const content = await getEntry("sections", "video");
+const { Content } = await render(content);
 ---
 
 <SectionView color="accent">
-  <h2 class="text-2xl sm:text-4xl text-center uppercase text-ka-light">Vaata siit minu ja Kadastiku Õunaaia lugu</h2>
+  <h2 class="text-2xl sm:text-4xl text-center uppercase text-ka-light">
+    {content.data.title}
+  </h2>
 
   <div class="bg-ka-dark w-full mt-16">
     <VideoPlayer id="kadastiku-video" mp4="/kadastiku.mp4" webm="/kadastiku.webm" />
   </div>
 
   <div class="mt-16 sm:mt-24 max-w-2xl mx-auto flex flex-col justify-center items-center">
-    <h3 class="text-center block text-2xl sm:text-3xl mt-0 text-ka-light">
-      Tutvu allpool sellega, mida pakun Kadastiku Õunaaia uuele pererahvale.
-    </h3>
+    <div class="text-center text-2xl sm:text-3xl mt-0 text-ka-light">
+      <Content />
+    </div>
     <IconChevronsDown class="size-14 mt-4 text-ka-light animate-bounce" />
   </div>
 </SectionView>

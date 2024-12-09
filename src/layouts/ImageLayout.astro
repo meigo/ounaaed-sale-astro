@@ -1,6 +1,7 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { getBaseUrl } from "@lib/utils";
+import { frontmatter } from "@content/pages/main.md";
 import "src/app.css";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { title = "" } = Astro.props;
+const mainTitle = frontmatter.title;
 ---
 
 <html lang="et">
@@ -17,11 +19,16 @@ const { title = "" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="follow, noarchive, noindex" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <meta name="color-scheme" content="light only" />
+    <title>{mainTitle} {title && ` | ${title}`}</title>
     <base href={getBaseUrl()} />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="bg-black">
+    <!-- FIREFOX! -->
+    <script is:inline>
+      0;
+    </script>
     <slot />
   </body>
 </html>

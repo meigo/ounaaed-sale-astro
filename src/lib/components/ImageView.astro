@@ -10,8 +10,8 @@ import "src/app.css";
 
 interface Props {
   id: string;
-  prevId: string;
-  nextId: string;
+  prevId?: string;
+  nextId?: string;
   image: any;
   basePath: string;
   backUrl: string;
@@ -20,23 +20,18 @@ interface Props {
 const { id, image, prevId, nextId, backUrl, basePath } = Astro.props;
 ---
 
-<Layout title=`Suurna Õunaaed - ${id}`>
-  <div class="fixed w-full h-lvh z-10 flex justify-center items-center">
+<Layout title=`${id}`>
+  <div class="fixed w-full h-dvh z-10 flex justify-center items-center bg-ka-dark">
     <!-- IMAGE -->
-    <Picture
-      src={image}
-      formats={["avif", "webp"]}
-      alt="A description of my image."
-      class="object-cover w-full h-full"
-      sizes="(min-width: 1024px) 1024px, 100vw"
-    />
+    <Picture src={image} formats={["avif", "webp"]} alt="" widths={[400, 700, 1000, image.width]} sizes="100vw" class="object-contain" />
     <!-- BUTTONS -->
-    <div class="fixed flex w-screen h-screen justify-between items-center">
-      <HistorylessButton href=`${getBaseUrl()}/${basePath}/${prevId}` client:load><ChevronLeft class="size-10 mx-4" /></HistorylessButton>
-      <HistorylessButton href=`${getBaseUrl()}/${basePath}/${nextId}` client:load><ChevronRight class="size-10 mx-4" /></HistorylessButton>
+    <div class="fixed flex w-full h-full justify-between items-center">
+      {prevId && <HistorylessButton href=`${getBaseUrl()}/${basePath}/${prevId}` client:load><ChevronLeft class="size-10 mx-4" /></HistorylessButton>}
+      {nextId && <HistorylessButton href=`${getBaseUrl()}/${basePath}/${nextId}` client:load><ChevronRight class="size-10 mx-4" /></HistorylessButton>}
     </div>
-    <div class="fixed flex w-screen h-screen justify-end items-start text-white text-2xl font-gelica pointer-events-none">
+    <div class="fixed flex w-full h-full justify-end items-start text-white text-2xl font-gelica pointer-events-none">
       <HistorylessButton href={backUrl} back client:load><X class="size-10" /></HistorylessButton>
     </div>
   </div>
 </Layout>
+

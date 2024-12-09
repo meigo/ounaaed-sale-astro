@@ -1,7 +1,7 @@
 ---
 id: "tehumardi-ounaaed"
 title: "Tehumardi Õunaaed"
-link: "/tehumardi-ounaaed"
+link: "/tehumardi-ounaaed/"
 linkLabel: Loe lähemalt Tehumardi õunaaia kohta siit
 ---
 
