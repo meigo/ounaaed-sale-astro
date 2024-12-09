@@ -1,5 +1,5 @@
 ---
-title: "Suurna õunaaed"
+title: Suurna õunaaed
 ---
 
 _Aed, mille rajamisega algas ka Kadastiku Õunaaia lugu._
