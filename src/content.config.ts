@@ -17,6 +17,7 @@ const sections = defineCollection({
       id: z.string(),
       link: z.string().optional(),
       linkLabel: z.string().optional(),
+      textExtension: z.string().optional(),
     }),
 });
 

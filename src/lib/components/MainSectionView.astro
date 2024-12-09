@@ -59,6 +59,7 @@ const { Content } = await render(content);
   <!-- TEXT -->
   <div class="mt-8 sm:mt-14 md-text text-left" class:list={[align === "left" && "sm:text-right", `text-ka-${textColor}`]}>
     <Content />
+    <p class="hidden sm:block">{content.data.textExtension}</p>
   </div>
 
   <!-- LOE LISAKS BUTTON -->
