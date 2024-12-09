@@ -9,10 +9,10 @@ const content = await getEntry("sections", "asukoht");
 const { Content } = await render(content);
 ---
 
-<SectionView color="dark">
-  <h2 class="text-center text-ka-light">{content.data.title}</h2>
+<SectionView color="main">
+  <h2 class="text-center text-ka-dark">{content.data.title}</h2>
 
-  <div class="mt-8 sm:mt-14 md-text text-ka-light">
+  <div class="mt-8 sm:mt-14 md-text text-ka-dark">
     <Content />
   </div>
 
